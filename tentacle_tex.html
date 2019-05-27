@@ -1,0 +1,43 @@
+<html>
+<!-- Creation date: 15/03/02 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>tentacle_tex</title>
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+<meta name="Author" content="Julian MacDonald">
+<meta name="Generator" content="AceHTML 4 Pro">
+</head>
+<body BGCOLOR="#f8e89e">
+<font face="tahoma" size="2">
+
+<table><tr>
+<td><img SRC="textures/pt_tentacle.jpg"><br></td>
+<td><font face="tahoma" size="2">
+This texture is based around the grid module.  With this pattern, the value at any point on the surface
+is equal to the distance from that point to the nearest 'feature point' which are distributed on a grid.
+The output from the grid module is fed into a <b>greater than</b> function which returns a 1 for any point
+that is less than 0.4 (i.e. any point within 0.4 units of a feature point) and 0 everywhere else.  The grid
+output is also fed into another <b>greater than</b> function which returns a 1 if the value is greater than
+0.3 and 0 everywhere else.  The resulting values are multiplied together.  Points that had values of 1 for
+both the <b>greater than</b> functions are the only ones which return a 1, i.e. the overlapping regions
+which are circular rings.  The spherical transform is applied to give spherical symmetry and a linear
+transformation (scaling 2 in all axes) applied to scale down the pattern.  The image below illustrates 
+the result by feeding the output of the multiplication to the default custom colour map into diffuse 
+colour:<br>
+<br>
+<img SRC="textures/pt_tentacles_image.jpg"><br><br>
+Instead of feeding this to the diffuse colour, however, it is used as the input to the displacement
+property (following a scaling) to give a raised 'sucker' effect.<br>
+<br>
+A simple colour function based on the turbulence pattern is plugged into the diffuse colour.
+
+</font></td>
+</tr></table>
+<br>
+
+
+<a href="textures.html#ex_textures"><b><font size="4">Back to Textures</font></b></a><br>
+</font>
+</body>
+</html>

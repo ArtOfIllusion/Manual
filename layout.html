@@ -1,0 +1,961 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>layout.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body style="background-color: rgb(248, 232, 158);">
+<font face="tahoma" size="2">
+</font>
+<div align="left"><font face="tahoma" size="2"><a href="installation.html"><b><font size="4">Previous:
+Installation</font></b></a></font></div>
+<div align="right"><font face="tahoma" size="2"><a href="modelling.html"><b><font size="4">Next:
+Modelling</font></b></a></font></div>
+<font face="tahoma" size="6"><strong>1. Art of Illusion Basics</strong></font>
+<font face="tahoma" size="2">
+<img src="man_title_small.jpg" align="middle"><br>
+<br>
+<br>
+<br>
+<a name="overview"><strong><font color="#3300cc" size="5">1.1 Overview</font></strong><br>
+<br>
+Art of Illusion (AoI) is a program for creating high quality,
+photorealistic
+(or non-photorealistic) still images and animations (either in .mov
+format or as a sequence of
+still frames which can be joined together using other software to make
+movie files). Images are produced by rendering scene files. These scene
+files need to contain some 3-D objects, at least one light (or some
+form of global illumination) so that the
+objects can be seen and at least one camera, the view from which
+provides the image. Complex scenes may contain many hundreds of objects
+and several lights. Files built for animation may have several cameras
+between which the view is cut to make for an interesting animation
+sequence.<br>
+<br>
+3-D objects come in 4 basic flavours: Primitives, spline meshes,
+triangle meshes and tubes, all of which are described in detail later
+in this manual. Art of Illusion has highly flexible, but easy
+to use, editors for textures (surface properties such as colour,
+bumpiness, shininess, transparency etc.)
+and materials (inner properties for simulating glass, smoke etc.).
+&nbsp;<br>
+<br>
+Animation of objects within the scene is achieved with a keyframing
+system including support for
+skeletons using forward and inverse kinematic animation. Textures can
+also be animated.<br>
+<br>
+Rendering of the scene file is achieved with a fast raster engine or a
+high quality raytracer
+capable of producing photorealistic images. Motion blur, depth of
+field, Global Illumination and caustic
+effects are supported.<br>
+<br>
+In addition, Art of Illusion includes a scripting feature allowing the
+creation of new types of
+objects and tools amongst virtually unlimited other possibilities via
+the Beanshell scripting language. <br>
+<br>
+Plugins and scripts are also available that allow additional objects
+and tools - see the Scripts and Plugin Manager for details of how to
+find and install these. &nbsp;This manual only details the basic
+AoI
+program - please refer to developers documentation for their own
+scripts and plugins.<br>
+<br>
+A good place to start, unless you want to read the whole manual first,
+are the tutorials located at the Art of Illusion web site (</a><u><a href="www.artofillusion.org">www.artofillusion.org</a></u>).
+The hourglass tutorial gives an excellent introduction to using the
+program and useful details on the texture/material support and meshes
+are also available in other tutorials. <br>
+<br>
+<br>
+<a name="getting_started"><strong><font color="#3300cc" size="5">1.2 Getting Started</font></strong><br>
+<br>
+<br>
+</a><a name="main_layout"><strong><font color="#ff6633" size="4">1.2.1 Main Screen Layout</font></strong><br>
+<br>
+The screenshot below shows the main window:<br>
+<br>
+<img src="basics/screenshot.jpg"><br>
+<br>
+Note that since version 1.8, Art of Illusion uses a UI based on Java
+Swing. This means that the
+'Look and Feel' of the interface can be customised to a certain extent.
+There are many Look and Feels
+available as downloads from the internet (e.g. www.javootoo.com). To
+set one to work with AoI, you
+need to create a simple Startup Script (see </a><a href="scripting.html#startup_scripts">here</a> for
+details). &nbsp;Also, since version 2.5, plugins can alter the
+display, icons etc. <a name="theme"></a>See the </font><font face="Tahoma" size="2"><span style="font-weight: bold;">DisplayModelIcons</span>
+and <span style="font-weight: bold;">ElectricWaxTheme</span>
+downloadable through the <a href="scripting.html#SPManager">Scripts
+and Plugins Manager</a> - these plugins will transform the above
+into a display like this:</font><br>
+<font face="tahoma" size="2">
+<br>
+<img style="width: 788px; height: 616px;" alt="" src="basics/screenshot_newtheme.jpg"><br>
+<a name="panels"></a>The main window is divided into
+several area: the 4 interactive <a href="#view_windows">view
+windows</a>, the <a href="#object_list">Object List
+and the Object Properties
+Panel</a>, and the <a href="#icons">tool icons</a>,
+each of which are described in detail below. &nbsp;The animation
+score can also be displayed - see the <a href="animation.html">animation</a>
+section for details. &nbsp;The side panels are dockable so that the
+display can be configured as required - simply drag the top bar of the
+Object List, the Properties Panel or the Score to move the panel to the
+top, bottom or sides of the display.<br>
+<br>
+<a name="view_windows"><strong><font color="#ff6633" size="4">1.2.2 View Windows</font></strong></a><br>
+<br>
+The 4 windows in the main part of the screen show different views of
+the scene. By default, the two upper windows and the lower left window
+show parallel or orthogonal views of the front, side and top
+respectively and the lower right window shows a perspective view from
+the currently-selected camera. These views can be easily altered using
+the drop-down menus at the top of each view window.<br>
+<br>
+The window with 'focus' or the selected window is the one with the
+thicker outline (the upper left
+window in the example screenshot above). This is relevant for any
+operations that work on single view windows. To change the selected
+window, simply move the cursor to the required window and click.<br>
+&nbsp;<br>
+All view windows can be panned, zoomed and rotated independently using
+the camera controls: <img src="basics/camera_buttons.jpg">
+or by using keyboard shortcuts:<br>
+<br>
+<br>
+<span style="color: rgb(51, 51, 255); font-weight: bold;">Pan
+Controls:<br>
+</span></font><font face="tahoma" size="2">
+</font>
+<div style="margin-left: 40px;"><font face="tahoma" size="2"><li>Click left on <img src="basics/camera_pan.jpg">
+then drag in the view window whilst holding the left mouse button
+down.
+</li>
+</font><br>
+<font face="tahoma" size="2">
+<li>Hold down the right mouse button and drag in any view window.
+</li>
+</font></div>
+<font face="tahoma" size="2">
+</font><br>
+<br>
+<font face="tahoma" size="2"><span style="color: rgb(51, 51, 255); font-weight: bold;">Zoom/Magnification
+Controls:</span><br>
+<br>
+</font>
+<div style="margin-left: 40px;"><font face="tahoma" size="2"><li>Select Pan mode by clicking on <img src="basics/camera_pan.jpg">
+then hold down CTRL while
+dragging the right mouse button up (zoom out) or
+down (zoom in) or </li>
+</font><br>
+<font face="tahoma" size="2">
+<li>Use the <a name="scrollWheel"></a>scroll
+wheel - scrolling down zooms in and scrolling up zooms
+out. Holding down ALT while using the scroll wheel zooms
+in/out faster.
+</li>
+</font><br>
+<font face="tahoma" size="2">
+<li>Magnification of parallel views can also be accomplished by
+entering an
+appropriate magnification level from the drop-down menu at the top of
+each view window.
+</li>
+</font><br>
+</div>
+<font face="tahoma" size="2">
+</font><font face="tahoma" size="2"><br>
+<br>
+<span style="font-weight: bold; color: rgb(51, 51, 255);">Rotation
+Controls:</span><br>
+<br>
+</font>
+<div style="margin-left: 40px;"><font face="tahoma" size="2"><li>Rotation of each view window is achieved
+by clicking on <img src="basics/camera_rotate.jpg">
+and then dragging in the relevant view window whilst holding the left
+mouse button. Holding SHIFT while dragging constrains
+the rotation to a vertical axis and holding CTRL
+rotates the view about the axis perpendicular to the screen.
+</li>
+</font><br>
+<font face="tahoma" size="2">
+<li>Alternatively, rotation can be performed by holding down the
+ALT key
+while dragging with the mouse. The SHIFT and CTRL modifiers also work
+with
+this method.</li>
+<br>
+<br>
+</font><font face="tahoma" size="2">If any
+objects are selected,
+the centre of the rotation will be at the centre of that selection.</font><br>
+<font face="tahoma" size="2">
+</font><br>
+<font face="tahoma" size="2">
+Rotating any of the fixed-view windows (i.e. front, side and top) means
+that that view no longer shows that fixed view and thus the name for
+that view changes to 'other'. Selecting the appropriate view name from
+the drop-down list will restore the default view.</font><br>
+</div>
+<font face="tahoma" size="2">
+<br>
+<br>
+<br>
+If there is more than one camera in the scene, it is possible to see
+the view from any of them by selecting the appropriate one from the
+drop down list.  Likewise, if you have any directional lights or spot lights
+in the scene, the drop down list includes options to view the scene from their
+perspectives.  This is useful for aiming lights.<br>
+<br>
+If you find it easier to work with one large window, select <b>Scene
+-&gt; One View </b>
+from the top menu bar and the currently selected window will fill the
+workspace.<br>
+<br>
+One other thing that you need to know is the orientation of the
+coordinate system used, as this varies between 3D programs. Art of
+Illusion uses a right-handed coordinate system - when
+the positive x-axis points right and the positive y-axis points up, the
+positive z-axis
+points out of the monitor. If you are facing front, the y-axis is up
+and down, x is left and right and z is forward and backward. The axes
+for the default viewports are thus as follows:<br>
+<img src="basics/orientations.jpg">
+<br>
+</font><font face="tahoma" size="2"><a name="framing"></a>
+Sometimes it is useful to be able to quickly visualise the whole scene
+or a selected object within
+the view windows. This is achieved through <b>Scene -&gt;
+Frame Selection with Camera</b>, which adjusts
+the zoom and centering of the non-camera view windows so that the
+selected objects just fit within them,
+and <b>Scene -&gt; Frame Scene with Camera </b> which
+similarly fits the whole scene into the windows.<br>
+<br>
+<a name="display_mode"><strong><font color="#ff6633" size="4">1.2.3 Display Mode</font></strong></a><br>
+<br>
+There are 6 possible ways in which to view the scene in real time: <b>Wireframe</b>
+preview, <b>Shaded</b> preview, <b>Smooth</b>
+preview, <b>Textured</b> preview, <b>Transparent</b> preview, and <b>Rendered</b> preview.
+The type of preview is selected from the top menu bar <b>Scene
+-&gt; Display Mode -&gt;
+Wireframe/Shaded/Smooth/Textured/Transparent/Rendered</b>
+and affects the
+view window with 'focus'. The difference between them is shown in the
+figure below: <br>
+<br>
+<img src="basics/previews.png">
+<br>
+<br>
+The choice of preview mode affects performance of real time camera
+movements with speed potentially decreasing from Wireframe -&gt;
+Shaded -&gt; Smooth -&gt; Textured -&gt; Rendered.
+Depending on the specifications of the computer being used, this will
+be more noticeable on complex scenes. The preview type can be set
+independently for each view window.<br>
+<br>
+Note that Shaded and Smooth previews show colours which match, albeit
+in a simplistic way, the textures assigned to each object. The Textured
+preview gives a closer representation of the
+actual textures, and Rendered preview shows exactly what the objects will really
+look like. See <a href="textures_and_materials.html">textures_and_materials
+</a>for more detail. <br>
+<br>
+<br>
+<br>
+<a name="icons"><strong><font color="#ff6633" size="4">1.2.4 Icons</font></strong><br>
+<br>
+At the upper left of the screen are the icons for quick selection of
+common tools. They allow you create new objects and to move, rotate and
+scale existing objects. Resting the cursor
+over the icons will bring up a tooltip to describe its function.<br>
+<br>
+</a>
+<table>
+<tbody>
+<tr>
+<td width="400"><font face="tahoma" size="2">The
+image on the right gives a brief description of each icon and the tools
+themselves are explained in more detail in relevant sections of this
+manual.</font></td>
+<td><img src="basics/modelling_icons.png"></td>
+</tr>
+</tbody>
+</table>
+<a name="icons"/><br>
+For each tool used, there is a line of text at the bottom of the screen
+which briefly describes
+its use.<br>
+<br>
+With the Move tool and Rotate tool, objects can be moved one pixel at a
+time with the keyboard arrow keys and 10 pixels at a time when the ALT
+key is used with the arrow keys.<br>
+<br>
+The Move/Scale/Rotate tool provides a collection of controls for moving, scaling,
+and rotating the selected objects without needing to change tools.  It is
+<a href="object_types.html#gizmo">described in detail</a> in the section on
+editing meshes.
+<p>
+<a name="main_space"></a>The Spacebar can
+be used to quickly switch between tools; pressing it will toggle
+selection between the default tool (either Move or Move/Scale/Rotate, depending
+on your <a href="#prefs">preference</a> settings) and the last tool used.<br>
+<br>
+<br>
+<a name="object_list"><strong><font color="#ff6633" size="4">1.2.5 Object List and
+Properties Panel</font></strong><br>
+<br>
+Finally, on the right hand side of the main screen are the Object List
+(at the top bu default) and Object Properties Panel (at the bottom by
+default).
+<br>
+<br>
+Not surprisingly, the <span style="color: rgb(0, 153, 0); font-weight: bold;">Object List</span>
+is a list of all the objects, including cameras
+and lights, in the scene. Objects can be selected from this list for
+editing simply by clicking on them. To select more than one object,
+hold down the &lt;ctrl&gt; key while clicking or, to
+select a range, click on an object and &lt;shift&gt; click on
+another to select all the objects
+in between.<br>
+<br>
+Some types of object (e.g. curves, splines and meshes) allow editing
+additional to the standard move, scale and rotate. Double-clicking on
+objects in the Object List opens up the relevant editing tool (see </a><a href="editing_objects.html">editing_objects</a>).<br>
+<br>
+This list also allows the hierarchical arrangement of objects so that a
+number of objects can be 'children' of other objects. Moving, scaling
+and rotating 'parent' objects can result in the children objects also
+being transformed depending on the tool setting (see <a href="editing_objects.html#transforming_objects">Transforming
+Objects</a>). An object can be made a child of another object by
+clicking on it and dragging it underneath the intended parent. An
+arrowed bar shows the position of the object in the list. Indentation
+of this bar indicates that the object can become a child of the object
+above it in the list. Releasing the mouse button causes this to happen
+and the parent object then has a down arrow displayed next to it to
+indicate this hierarchy. Clicking on this arrow hides the children and
+the arrow changes to a right pointing arrow.<br>
+<br>
+Arranging a parent-child hierarchy between objects can also be useful
+during <a href="animation.html">animation</a>.<br>
+<br>
+<table style="width: 860px; height: 183px;">
+<tbody>
+<tr>
+<td><img src="basics/object_list.jpg"></td>
+<td><font face="tahoma" size="2">In the
+example on the left, the object hierarchy for a toothpaste tube
+scene is given. In this case, 'toothpaste' and 'lid' are children of
+'toothpaste tube' and 'lid end' is a child of 'lid'. Transformations
+made to 'toothpaste tube' can be set so as to affect all the objects
+mentioned, whereas those applied to 'lid' can affect only 'lid' and
+'lid end'.<br>
+<br>
+If required, the Object List can be hidden from view by selecting <b>Scene
+-&gt; Hide Object List</b>. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+Right-clicking on objects in the Object List displays a menu of
+operations available for that object
+including various <a href="editing_objects.html">editing
+tools</a>, application of <a href="textures_and_materials.html"> texture and materials</a>
+and the ability to <a href="layout.html#hiding_objects">hide/show
+</a>that object. &nbsp;The options are also available via a
+context menu which can be brought up by right clicking objects directly
+in the view windows. <br>
+<br>
+The Object Properties Panel shows the various editable properties for
+the currently selected objects as shown in the example below.<br>
+<br>
+<table style="width: 863px; height: 312px;">
+<tbody>
+<tr>
+<td><img src="basics/obj_prop_panel.jpg"></td>
+<td><font face="tahoma" size="2">The
+properties that appear in this pane depend on the type of object(s)
+selected. In this example, the properties for a sphere ob<span style="text-decoration: underline;"></span>ject
+are displayed and can be edited.<br>
+<br>
+The Position and Orientation values can be entered directly and the
+texture and material can be set.<br>
+<br>
+The X, Y and Z radii of the object can also be set directly in the
+relevant text fields or can be altered via the control knobs to the
+right of each. &nbsp;To operate these, move the cursor over the
+knob and hold down the left mouse button while dragging left or right.
+&nbsp;To effect larger changes in value, the ALT key can be
+depressed while dragging.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<a name="hiding_objects"><strong><font color="#ff6633" size="4">1.2.6 Hiding/Showing Objects</font></strong><br>
+<br>
+It is sometimes useful to be able to hide objects from view, for
+example in a complicated scene where some objects overlay those you
+wish to work on. To hide objects, select them and click on <b>Object
+-&gt; Hide Selection</b>. Alternatively right click the
+selection in the Object List or the object itself in one of the view
+windows and choose <span style="font-weight: bold;">Hide
+Selection</span>. &nbsp;This will also hide them in the
+rendered image which is useful when you just want
+to test the rendering of certain objects. Hidden objects are shown as
+grey in the Object List.<br>
+<br>
+To show objects again, select them and click on <b>Object
+-&gt; Show Selection</b> or right click the object(s) in the
+Object List or in the view windows and select<span style="font-weight: bold;"> Show Selection</span>.<br>
+<br>
+<br>
+<a name="locking_objects"><strong><font color="#ff6633" size="4">1.2.7 Locking/Unlocking Objects</font></strong>
+<p>
+Another useful tool when you want to work on just a few objects is to lock other
+objects.  When an object is locked, all clicks on it in the view are ignored.
+It is still visible (unlike when you hide it), but in all other ways it behaves
+as if it were not there.  To hide objects, select them and click on <b>Object
+-&gt; Lock Selection</b>. Alternatively right click the
+selection in the Object List or the object itself in one of the view
+windows and choose <span style="font-weight: bold;">Lock
+Selection</span>.
+<p>
+To unlock objects again, select them in the Object List (because of course you can't
+select them in the view) and click on <b>Object
+-&gt; Unlock Selection</b> or right click the object(s) in the
+Object List and select<span style="font-weight: bold;"> Unlock Selection</span>.
+<p>
+</a><a name="grids"><strong><font color="#ff6633" size="4">1.2.8 Grids</font></strong><br>
+<br>
+It is often helpful to be able to position objects accurately and
+switching on the grid will aid this. The grid is activated via <b>Scene
+-&gt; Grids </b>which brings up the following dialogue box:<br>
+<br>
+</a>
+<table>
+<tbody>
+<tr>
+<td><img src="basics/grid_box.jpg"></td>
+<td width="250"><font face="tahoma" size="2">The grid spacing determines the spacing between the
+lines of the grid
+seen in each window.
+To actually see the grid, you need to tick the <b>Show Grid </b>box.
+It is also possible to activate a <b>Snap to Grid </b>mode
+which forces objects to be positioned at discrete locations rather than
+allowing complete freedom of movement. Tick the <b>Snap to Grid </b>
+box to enable this and enter the relevant number of <b>Snap-to-Subdivisions</b>.
+This is the number of uniformly distributed allowable positions within
+each grid square. So, the higher this number, the more freedom of
+movement there is. In the example on the left, objects will snap to
+every 1/10 of the grid spacing if the <b>Snap to Grid </b>
+box is ticked.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<a name="grids"><br>
+<br>
+Switching on the grid will display the grid on all view windows. In
+addition, perspective
+views will display a ground plane.<br>
+<br>
+<br>
+</a><a name="coordaxes"><strong><font color="#ff6633" size="4">1.2.9 Coordinate Axes</font></strong><br>
+<br>
+When navigating around the scene, it is sometimes possible lose track
+of your orientation. To aid you
+in this situation, you can turn on Coordinate Axes via <b>Scene
+-&gt; Show Coordinate Axes</b>. This
+displays 3 lines labelled x,y and z representing the axes as seen below:<br>
+<br>
+<img src="basics/coord_axes.jpg"><br>
+<br>
+If desired, the coordinates axes can be turned off via <b>Scene
+-&gt; Hide Coordinate Axes</b>.<br>
+<br>
+<br>
+</a><a name="file_menu"><strong><font color="#ff6633" size="4">1.2.10 File Menu</font></strong><br>
+<br>
+The leftmost item on the top menu bar, <b>File</b> allows
+various file operations to be performed.
+Clicking on this will bring up the File menu as shown below:<br>
+</a>
+<table>
+<tbody>
+<tr>
+<td><img src="basics/file_menu.jpg"></td>
+<td><font face="tahoma" size="2"> <b>New</b>
+opens up a new instance of Art of Illusion
+for creating a new scene. This blank scene contains
+by default a camera and a <a href="lights.html#directional">directional
+light</a>.<br>
+<br>
+<b>Open</b> opens up an existing Art of Illusion
+scene file in a separate instance of AoI.<br>
+<br>
+<b>Open Recent</b> shows a list of the last 10 scenes
+that were opened and lets you select one to open.<br>
+<br>
+<b>Close</b> closes the current scene file. If this
+is the only instance of AoI open, then it will
+exit completely from AoI.<br>
+<br>
+<a name="Import"><b>Import</b></a>
+allows 3D models in formats other than AoI to be opened. The only
+supported file format is wavefront .OBJ and the importer also allows
+OBJ materials to be imported.
+Simply select the OBJ file when prompted and the material file will be
+automatically read and converted
+to an AoI texture. The model will automatically be scaled on import to
+better fit AoI scale units.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<a name="file_menu"><br>
+<br>
+<b>Export</b> AoI can save 3D models/scenes in 3D formats
+other than AoI. Export
+can be made to either Wavefront OBJ, VRML or Povray v3.5 files
+including partial support for textures. You can select whether to
+export the whole scene or just the selected object and can specify the
+maximum surface error in the appropriate dialogue shown below. A lower
+value for the error will result in a more complex and, therefore,
+larger
+export file. <br>
+<br>
+OBJ and VRML exported 2D textures are saved as image maps of the size
+and quality specified in the relevant dialogues. <br>
+<br>
+There are additional options for VRML and Povray as shown in the
+dialogues below:<br>
+</a>
+<table width="400">
+<tbody>
+<tr>
+<td><img src="basics/vrml_export.jpg"></td>
+<td><img src="basics/obj_export.jpg"></td>
+<td><img src="basics/povray_export.jpg"></td>
+</tr>
+<tr>
+<td><font face="tahoma" size="1">VRML
+export option dialogue </font></td>
+<td><font face="tahoma" size="1">OBJ
+export option dialogue </font></td>
+<td><font face="tahoma" size="1">Povray
+export option dialogue </font></td>
+</tr>
+</tbody>
+</table>
+<a name="file_menu"></a><br>
+<br>
+<table>
+<tbody>
+<tr>
+<td width="500"><font face="tahoma" size="2"><b>
+<a name="ext_link">Link
+to External Object</a></b><br>
+<br>
+This is a way of using an object
+from another AoI file in the current scene
+via a dynamic link to that file. Using this method, changes made to the
+source object automatically
+affect any files which have links to that object. &nbsp;This allows,
+for example, a character model to be created and kept in one file which
+can then be used in many other scenes &nbsp;- modifcations to the
+character can then be made to the original file which will then be
+applied automatically to any scene files that have the link.<br>
+<br>
+Selecting this option displays a dialogue,
+an example of which is shown on the right. This allows the selection of
+the source file and the object within that
+file that is to be linked to. &nbsp;You can choose the include the children of the selected object as well.</font>
+</td>
+<td><img style="width: 412px; height: 217px;" alt="" src="basics/external_obj_dial.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<a name="safesave"></a>
+<b>Save</b> saves the current file with the existing name
+or will prompt for a new name if the file
+has not been saved previously. A 'safe save' method is used which
+ensures that the file is saved
+properly before the existing file is overwritten.<br>
+<br>
+<b>Save As</b> allows the file to be saved with a different
+name.<br>
+<br>
+<b>Quit</b> closes down all currently open AoI files and
+shuts down AoI completely. You will be prompted to save any of the
+files that have not yet been saved.<br>
+<br>
+<br>
+<a name="edit_menu"><strong><font color="#ff6633" size="4">1.2.11 Edit Menu</font></strong><br>
+<br>
+The <b>Edit</b> menu on the top menu bar contains some
+very useful selection and basic object
+manipulatiom tools.<br>
+<br>
+The menu looks like this:<br>
+<br>
+</a>
+<table>
+<tbody>
+<tr>
+<td><img src="basics/edit_menu.jpg"></td>
+<td><font face="tahoma" size="2"> <b>Undo/Redo</b>
+undoes the last action or redoes the
+last undo, including selections.<br>
+<br>
+<b>Cut</b> makes a copy of any currently selected
+objects in memory while deleting the originals.<br>
+<br>
+<b>Copy</b> is like <b>Cut</b> but the
+original objects are retained.<br>
+<br>
+<b>Paste</b> creates as new objects any that have
+been put in memory by <b>Cut</b> or <b>Copy</b>
+tools.<br>
+<br>
+<b>Clear</b> deletes all currently selected objects.<br>
+<br>
+<b>Select Children</b> selects all objects that are
+'children' of currently selected objects.<br>
+<br>
+<b>Select All</b> selects all the objects in the
+scene. </font></td>
+</tr>
+</tbody>
+</table>
+<a name="edit_menu"><br>
+<b>Make Live Duplicate</b> makes a special copy of any
+currently selected object in that they are
+dynamically linked so that any changes made to one are automatically
+made to all other live duplicates.
+Note that this method of copying uses significantly less memory than
+making several normal copies via the copy/cut/paste tools.<br>
+<br>
+<b>Sever Duplicates</b> ceases the association between live
+duplicates so that they become independent
+objects<br>
+<br>
+</a><a name="prefs"><b>Preferences</b> </a>allows
+various general parameters to be set up for future instances of AoI.  (This item
+appears in the Edit menu on Windows and Linux, but in the application menu on
+Mac OS X.)
+Selecting
+this option produces the following dialogue:<br>
+<br>
+<table style="width: 917px; height: 395px;">
+<tbody>
+<tr>
+<td><img src="basics/preferences.png"></td>
+<td><font face="tahoma" size="2">There
+are 2 tabs for preferences: General and Shortcuts. &nbsp;The
+preferences under the <span style="color: rgb(153, 0, 0); font-weight: bold;">General</span>
+tab are described below:<br>
+<br>
+<br>
+The <b>Default Renderer</b> defines the default rendering
+engine used for <a href="rendering.html#render_engines">rendering
+</a>scenes.<br>
+<br>
+The <b>Object Preview Renderer</b> defines the default
+renderer used when carrying out render
+previews in the <a href="object_types.html#splines">spline
+mesh</a> and <a href="object_types.html#triangle_meshes">triangle
+mesh</a> object editors.<br>
+<br>
+The <b>Texture Preview Renderer</b> defines the default
+renderer used in the various <a href="textures.html">texture</a>
+dialogues.<br>
+<br>
+The <b>Theme</b> defines the overall appearance of windows in AoI.  A single
+default theme is included with the program.  Others can be downloaded with the
+<a href="scripting.html#SPManager">Scripts and Plugins Manager</a>.
+Each theme provides a selection of <b>Color Schemes</b> to choose from.<br>
+<br>
+The <b>Default Editing Tool</b> is the tool that should be selected in a window
+when it first appears.  You can also press the spacebar in a window to quickly
+toggle between the default tool and another selected tool.
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+The <b>Interactive Surface Error</b> defines the surface
+accuracy of objects displayed in the main window
+and the object editors. The lower the value, the more acccurate the
+surface displayed is as shown below.
+Bear in mind, however, that a low surface error will result in a poorer
+performance in terms of speed.<br>
+<img src="basics/int_surf_err.jpg"><br>
+<br>
+<b>Maximum Levels of Undo</b> defines how many of the last
+operations are stored by AoI and hence how
+many can be undone. The greater this number is, the more steps can be
+undone, but the greater the memory requirement.<br>
+<br>
+<b>Reverse Direction of Scroll Wheel Zooming</b> lets you control how zooming
+with the scroll wheel works.  By default, scrolling up zooms in.  Selecting this
+option reverses that.<br>
+<br>
+<a name="OpenGL"></a>
+<b>Use OpenGL for Interactive Rendering</b> By default, Art
+of Illusion uses OpenGL, through the JOGL
+libraries, to speed up the interactive displays in the main window and
+object editors. If there are
+problems with this, the option can be switched off here to allow
+software rendering.<br>
+<br>
+<b>Keep Backup Files When Saving</b> creates a backup of
+the last saved file when the file is saved with
+the same name. The backup file has the additional extension .bak.<br>
+<br>
+<a name="language"></a>Lastly, the <b>Language</b>
+defines which language all the dialogues will be shown
+in. As of version 2.0,
+you can choose from Danish, English(United States), French, German,
+Italian, Japanese, Portuguese, Spanish or Swedish.<br>
+<br>
+</font><font face="tahoma" size="2"><font face="tahoma" size="2">The <a name="xtraShortcuts"></a><span style="color: rgb(153, 0, 0); font-weight: bold;">Shortcuts</span>
+tab of the preferences dialogue is shown below. &nbsp;This
+dialogue allows keyboard shortcuts, additional to those described
+in section <a href="layout.html#shortcuts">1.2.12</a>,
+to be
+set up. &nbsp;The keys defined trigger scripts to carry out
+particular tasks. New shortcuts can be added or existing ones can be
+edited.
+&nbsp;This allows&nbsp;Beanshell scripts to be written in a
+special dialogue to carry out the series of commands required.
+&nbsp;&nbsp;</font></font><font face="tahoma" size="2"><br>
+<table style="width: 1173px; height: 450px;">
+<tbody>
+<tr>
+<td width="400"><font face="tahoma" size="2"><img src="basics/shortcuts_pref.jpg"></font></td>
+<td><font face="tahoma" size="2"><font face="tahoma" size="2">The default shortcuts are:<br>
+<br>
+</font></font><font face="tahoma" size="2"><span style="font-weight: bold;">Delete &nbsp;</span>
+&nbsp;&nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;
+Delete Selection<br>
+</font><font face="tahoma" size="2"><font face="tahoma" size="2"><span style="font-weight: bold;">1</span>&nbsp;&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp;- &nbsp; &nbsp;Display Mode: Wireframe</font></font><br>
+<font face="tahoma" size="2"><span style="font-weight: bold;">2</span>&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;- &nbsp; &nbsp;Display Mode: Flat<br>
+<span style="font-weight: bold;">3</span>
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; - &nbsp; &nbsp;Display Mode:
+Smooth<br>
+<span style="font-weight: bold;">4</span>&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; - &nbsp;&nbsp; Display Mode: Textured<br>
+<span style="font-weight: bold;">5&nbsp;</span>&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp;- &nbsp; &nbsp;Display Mode: Transparent<span style="font-weight: bold;"></span><br>
+<span style="font-weight: bold;">E</span>&nbsp;&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp;- &nbsp; &nbsp;Selection Mode: Edge/Curve<br>
+<span style="font-weight: bold;">F</span>&nbsp;&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp;- &nbsp; &nbsp;Selection Mode: Face<br>
+<span style="font-weight: bold;">V</span>&nbsp;&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp;- &nbsp;&nbsp; Selection Mode: Point/Vertex<br>
+<span style="font-weight: bold;">Page Down</span>&nbsp;
+- &nbsp;&nbsp; Select Tool: Next<br>
+<span style="font-weight: bold;">Page Up</span>
+&nbsp; &nbsp; &nbsp; -&nbsp; &nbsp; Select Tool:
+Previous<br>
+<span style="font-weight: bold;">Space</span>&nbsp;&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; - &nbsp; &nbsp;Select Tool:
+Toggle Default<br>
+</font><font face="tahoma" size="2"><font face="tahoma" size="2"><span style="font-weight: bold;">NumPad-0</span>&nbsp;
+&nbsp; - &nbsp;&nbsp; View: Toggle Perspective</font></font><br>
+<font face="tahoma" size="2"><font face="tahoma" size="2"><span style="font-weight: bold;">NumPad-1</span>&nbsp;
+&nbsp; - &nbsp;&nbsp; View: Front</font></font><br>
+<font face="tahoma" size="2"><span style="font-weight: bold;">NumPad-2</span>&nbsp;
+&nbsp; - &nbsp;&nbsp; View: Back<br>
+</font><font face="tahoma" size="2"><font face="tahoma" size="2"><span style="font-weight: bold;">NumPad-3&nbsp;</span>
+&nbsp; - &nbsp;&nbsp; View: Left<br>
+</font></font><font face="tahoma" size="2"><font face="tahoma" size="2"><span style="font-weight: bold;">NumPad-4&nbsp;</span>
+&nbsp; - &nbsp;&nbsp; View: Right<br>
+</font></font><font face="tahoma" size="2"><font face="tahoma" size="2"><span style="font-weight: bold;">NumPad-5</span>&nbsp;
+&nbsp; - &nbsp;&nbsp; View: Top</font></font><br>
+<font face="tahoma" size="2"><span style="font-weight: bold;">NumPad-6</span>&nbsp;
+&nbsp; - &nbsp;&nbsp; View: Bottom<br>
+<span style="font-weight: bold;">NumPad-7</span>&nbsp;
+&nbsp; - &nbsp;&nbsp; View: Camera 1<br>
+<span style="font-weight: bold;">NumPad-8</span>&nbsp;
+&nbsp; - &nbsp;&nbsp; View: Camera 2<span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span></font><font face="tahoma" size="2"><font face="tahoma" size="2"><span style="font-weight: bold;"></span></font></font><font face="tahoma" size="2"><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><br>
+<span style="font-weight: bold;">NumPad +</span>&nbsp;
+&nbsp; - &nbsp;&nbsp; View: Zoom In<br>
+<span style="font-weight: bold;">NumPad -</span>&nbsp;&nbsp;
+&nbsp; - &nbsp;&nbsp; View: Zoom Out</font></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<br>
+<a name="templates"><strong><font color="#ff6633" size="4">1.2.12 Using Template Images</font></strong><br>
+<br>
+Art of Illusion allows the background of the view windows to be set to
+an image. This is useful when
+modelling objects that benefit from a reference image. To select an
+image to assign to the background, click
+in the view window you want the template image to be displayed and then
+select <b>Scene -&gt; Set Template Image </b>. This
+brings up a dialogue allowing the choice of an image in
+either .jpg, .gif or .png format. After selecting the image, it will be
+displayed as the background of the selected view window.<br>
+<br>
+To hide the image, select <b>Scene -&gt; Hide Template </b>
+and to show it again select <b>Scene -&gt;
+Show Template </b>. These actions can also be carried out to
+hide/show template images in the </a><a href="object_types.html#splines">spline</a>
+and <a href="object_types.html#triangle_meshes">triangle
+mesh</a> editors.<br>
+<br>
+<br>
+<br>
+<a name="shortcuts"><strong><font color="#ff6633" size="4">1.2.13 Keyboard Shortcuts</font></strong><br>
+<br>
+To speed up workflow, many of the tools and functions have hard-coded
+keyboard
+shortcuts. These are summarised below:<br>
+<br>
+</a>
+<table border="2" bordercolor="black">
+<tbody>
+<tr>
+<td bgcolor="silver" height="300" valign="top" width="250"><font face="tahoma" size="2">
+<br>
+<font color="#0000ff"><b>File Functions:</b></font><br>
+<br>
+Ctrl+N - Create a new AoI file<br>
+Ctrl+O - Open an existing AoI file<br>
+Ctrl+W - Close the current AoI file<br>
+Ctrl+S - Save the current AoI file with the same name<br>
+Ctrl+Q - Quit Art of Illusion<br>
+<br>
+</font></td>
+<td valign="top" width="250"> <br>
+<font color="#0000ff" size="-1"><b>Edit
+Functions:</b></font><font size="-1"><br>
+<br>
+</font> <font size="-1">Crtl+Z - Undo/Redo
+last action<br>
+Ctrl+X - Cut the selected object(s) to the clipboard<br>
+Ctrl+C - Copy the selected object(s) to the clipboard<br>
+Ctrl+V - Paste the object(s) from the clipboard into the file<br>
+Ctrl+A - Select all the objects in the scene<br>
+Delete - Clear selected object(s)</font><br>
+<br>
+</td>
+<td bgcolor="silver" valign="top" width="250">
+<br>
+<font color="#0000ff" size="-1"><b>Object
+Functions:</b></font><font size="-1"><br>
+<br>
+Ctrl+E - Edit Object<br>
+Ctrl+L - Edit the object layout<br>
+Ctrl+T - Open the Transform Object Dialogue<br>
+Ctrl+U - Set Texture for currently selected object(s)<br>
+Ctrl+M - Set Material for currently selected object(s)<br>
+<br>
+Arrow keys can be used to move/rotate selected object(s) in the plane
+of the currently selected view window if the Move/Rotate Icons are on.
+Holding Ctrl while pressing the up/down keys moves/rotates
+in the other axis. Holding ALT while pressing the arrow keys
+moves/rotates the object by 10 pixels.</font> <br>
+</td>
+</tr>
+<tr>
+<td valign="top" width="250"> <br>
+<font color="#0000ff" size="-1"><b>Animation
+Functions:</b></font><font size="-1"><br>
+<br>
+Ctrl+P - Preview Animation<br>
+Ctrl+] - Move forward one frame<br>
+Ctrl+[ - Move backward one frame<br>
+Ctrl+J - Jump to time ...<br>
+Ctrl+D - Edit selected keyframe<br>
+Ctrl+K - Keyframe selected track(s)<br>
+Ctrl+Shift+K - Keyframe modified tracks<br>
+Ctrl+Shift+A - Select all tracks of selected objects</font> <br>
+<br>
+</td>
+<td bgcolor="silver" valign="top" width="250">
+<br>
+<font color="#0000ff" size="-1"><b>Scene
+Functions:</b></font><font size="-1"><br>
+<br>
+Ctrl+R - Open the Render dialogue window<br>
+Ctrl+Shift+R - Render immediately with current settings<br>
+Ctrl+B - Toggle between one view mode and four view mode<br>
+Ctrl+G - Open Grid dialogue window<br>
+Ctrl+F - Frame selection with camera<br>
+Ctrl+Shift+F - Frame scene with camera<br>
+Ctrl+Shift+U - Open Textures dialogue window<br>
+Ctrl+Shift+M - Open Materials dialogue window</font> <br>
+</td>
+<td valign="top" width="250"> <br>
+<font color="#0000ff" size="-1"><b>Mesh
+Editor Functions:</b></font><font size="-1"><br>
+<br>
+Ctrl+Z - Undo/redo last action<br>
+Ctrl+A - Select all vertices/edges/faces<br>
+Ctrl+X - Extend selection<br>
+Ctrl+F - Toggle freehand selection mode<br>
+Ctrl+W - Display as quads<br>
+Ctrl+M - Open Mesh Tension dialogue<br>
+Ctrl+E - Edit selected point(s)<br>
+Ctrl+T - Transform selected point(s)<br>
+Ctrl+B - Bevel/Extrude selection<br>
+Ctrl+P - Open texture parameters dialogue<br>
+Ctrl+S - Set smoothness for selected vertices/edges<br>
+Ctrl+R - Render preview<br>
+Ctrl+D - Open Edit Bone dialogue<br>
+Ctrl+G - Open Grid dialogue<br>
+<br>
+Arrow keys can be used to move selected points one pixel at a time in
+the plane of the view if the Move Icon is selected. Holding Ctrl while
+pressing the up/down keys moves
+in the other axis. Holding ALT while pressing the arrow keys moves the
+points by 10 pixels.</font> <br>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+There is also the ability to set up additional keyboard shortcuts via
+&nbsp;<span style="font-weight: bold;"><a href="#xtraShortcuts" name="shortcuts">Edit -&gt;
+Preferences -&gt; Shortcuts</a></span> tab.<br>
+<br>
+<br>
+<br>
+</font>
+<div align="left"><font face="tahoma" size="2"><a href="installation.html"><b><font size="4">Previous:
+Installation</font></b></a></font></div>
+<div align="right"><font face="tahoma" size="2"><a href="modelling.html"><b><font size="4">Next:
+Modelling</font></b></a></font></div>
+<font face="tahoma" size="2"><a href="contents.html#contents_top"><b><font size="4">Back
+to Contents</font></b></a><br>
+</font>
+</body></html>

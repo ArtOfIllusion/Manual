@@ -1,0 +1,440 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Creation date: 18/03/02 -->
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+
+
+  
+  
+  <title>materials.html</title>
+  <meta name="Description" content="">
+
+
+  
+  <meta name="Keywords" content="">
+
+
+  
+  <meta name="Author" content="Julian MacDonald">
+
+
+  
+  <meta name="Generator" content="AceHTML 4 Pro">
+</head>
+
+
+<body bgcolor="#f8e89e">
+
+
+<font face="tahoma" size="2">
+<div align="left"><a href="textures2.html"><b><font size="4">Previous: More Textures</font></b></a></div>
+
+
+<div align="right"><a href="rendering.html"><b><font size="4">Next: Rendering</font></b></a></div>
+
+
+<a name="materials"><strong><font color="#3300cc" size="5">4.2 Materials</font></strong></a><br>
+
+
+<br>
+
+Materials define the interior qualities of the object and can be used
+to create a wide variety of effects including smoke, fire, fur,
+refracting substances like glass and plastic, and materials with
+subsurface scattering like wax, milk, skin etc.<br>
+
+
+<br>
+
+ 
+A material can only be applied to a closed object.  Also bear in mind that for the material to be actually
+visible, the surface texture of the object needs to be at least partially transparent.  Under some
+circumstances, the texture will need to be completely transparent; this can be achieved by setting up a
+uniform texture and setting <b>Transparency</b> to 1.<br>
+
+
+<br>
+
+
+There are two types of material in Art of Illusion: Uniform and Procedural.  Materials are created
+from the same window used to manage textures.  To create a new material, click on
+<b>Scene -&gt; Textures</b>, then select <b>Uniform material</b> or <b>Procedural Material</b>
+from the <b>New...</b> menu.
+<p>
+
+
+<a name="uniform_mat"><strong><font color="#ff6633" size="4">4.2.1 Uniform Materials</font></strong></a><br>
+
+
+<br>
+
+
+As with textures, Uniform materials are applied equally over the whole interior.  The dialogue box for
+this type of material looks like this:<br>
+
+
+<br>
+
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+
+      <td><img src="textures/unif_materials_dial.jpg"></td>
+
+
+      <td><font face="tahoma" size="2">
+The preview view and object can be altered via a pop-up menu activated by right-clicking over the preview
+as with the <a href="textures.html#uniform_tex">Uniform Texture dialogue</a>.<br>
+
+
+      <br>
+
+
+      <b>Emissive Color</b> is the colour of light given out by the material (light is actually emitted when 
+rendering with <a href="rendering.html#glob_illum">Global Illumination</a>)<br>
+
+
+      <br>
+
+
+      <b>Transparent Color</b> defines the colour that is transmitted through the material.  Its intensity 
+determines how transparent the material is e.g. white is completely transparent and black is 
+completely opaque. although the overall level of transparency is controlled by the <b>
+Transparency</b> value.<br>
+
+
+      <br>
+
+
+      <b>Density</b> is the degree of light attenuation in the material.  The higher the value, the less the light
+is able to penetrate through the material.<br>
+
+
+      <br>
+
+
+      <b>Scattering</b> is the degree to which light is scattered.<br>
+
+
+      <br>
+
+
+      <b>Scattering Color</b> sets the colour of the light that is scattered.  <b>Scattering</b> needs to be
+non-zero for this to have any effect.<br>
+
+
+      <br>
+
+
+      <b>Eccentricity</b> defines the direction in which light is scattered (again <b>Scattering</b> must be
+non-zero) and has values between -1 and +1.  A value of 0 is isotropic scattering, i.e. light is 
+scattered equally in all directions. Negative values mean that the light is scattered forwards and 
+positive values mean that the light is back-scattered. As the magnitude of eccentricity tends to 1, the 
+more directional the scattered light becomes.  A value of -1 means that all light is 
+scattered straight ahead and +1 is scattered straight back.<br>
+
+
+      <br>
+
+
+      </font></td>
+
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+
+<b>Index of Refraction</b> This determines the amount that light is bent within the material and is used
+to simulate glass, plastic, water etc.  The higher the value, the more light is refracted.  Typical values
+are glass:1.55, water 1.33:<br>
+
+
+<img src="textures/mat_ior.jpg"><br>
+
+
+<br>
+
+
+<b>Casts Shadows</b> If checked, then the material will attenuate light to produce shadows.  Otherwise it will not.<br>
+
+
+<br>
+
+<br>
+
+Materials with <span style="font-weight: bold;">subsurface scattering</span> properties can be simulated by using a partially transparent texture with a scattering material and then rendering using <a href="rendering.html#SSS">photon mapping</a>.<br>
+
+<br>
+
+
+<br>
+
+
+<a name="procedural_mat"><strong><font color="#ff6633" size="4">4.2.2 Procedural Materials</font></strong></a><br>
+
+
+<br>
+
+
+As with procedural textures, procedural materials allow the specification of the various material properties
+described above based on point by point calculations.  So each point within the volume enclosed by the 
+object's surface can take on different material values and colours.<br>
+
+
+<br>
+
+
+The procedural material editor looks like this:<br>
+
+
+<br>
+
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+
+      <td><img src="textures/proc_mat_dial.png"></td>
+
+
+      <td><font face="tahoma" size="2">
+Exactly the same material properties are listed down the right hand side as are available for uniform
+materials.  The menu along the left side allows modules to be added to the procedure, exactly as with
+procedural textures.<br>
+
+      <br>
+
+
+      Clicking the <b>Properties</b> button displays the following dialogue:<p>
+
+
+      <img src="textures/material_prop_menu.jpg"><p>
+
+
+The <b>Index of Refraction</b> is as described for <a href="#uniform_mat">uniform materials</a>.<br>
+
+
+      <br>
+
+
+      <b>Integration Step Size</b> The mathematical technique for calculating the material property values works
+by stepping through the volume.  The size of the steps determines the accuracy of the result, smaller being
+more accurate but also taking more time to integrate.  If there are fine structures within the material, it
+will be necessary to reduce this value accordingly.<br>
+
+
+      <br>
+
+
+      <b>Antialiasing</b> As with textures, this controls the 'smoothing' of the material.  Values greater than 1
+smooth more and less than 1 smooth less. Normally there should be no reason to alter this but it may
+be necessary if artifacts occur.</td>
+
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<br>
+
+
+With procedural materials there is more control over colour values. The colour scale module 
+(Color Functions -&gt; Scale) can be used to scale colour Values (in HSV colour model) beyond
+the normal limit of 1 and so produce more emissive materials.  For example the material below uses
+a color scale module (currently scaled by 100) to brighten the colourmap used to produce a fire-like 
+material colour.<br>
+
+
+<br>
+
+
+<img src="textures/emissive_mat.jpg"><br>
+
+
+<br>
+
+
+By varying the scaling factor, different levels of emissiveness can be obtained as shown below (rendered
+with Monte Carlo <a href="rendering.html#glob_illum">Global Illumination</a>):
+<img src="textures/fireballs.jpg"><br>
+
+
+<br>
+
+
+The same principle can be applied to the other colours, i.e. scattering colour and transparent colour, to
+artificially enhance the degree of scattering and transparency (some very odd effects can be produced
+for transparent colours with a Value greater than 1 !)<br>
+
+ 
+<br>
+
+
+<br>
+
+
+<b>Example Procedural Materials</b><br>
+
+
+<br>
+
+
+Below are 3 example materials obtained using a small selection of the available modules.  Click on the 
+images to find out more about how they were created.<br>
+
+
+<br>
+
+
+<a name="ex_materials"></a>
+<a href="froth_mat.html"><img src="textures/mat_froth.jpg"></a>
+<a href="starburst_mat.html"><img src="textures/mat_orange_fur.jpg"></a>
+<a href="cottonwool_mat.html"><img src="textures/mat_cottonwool.jpg"></a><br>
+
+
+<br>
+
+
+<br>
+
+
+<br>
+
+
+<a name="assign_mat"><strong><font color="#ff6633" size="4">4.2.3 Assigning Materials to Objects</font></strong></a><br>
+
+
+<br>
+
+
+<br>
+
+
+Materials can only be assigned to closed objects.  To assign a material, select the object and click
+on <b>Object -&gt; Set Texture and Material</b>, then choose the <b>Material</b> tab:
+<p>
+
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+
+      <td><img src="textures/object_material_dial.png"></td>
+
+
+      <td><font face="tahoma" size="2">
+On the left is a list of the currently defined materials.  Click on one and the preview will update 
+(note that this will often be quite slow due to the complexity in rendering materials).  Clicking and
+dragging in the preview window will rotate the view.  As with the <a href="textures.html#uniform_tex">
+uniform texture dialogue</a>, right clicking on
+the preview displays a menu from which the view and preview object can be changed.<br>
+
+
+      <br>
+
+Existing materials can be edited and new ones created by clicking on <b>Textures and Materials</b>.<br>
+
+
+      <br>
+
+
+To map (i.e. scale, position and orient) the material to the object click on <b>Edit Mapping</b>
+which will display the material mapping dialogue shown below:
+      </font></td>
+
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<br>
+
+
+<br>
+
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+
+      <td><img src="textures/material_mapping_dial.jpg"></td>
+
+
+      <td><font face="tahoma" size="2">
+As with procedural 3D textures, there is only one mapping type available; Linear.<br>
+
+
+      <br>
+
+
+Enter appropriate values in the relevant boxes to alter the scaling, orientation and position of the
+material within the object.<br>
+      <br>
+      <a name="Scale_Material"></a>As with <a href="textures2.html#Scale_Texture">textures</a>, the material can be scaled to the bounding box of the object. &nbsp;If <span style="font-weight: bold;">Scale Material to Object</span> is checked, then the material will rescale according to the size of the object. <br>
+
+
+      <br>
+
+The preview window shows the selected object with the mapped material
+and can be oriented by clicking
+and dragging within this window. Alternatively, right clicking on the
+preview displays a menu from which the view can be changed.
+      </font></td>
+
+
+    </tr>
+
+  
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+<br>
+
+
+<br>
+
+<br>
+
+
+<div align="left"><a href="textures2.html"><b><font size="4">Previous: More Textures</font></b></a></div>
+
+
+<div align="right"><a href="rendering.html"><b><font size="4">Next: Rendering</font></b></a></div>
+
+
+<a href="contents.html#contents_top"><b><font size="4">Back to Contents</font></b></a><br>
+
+
+
+</font>
+</body>
+</html>

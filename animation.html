@@ -1,0 +1,2120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<!-- Creation date: 01/03/02 -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>animation.html</title>
+
+<meta name="Author" content="Julian MacDonald">
+</head>
+<body style="background-color: rgb(248, 232, 158);">
+<font face="tahoma" size="2">
+</font>
+<div align="left"><font face="tahoma" size="2"><a href="rendering.html"><b><font size="4">Previous:
+Rendering</font></b></a></font></div>
+<div align="right"><font face="tahoma" size="2"><a href="scripting.html"><b><font size="4">Next:
+Scripting</font></b></a></font></div>
+<font face="tahoma" size="2">
+<font face="tahoma" size="6"><strong>6. Animation</strong></font>
+<img src="man_title_small.jpg" align="middle"><br><br>
+<br>
+<br>
+<br>
+This chapter explores the ways that Art of Illusion allows the creation
+of animations. The tools available
+are flexible enough to allow high quality 3D animations to be created
+in an efficient way.<br>
+<br>
+Please note that the example animations are only simple examples of
+what Art of Illusion is capable of
+to demonstrate specific aspects. Also note that in order to keep the
+file to a reasonable size, animations have had to be highly compressed
+to gif images and thus their quality is far lower than that
+actually achieved with Art of Illusion.
+<br>
+<br>
+<a name="score"><strong><font color="#3300cc" size="5">6.1 The Score</font></strong></a><br>
+<br>
+Like many other 3D animation programs, Art of Illusion handles
+animations through a score or timeline on
+which various actions can be defined. Each object can have a range of
+different tracks which run along
+the score and which control various parameters such as position,
+orientation, scaling as well as more
+complex controls using skeletons. These will be looked at in detail in
+the next few sections.<br>
+<br>
+<br>
+<a name="score_layout"><strong><font color="#ff6633" size="4">6.1.1 The Score Layout</font></strong></a><br>
+<br>
+Let's look at the layout of the score in more detail:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">This
+is what the score looks like. It can be viewed by selecting <b>Animation
+-&gt; Show Score</b> from the
+top menu bar, or by grabbing the drag bar at the very bottom of the window and
+moving it up. The scale along the top shows the time in seconds. Down
+the left hand side is a list of
+currently selected objects together with their animation tracks, if
+any. In this example, there is an
+object called 'hand' which has position and rotation tracks. </font></td>
+<td><img src="animation/anim_score.jpg"></td>
+</tr>
+</tbody>
+</table>
+The vertical green line shows the time position currently viewed in the
+view windows. As this is dragged along, the objects in the scene are
+updated to reflect their actual position in the animation sequence. The
+position in the animation can also be controlled from the block of
+commands in the
+<b>Animation</b> menu:<br>
+&nbsp;<img src="animation/anim_frame_control.jpg"><br>
+<br>
+The diamond symbols shown on the tracks indicate that a particular
+position or orientation has been defined at this point in time. Such
+positions are called 'keyframes' and details are given in the <a href="#keyframes">next
+section</a>.<br>
+<br>
+Apart from the score itself, there are 5 other buttons on the right
+hand side of the screen as shown below:<br>
+<img src="animation/anim_score_icons.jpg"><br>
+<br>
+The top button gives the view we have just looked at. The next 2
+buttons present the information in a different way; using curves
+showing the change in the various parameters such as position, rotation
+etc.
+For the example above, clicking on the upper of the curve views and
+selecting the 'position' track gives
+the following display:<br>
+<img src="animation/anim_score_curve.jpg"><br>
+Here, the position of the object in the <font color="#0000ff">x</font>,
+<font color="#008000">y</font> and <font color="#ff0000">z</font> axes is plotted against time.
+For this particular example, x changes
+from about 0.75 to -0.3 units as the time goes from 0 to 1 second.<br>
+<br>
+If more than one track is selected, then the curves are drawn on the
+same set of axes in this mode. If
+the second plot mode is selected with the <img src="animation/anim_mult_curve.jpg"> button, however, then
+curves
+from each track would be displayed on separate graphs. This is more
+sensible if different types of track
+are selected as the values are likely to be very different, e.g.
+position values may be a few units as opposed to rotation values which
+are likely to be at least tens of degrees.<br>
+<br>
+The bottom two buttons from this group are for switching between an
+editing mode and a mode for altering
+the vertical and horizontal scales on the score.<br>
+<br>
+The upper button <img src="animation/anim_edit_button.jpg">
+is the editing mode which allows keyframes or curve points to be
+selected and moved. Simply click on
+any point to select it and drag to move it. Multiple points are
+selected by pressing <shift> while
+clicking on each point. The selected group can then be moved.<br>
+<br>
+The lower button <img src="animation/anim_scale_button.jpg">
+allows the score axes to be scaled and moved. When selected, dragging
+left and right with the mouse LMB moves the horizontal axes and
+dragging up and down moves the vertical axes.
+The axes are scaled by holding &lt;shift&gt; and dragging left
+and right or up and down. These controls
+can also be affected without clicking this button; holding the right
+mouse button while dragging left/right
+on the score allows the score to be moved and if &lt;shift&gt;
+is held down as well, the score can be scaled.
+The mouse wheel can also be used to move the score along left and right.<br>
+<br>
+<br>
+<br>
+<a name="keyframes"><strong><font color="#ff6633" size="4">6.1.2 Keyframes</font></strong></a><br>
+<br>
+Animation in Art of Illusion works by defining certain key actions,
+e.g. moving an object to a certain
+position, defining a particular skeleton pose etc., at specific points
+in time. These points are called
+keyframes. Having defined these, the program will calculate the
+positions, poses etc. in between the keyframes
+automatically by interpolation.<br>
+<br>
+Keyframes are generally set by moving the green time marker to the
+appropriate time, changing the particular property of the object, e.g.
+its position, orientation etc., and then selecting <b>Animation
+-&gt; Keyframe Modified Tracks of Selected Objects</b>.
+Alternatively, a keyframe can be produced at any time position for a
+particular track by selecting the track(s) and clicking on <b>Animation
+-&gt; Keyframe Selected Tracks</b>.<br>
+<br>
+Once a keyframe has been created, it can be selected by clicking on it
+and edited through this block in the <b>Animation</b> menu:<br>
+&nbsp;<img src="animation/keyframe_menu.jpg"><br>
+<br>
+<b>Edit Keyframe</b> allows various parameters relating to
+the keyframe to be altered. The actual options
+depend on the type of track so more details are given in the various
+track sections later in this
+chapter.<br>
+<br>
+<b>Delete Selected Keyframes</b> removes all currently
+selected keyframes.<br>
+<br>
+<b>Bulk Edit Keyframes</b> allows the editing of a group of
+keyframes as follows:<br>
+<br>
+</shift>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/move_keyframes.jpg"></td>
+<td><font face="tahoma" size="2"><b>Move..</b>
+allows a block of keyframes to be moved to another point in time. The
+dialogue on the left is displayed. The operation can be applied to <b>All
+Tracks</b>, <b>All Tracks of Selected Objects</b> or
+<b>All Selected Tracks</b>.<br>
+<br>
+You can then specify the time points between which you want keyframes
+to be moved from and the time
+you want to move them to. Note: any existing keyframes in the region
+that is copied to, will be overwritten.<br>
+<br>
+<b>Copy ..</b> is similar to <b>Move ..</b>
+but the original keyframes are retained as well as new ones
+created at the copy to position. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/anim_resize_keyframes.jpg"></td>
+<td><font face="tahoma" size="2"> <b>Rescale..</b>
+allows keyframes between a specified range to be rescaled in respect of
+time. In this example,
+the keyframes between 0.4 and 1.0 seconds are rescaled by a factor of
+0.5 which compresses the keyframes
+so that they happen in half the time.<br>
+<img src="animation/anim_scale_ex.jpg"> </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/loop_keyframes.jpg"></td>
+<td><font face="tahoma" size="2"> <b>Loop..</b>
+allows keyframes between a specified range to be repeated a defined
+number of times.
+The dialogue allows entry of the range and the number of loops. The new
+keyframes are then added to
+the end of the range specified as in the example below:<br>
+<img src="animation/loop_ex.jpg"> </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Delete..</b> simply deletes the range of keyframes that
+you specify.<br>
+<br>
+<br>
+</font><font face="tahoma" size="2">
+Keyframes can be edited by double-clicking them on the score or by
+selecting the keyframe from the Pose track and clicking on <b>Animation
+-&gt; Edit Keyframe</b>. This will display a dialogue which
+depends
+on the object being controlled by the track.<br>
+</font><br>
+<font face="tahoma" size="2">
+<br>
+<a name="tracks"><strong><font color="#3300cc" size="5">6.2 Adding and Editing Tracks</font></strong></a><br>
+<br>
+This section looks in detail at the types of track that can be set up
+for each object in the scene.
+To add a new track to an object, select it and click on <b>Animation
+-&gt; Add Track to Selected Objects</b>.
+This enables a range of different tracks to be added:<br>
+<img src="animation/tracks_menu.jpg">
+<br>
+The order of the tracks for each object is important as the effect of
+each track on the object is calculated from the bottom up. Tracks can
+be moved within the list by clicking and dragging in the
+same way as objects can be moved in the <a href="layout.html#object%20list">Object List</a>.<br>
+<br>
+<a name="track weight">Each </a>object can have
+several tracks of the same type. In this case, a <b>Weight</b>
+can be defined for each track to define its relative influence. This
+weight can itself vary with time by setting values
+at specific keyframes. The <b>Weight</b> track is found by
+clicking on the <img src="animation/right_arrow.jpg">
+to the left on the appropriate track name in the list.<br>
+<br>
+Once created, tracks can be edited, deleted, duplicated and temporarily
+enabled/disabled either by clicking the
+right mouse button over the relevant track in the list on the score or
+via the bottom section of the
+animation menu.<br>
+<br>
+<a name="rigid_tracks"><strong><font color="#ff6633" size="4">6.2.1 Basic Rigid
+Transformation Tracks</font></strong></a><br>
+<br>
+This refers to tracks that alter the object's position and orientation
+without any geometric distortion of the
+object, i.e. <b>Position</b> and <b>Rotation</b>
+tracks.<br>
+<br>
+<b><font size="4">POSITION TRACKS</font></b><br>
+<br>
+To set up a basic Position Track, select the object and choose <b>Position
+-&gt; XYZ (One Track)</b> from the <a href="#tracks">list
+of tracks</a> in the
+<b>Animation</b> Menu. At the most basic level, all you
+need to do is to move the green time marker on the
+score to the relevant point in time, move the object to the position
+you want it in at that time and then
+select <b>Animation -&gt; Keyframe Modified Tracks of
+Selected Objects</b>. This will produce a diamond
+keyframe at the required position on the score. Repeat this process for
+other points in time as required.<br>
+<br>
+This is a simple example of a cube being translated in the z-axis with
+only 2 keyframes defined as shown in the keyframe and plot views below
+right resulting in the animation below:<br>
+<br>
+<img src="animation/anim_pos_ex.jpg"><img src="animation/box_position.gif" align="top"><br>
+<br>
+<a name="pos_track_op"><b><font color="#3393d2">POSITION
+TRACK OPTIONS</font></b></a><br>
+<br>
+There are some options available for Position tracks. To bring up the
+Track Options dialogue, either
+double-click on the track name on the score or select the track and
+click on <b>Animation -&gt; Edit Track</b>.
+This will display a dialogue box similar to that below:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/position_track_opt.jpg"></td>
+<td><font face="tahoma" size="2">At the
+top is the <b><font color="#3393d2">Track Name</font></b>
+which can be altered to anything you like.<br>
+<br>
+Next is the <b><font color="#3393d2">Smoothing
+Method</font></b>. To understand this better, let's add
+another keyframe to the above
+animation. Move the time marker to 0.5 secs, select the position track
+and click on <b>Animation -&gt;
+Keyframe Selected Tracks</b>. Note that in this situation, <b>Keyframe
+Modified Tracks of Existing
+Objects </b>wouldn't have worked because the position of the box
+at this point is no different than it was before. Having created the
+keyframe, we can go to the plot view in edit mode and move the new
+point
+as shown below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/anim_pos_smooth_ex1.jpg"></td>
+<td><font face="tahoma" size="2">As
+can be seen, the curve through the points is smooth and passes through
+all the points. That is
+because the default smoothing method is 'interpolating'. The other
+choices for the <b>Smoothing Method</b>
+are: <img src="animation/track_smoothing_options.jpg"> </font></td>
+</tr>
+</tbody>
+</table>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+The other <b><font color="#3393d2">Smoothing Methods</font></b>
+produce the following curves:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/anim_smooth_methods.jpg"></td>
+<td><font face="tahoma" size="2">In
+terms of the effect on the animation, <b>Interpolating</b>
+and <b>Approximating</b> produce a gradual deceleration of
+the box. With <b>Approximating</b> method, both velocity
+and acceleration
+are continuous whereas the acceleration changes discontinuously with <b>Interpolating</b>.
+This
+results in a smoother animation for the <b>Approximating</b>
+method.<br>
+<br>
+<b>Discontinuous</b> produces a sudden change in
+position.<br>
+<br>
+<b>Linear</b> produces a box moving at constant speed
+up to the second keyframe, then a slower constant speed to the final
+position.<br>
+<br>
+All have their uses in different situations. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b><font color="#3393d2">Track Mode</font></b>
+is either <b>Absolute</b> or <b>Relative</b>.
+Absolute means that the object position is calculated as displacements
+from the origin (0,0,0). Relative mode is where the values are
+displacementsfrom the result of the tracks beneath it in the list.<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">For
+example, we can add a Position track to the animation above and select <b>Relative</b>
+Mode for it. We need to make sure it sits above the Absolute position
+track because transformations get applied from the bottom up.<br>
+<br>
+We could then use the Relative track to add displacements to the main
+motion
+of the cube, e.g. make it shake as it moves. In this example, the
+Relative track was keyframed every 0.2 secs using <b>Animation
+-&gt; Keyframe Selected Tracks </b>. The x and y coordinates
+of the resulting keyframes were then moved to 'random' positions in the
+plot view. The effect is that
+the Absolute position on the cube is initially determined from the
+Absolute track; then the Relative
+track displaces the x and y positions by the coordinates specified.<br>
+</font></td>
+<td><img src="animation/anim_pos_rel.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<a name="apply"><b><font color="#3393d2">Apply
+To</font></b></a> determines which part of the object
+is controlled by the track and is either the <b>Object Origin</b>
+or one of the joints in the <a href="object_types.html#skeletons">skeleton</a>.
+<br>
+For instance, in this example of a pendulum, a single bone joint has
+been placed at the pivot position and
+used as the part of the object to which the position track applies. The
+rotation track is applied to the object's centre and the position track
+then acts to reposition the object so that the 'pivot' is fixed
+at the keyframed position:
+<table>
+<tbody>
+<tr>
+<td><img src="animation/pivot.jpg"></td>
+<td><img src="animation/pendulum.gif"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<b><font color="#3393d2">Coordinate System</font></b>
+is the set of axes under which the transformations
+are applied, i.e. where the origin is and how the axes are oriented.
+There are either 3 or 4 possible options for this, depending on which
+Track Mode is set:<br>
+<img src="animation/coord_system_opts.jpg">
+<br>
+The <b>World</b> coordinate system is the main coordinate
+system that Art of Illusion works in.<br>
+<br>
+The <b>Parent</b> option is for objects that are
+'children' of other objects. In most cases, you will
+want the children to move, rotate etc. with their parent objects. In
+this case, give the children objects
+position tracks and set the <b><font color="#3393d2">Coordinate
+System</font></b> to <b>Parent</b>. Keyframe
+at least one time position, e.g. at time 0, to set up this relationship
+and the children objects will then
+follow their parents.<br>
+<br>
+<b>Other Object..</b> is similar to the <b>Parent</b>
+option except that any object can be made to follow
+any other object. Selecting this option, makes the <img src="animation/anim_coord_set.jpg"> button become
+available. Pressing this allows the selection of the object, or of any
+bone of any object with a
+defined skeleton, to be followed.<br>
+<br>
+<b>Local</b> is only available for <b>Relative</b>
+mode tracks and allows transformations to be made
+relative to the object's own co-ordinate system which is defined via
+the object layout.<br>
+<br>
+<br>
+<b><font color="#3393d2">Track Affects</font></b>
+allows the ability to restrict the motion to certain
+axes only.<br>
+<br>
+<br>
+<a name="pos_key_edit"><b><font color="#3393d2">EDITING
+POSITION KEYFRAMES</font></b></a><br>
+<br>
+Keyframes can be edited by double-clicking them on the score or by
+selecting a keyframe from the Position track and clicking on <b>Animation
+-&gt; Edit Keyframe</b>. This
+displays the following dialogue:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/pos_edit_key.jpg"></td>
+<td><font face="tahoma" size="2">The
+first 3 entries allow the alteration of the objects position in each of
+the 3 axes in the defined
+coordinate system. This is a way of more accurately specifying
+positions as opposed to editing on the
+plot view.<br>
+<br>
+The next entry is for <b><font color="#3393d2">Time</font></b>
+allowing you to specify explicitly the time position of the keyframe.<br>
+<br>
+The lower half of the dialogue allows further refinement of the <b><font color="#3393d2">Smoothing Method</font></b>. For
+<b>Interpolating</b> and <b>Approximating</b>
+smoothing methods, the curve can be given a <b><font color="#3393d2">Smoothness</font></b> value
+which determines how smooth the curve is. In addition, the part of the
+curve to the left of the keyframe (i.e. the time period before the
+keyframe)
+can be set to a different <b><font color="#3393d2">Smoothness</font></b>
+than the curve to the right of the keyframe (i.e. the time period after
+the keyframe). </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+It is also possible to set up separate position tracks to allow
+independent control
+of movements in the X, Y and Z directions. This can be done
+automatically by selecting
+<b>Animation -&gt; Add Track to Selected Objects -&gt;
+Position -&gt; XYZ (3 Tracks)</b>. In this instance
+3 tracks are produced each with <b>Track Affects</b> set
+to one of X, Y or Z.<br>
+<br>
+<b><font size="4">ROTATION TRACKS</font></b><br>
+<br>
+Basic rotation tracks are again created by selecting <b>Animation
+-&gt; Add Track to Selected Objects -&gt; Rotation -&gt;
+XYZ (One Track)</b>. The basic method of setting up a track is
+similar to Position Tracks; move to the appropriate time, rotate
+the object to the orientation (in degrees) required at that time, and
+keyframe it. Below is a simple example
+with a cube rotating in the x and z axes set up with 2 keyframes:<br>
+<img src="animation/anim_rot_ex.jpg"><img src="animation/box_rot.gif" align="top"><br>
+<br>
+<b><font color="#3393d2">ROTATION TRACK OPTIONS</font></b><br>
+<br>
+The options dialogue for Rotations is displayed by double-clicking the
+track name and looks as follows:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/rot_track_opt.jpg"></td>
+<td><font face="tahoma" size="2">Most
+of the settings are identical to the Position Track options. See <a href="#pos_track_op">
+this section</a> for details.<br>
+<br>
+Note that with Rotations, a child object or an object set to another
+object's coordinate system will
+need to have both Position and Rotation tracks in place and set to the
+appropriate coordinate setting in order to work properly.<br>
+<br>
+The only difference, in fact is the <b><font color="#3393d2">Isotropic
+(Quaternion) Rotations</font></b>
+option. Switching this on means that the end point of the rotation is
+more important that the process
+of rotations involved in getting there. The program does not
+necessarily follow the specified rotation
+values in each axes but gets to the endpoint by the shortest path
+possible. For example, if you set a rotation of 270 degrees in the
+z-axis, Art of Illusion actually treats this as -90 degrees if
+quaternion rotations are turned on. Therefore, if you need to set a
+rotation greater than 180 degrees in any axes, you need to switch this
+option off. Bear in mind, however, that if you do this, that the x, y,
+and z rotations are then performed independently in this order: z, x, y
+and the animation might not do what you expect. In this situation it is
+best to rotate only one axis at a time and use parent-child coordinate
+systems to carry out more complicated rotations. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<a name="rot_key_edit"><b><font color="#3393d2">EDITING
+ROTATION KEYFRAMES</font></b></a><br>
+<br>
+Keyframes can be edited by double-clicking them on the score or by
+selecting a keyframe from the Position track and clicking on <b>Animation
+-&gt; Edit Keyframe</b>. This
+displays the following dialogue:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/edit_rot_keyframe.jpg"></td>
+<td><font face="tahoma" size="2">The
+first 3 entries allow the alteration of the objects orientation in each
+of the 3 axes in the defined
+coordinate system at the point in time of the keyframe.<br>
+<br>
+As with the keyframes in the Position Tracks, the smoothness of the
+orientation vs time curves before
+and after the keyframe can be set. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+As with Position tracks, there is a way of automatically setting up
+certain types of track through the
+<b>Animation -&gt; Add Track to Selected Objects -&gt;
+Rotation</b> menu. From here, you can choose to have
+separate tracks for X, Y and Z and Quaternion rotations tracks set up
+automatically.<br>
+<br>
+<b><font size="4">SET PATH FROM CURVE</font></b><br>
+<br>
+This is a special method of setting Position and Rotation Tracks for an
+object using an existing curve
+created with either of the <a href="object_types.html#curves">curve
+drawing tools</a>.<br>
+<br>
+To perform this, select the object and the curve from the Object List
+and click on <b>Animation -&gt;
+Set Curve from Path </b>. This will display a dialogue similar
+to that below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/set_path.jpg"></td>
+<td><font face="tahoma" size="2">Here
+you can select the object and curve (if more than one were selected
+initially) to use.<br>
+<br>
+You can also specify whether the orientation of the object should
+follow the curve or remain fixed. In
+the latter case, no Rotation Track will be produced.<br>
+<br>
+There are 3 options for <b>Keyframe Spacing</b>: <b>Uniform
+Spacing</b>, <b>Uniform Speed</b> or <b>Uniform
+Acceleration</b>. Depending on which you set, there are then
+additional parameters that can be specified:<br>
+<br>
+<b>Start Time</b> and <b>End Time</b>
+define how quickly the object moves along the curve. If <b>Uniform
+Speed</b> or <b>Uniform Acceleration</b> is
+selected, then these values will depend on speed and/or acceleration
+which can be specified in the remaining dialogue boxes. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+The example below is a simple example. The curve was drawn as the path
+followed by a bouncing ball. The
+path of the sphere was then set to that of the curve with constant
+speed (not physically realistic, or course).
+The result is the automatically created Position Track and the
+animation shown.<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/set_path_setup.jpg"></td>
+<td><img src="animation/ball.gif"> </td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<a name="proc_tracks"><strong><font color="#ff6633" size="4">6.2.2 Procedural Rigid
+Transformation Tracks</font></strong></a><br>
+<br>
+Procedural animation tracks allow the position and orientation of any
+object to be controlled explicitly
+using mathematical equations. This is useful, for instance, in the
+simulation of real-life physics.<br>
+<br>
+To add a procedural animation track, select the object and click on <b>Animation
+-&gt; Add Track to Selected
+Objects</b> and choose either <b>Position -&gt;
+Procedural</b> or <b>Rotation -&gt; Procedural</b>.
+Double-click
+the track name on the score or select it and click on <b>Animation
+-&gt; Edit Track </b>. This will display
+the procedure editor which is virtually identical to that used for
+procedural textures/materials. The obvious difference is that the
+output modules are X, Y and Z. In the case of a positional track, these
+are
+the x,y and z positions and, in the case of a rotation track, these
+will be the orientation around each axis.<br>
+<br>
+The <b>Insert</b> menu allows various value and function
+modules to be added to the procedure. See
+<a href="textures.html#proc_tex">Procedural Textures</a>
+for more details of the available modules.<br>
+<br>
+The <b>Properties</b> menu item allows the definition of
+the type of smoothing and the coordinate system as
+with the <a href="#pos_track_op">simple position track</a>.
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">Consider
+the example of a ball being thrown into the air upwards (y-axis) and
+along the x-axis. The physical equations describing this projectile
+motion tell us that the distance in the x-direction is given by <b>x
+= u t cos <font face="symbol">a</font></b>
+where <i>u</i> is the velocity (which we'll assume for the
+moment is constant) <i>t</i> is the time
+and <font face="symbol"><i>a</i></font>
+is the angle from the horizontal as shown on the figure on the right:<br>
+<br>
+The distance along the y-axis is given by <b> y = h + u t sin <font face="symbol">a</font> - 0.5 g t<sup>2</sup></b>
+where <i>h</i> is the initial height and <i>g</i>
+is the acceleration due to gravity (= 9.81 m/s<sup>2</sup>)
+</font></td>
+<td><img src="animation/projectile_diagram.gif"></td>
+</tr>
+</tbody>
+</table>
+<br>
+We're controlling the <i>position</i> of the ball so we
+need to put these equations into a procedural position track. One
+possibility, shown below, is to use the <b>Expression</b>
+module and feed the outputs into
+the relevant X and Y output modules. In this example, the velocity
+of projection is set through a parameter so that different projections
+could be set up easily. This could
+also be done with the other variables, such as initial height (which is
+1.0 in this example) and angle of projection which was set at 0.79
+radians (45 degrees) in this example.<br>
+<br>
+<img src="animation/project_proc.jpg"><img src="animation/projectile.gif"><br>
+In procedural animation tracks, it is also possible to keyframe any
+parameters that form part of the procedure. For example, if we amend
+the procedure above to add a wind effect as follows:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/project_proc2.jpg"></td>
+<td><font face="tahoma" size="2">Here,
+I have introduced the new parameter <i>wind effect</i>
+which is Input2 to the expression controlling
+the x displacement. The expression has been slightly modified to add a
+subtraction of the wind effect
+from the x position. This is a very simplistic simulation that will
+enable us to specify how far the
+wind is pushing back the ball.<br>
+<br>
+Now, we can keyframe this parameter by moving the time marker to a
+certain time point and selecting <b>Animation -&gt; Keyframe
+Selected Tracks </b>. This produces a keyframe at the current
+time
+position on the score. Double-clicking the keyframe displays a dialogue
+box that allows the value
+of the keyframe to be specified as shown below: </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/proc_param_key.jpg"></td>
+<td><font face="tahoma" size="2">Here,
+the value of the parameter can be set for the particular point in time.
+The value of the parameter
+at any point in time will then be interpolated between keyframed values
+using the type of smoothing
+selected from the Properties menu option in the procedure editor.<br>
+<br>
+As before, the smoothing value can be specified if the smoothing method
+is interpolating or approximating and the left and right smoothness can
+be separately defined.<br>
+<br>
+Specifying the value at a number of time positions produces the
+simplistic wind effect shown on the right.
+Clearly, more sophisticated and realistic simulations could be
+produced. </font></td>
+<td><img src="animation/projectile_wind.gif"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+Note that procedural animation tracks can also be used to apply motions
+on top of previous motions.
+Whenever x, y or z values are used within the procedure editor, they
+are the positions or orientations
+of the object just before this track is applied. So, for example, the
+following procedure would double
+any movements made by previous tracks in the x axis:<br>
+<img src="animation/proc_scale.jpg"><br>
+<br>
+<br>
+<a name="pose_tracks"><strong><font color="#ff6633" size="4">6.2.3 Pose Tracks and
+Skeletons</font></strong></a><br>
+<br>
+Pose tracks are a way of keyframing other object properties and have a
+particular use for mesh objects.<br>
+<br>
+<b><font color="#0000ff">Pose Tracks for Primitive
+Geometric Objects</font></b><br>
+For Primitive geometric objects, the properties that can be edited are
+those that can be set using the <a href="editing_objects.html#edit%20object">Edit Object</a>
+(i.e. scaling parameters). To apply, add
+a Pose Track via <b>Animation -&gt; Add Track to Selected
+Objects -&gt; Pose</b>. Now, add a keyframe at the time
+at which you want to set the scaling parameters by selecting the pose
+track and choosing <b>Animation -&gt; Keyframe Selected
+Tracks</b>.
+Double-click the keyframe to bring up the Edit Object dialogue, set the
+scaling parameters and click OK. Repeat for other times as required.
+The values of these parameters can also be set directly at the current
+scene time via the <a href="layout.html#object_list">Object
+Properties Panel</a>. &nbsp;The smoothness of the
+interframe interpolation can be set via the <a href="#pose_track_dial">track dialogue</a>.<br>
+<br>
+<b><font color="#0000ff">Pose Tracks for Lights</font></b><br>
+Pose tracks can also be set for lights to control <b>Colour</b>
+and <b>Intensity</b> (all light types), <b>Radius</b>
+and <b>Decay Rate</b>(for Point and Spot lights) and <b>Cone
+Angle</b> and <b>Falloff Rate</b> (for Spotlights).
+This works in a similar way to primitive geometric objects; add
+a Pose Track, keyframe at required time and Edit Keyframe to fix the
+light parameters at that time
+point. &nbsp;</font><font face="tahoma" size="2">The
+values of these parameters can also be set directly at the current
+scene time via the <a href="layout.html#object_list">Object
+Properties Panel</a>.</font><br>
+<font face="tahoma" size="2">
+<br>
+<b><font color="#0000ff"><a name="camera_filter_anim">Pose Tracks for Cameras</a></font></b><br>
+<a href="rendering.html#camera_options">Camera properties</a>
+<b>Focal Length</b>, <b>Depth of Field</b>
+and <b>Field of View</b> can also be animated via pose
+tracks. Again this works as with primitives and
+lights; add a Pose Track, keyframe at required time and Edit Keyframe
+to fix the camera parameters at that time point. &nbsp;</font><font face="tahoma" size="2">The values of these parameters
+can also be set directly at the current scene time via the <a href="layout.html#object_list">Object Properties Panel</a>.</font><br>
+<font face="tahoma" size="2">
+<br>
+<a href="rendering.html#camera_filters">Camera Filter</a>
+parameters can also be animated with time using Pose Tracks. The method
+is slightly different; first add the required filters to the camera
+(see <a href="rendering.html#camera_filters">Camera
+Filters</a> for details), then add a pose track.
+Expanding the Pose Track on the score by clicking the small arrow to
+the left of it displays a list of
+tracks corresponding to each filter. Keyframes can then be added to the
+relevant tracks by highlighting them and selecting <b>Animation
+-&gt; Keyframe Selected Tracks</b>. An example is shown below:<br>
+<br>
+<img src="animation/flash.jpg"><img src="animation/lightning_flash.gif"><br>
+<br>
+<br>
+<b><font color="#0000ff">Pose Tracks for Mesh
+Objects, Tubes and Curves</font></b><br>
+With mesh objects, tubes and curves, Pose tracks work in a similar way
+to Position tracks but at the vertex level.
+The basic premise is that you work with an object that must have a
+fixed number of vertices. You then set up various 'poses' of the object
+by manipulating the object in its editor. Art of Illusion then looks
+at the position of each vertex in the object and how it changes between
+poses. The path that each vertex
+takes is then calculated by interpolating for the frames in between the
+keyframed poses.<br>
+<br>
+Mesh objects with skeletons work slightly differently in that the
+position of the bones of the skeleton
+are calculated for each intermediate frame, then the vertex positions
+of the mesh are calculated based
+on the bone positions.<br>
+<br>
+To add a Pose Track to an object select <b>Animation -&gt;
+Add Track to Selected Objects</b> and choose
+<b>Pose</b>. As with rigid transformation tracks, setting
+up an animation is based on moving the time
+marker to the appropriate point in time on the score, editing the
+particular object property using the
+appropriate dialogue and keyframing the modified tracks. Alternatively,
+a keyframe can be placed at the
+required time using <b>Animation -&gt; Keyframe Selected
+Tracks</b> which can then be edited through
+<b>Animation -&gt; Edit Keyframe </b>.<br>
+<br>
+For a mesh object, when you add a Pose Track the following warning is
+displayed:<br>
+<img src="animation/pose_warning.jpg"><br>
+To create a Pose for a mesh actor, move the time marker to the required
+time on the score and double-click
+the object in the Object List. This displays a dialogue similar to that
+below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/pose_ex1.jpg"></td>
+<td><font face="tahoma" size="2">On the
+left hand side is a list of defined 'gestures' which are particular
+instances of the mesh. At first there is only one: Default Pose which
+is
+the object in the position in which it was created. This gesture cannot
+be deleted. To create a new gesture, select this default pose and click
+on <span style="font-weight: bold;">Duplicate</span>.
+Enter a name when prompted and this will add a new gesture to the list
+and open up the object editor to allow the object to be edited in much
+the same way as<span style="text-decoration: underline;"> </span><a style="text-decoration: underline;" href="object_types.html#triangle%20meshes">normal</a>
+except that you will not be able delete any vertices or add any new
+ones by extruding or subdividing.<br>
+<br>
+Once the mesh has been edited, click on OK to update the new gesture.
+To assign a gesture from this
+list to the current time, select it and click on <img src="animation/pose_add.jpg">. This adds the gesture to the <b>Current
+Pose</b> list. This list defines how the mesh looks at that
+moment in time: The final pose is the weighted sum of all the gestures
+in this list, treating these gestures as <i>displacements</i>
+from the
+default pose. You can set the <b>Weight</b> by selecting
+the gesture in the Pose list and typing a <b>Weight</b>
+value in the box beneath the list. Or you can simply add a single
+gesture to the list and click OK. If you look at this dialogue at a
+point in time
+between 2 keyframes, you will see that the <b>Weight</b>
+of each gesture will have been calculated accordingly. It is also
+possible to set negative <b>Weight</b> values.<br>
+<br>
+There are 2 other options available from this dialogue; <b>Save</b>
+allows you to create a new gesture
+which is equal to the current weighted average of the gestures in the <b>Current
+Pose</b> list.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Extract</b> saves the current pose determined from the
+defined set of gestures in the <b>Current Pose</b> list as
+a new mesh object.<br>
+<br>
+Once you have left the mesh Pose dialogue, set the keyframe for this
+new pose by selecting <b> Animation
+-&gt; Keyframe Modified Tracks of Selected Objects </b>.<br>
+<br>
+Using Pose Tracks for mesh objects allows effects such as morphing:<img src="animation/thingmorph.gif"><br>
+<br>
+<br>
+<br>
+Note that the <a href="layout.html#object_list">Object
+Properties Panel</a>
+can also be used for more direct keyframing of Pose Tracks for Actors.
+&nbsp;When you click on the Actor, the Properties Panel will show a
+list of the gestures that have been added to the Current Pose list.
+&nbsp;The weights of each can then be set in the Properties Panel
+either by directly entering numbers or by using the knobs.
+&nbsp;The
+weights can then be keyframed via </font><font face="tahoma" size="2"><b> Animation
+-&gt; Keyframe Modified Tracks of Selected Objects </b>or
+CTRL-SHIFT-K.</font><br>
+<font face="tahoma" size="2"><br>
+<br>
+<br>
+Using skeletons in animation is often an efficient way of creating new
+gestures and poses. To do this, create a skeleton and bind it to the
+mesh. Then, in the same way described above for each gesture, simply
+move the bones as required and keyframe the pose. Below is an example
+using 3 gestures, in addition to the default, and 5 keyframes; the
+default was used at the beginning and the end:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/pose_ex_score.jpg"></td>
+<td><img src="animation/pose_anim_ex.gif"><br>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+The <a name="pose_track_dial">options dialogue </a>for
+the Pose Track is displayed by double-clicking the track name on the
+score:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/pose_track_opts.jpg"></td>
+<td><font face="tahoma" size="2">The
+options are fewer than for the rigid transformation tracks.<br>
+<br>
+The <b>Track Name</b> can be changed to any name of choice.<br>
+<br>
+The <b>Smoothing Method</b> refers to the way the
+parameter is interpolated between frames. In the case
+of mesh objects, the relevant parameter is the <b>Weight</b>
+of the various gestures making up the pose.
+See <a href="#pos_track_op">above</a> for details
+on the different smoothing methods.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+The <b>Track Mode</b> can be either <b>Absolute</b>
+or <b>Relative</b>. <b>Absolute</b> tracks
+effectively
+overwrite any other Pose tracks further down the list whereas <b>Relative</b>
+tracks add to previous Pose
+tracks.<br>
+<br>
+<a name="rel_pose_tracks"><b>Relative</b> pose
+tracks </a> are useful for building up complex poses whilst
+retaining better control of
+different motions. In the example below, I have set up a series of
+poses for a simple arm model. There are
+seperate poses for each of the digits in a closed position and another
+pose for the wrist. By creating 2
+Pose tracks; one for the fingers (Absolute track mode) and one for the
+wrist (Relative track mode), adding/modifying the wrist movement only
+is much easier than having to separately edit each keyframe in a
+combined Pose track .<br>
+<img src="animation/pose_rel_poses_dials.jpg"><br>
+<br>
+For example, adding/removing the wrist movement is as easy as
+enabling/disabling the wrist track:<br>
+<br>
+<img src="animation/hand_no_wrist.gif"><img src="animation/hand_rel_pose.gif"><br>
+<br>
+<br>
+<br>
+<br>
+<b><font color="#0000ff">Child Objects and Animating
+Poses</font></b><br>
+<br>
+Suppose we added some eyes (as child objects) to the snake in the
+previous example. As the snake's head moves around we would like the
+eyes to move with the head. Try this for yourself and see the results.
+Child objects move and rotate with their parent object by default, but
+in this case the eyes don't move. Why? Because the snake's position and
+rotation doesn't actually change in the example above. The pose track
+changes and it is only the snake's posture that moves to reflect this.<br>
+<br>
+Child objects move and rotate with their parent object by default. This
+means that the coordinate system used for the child objects (eyes) is
+set to 'Parent' by default. In the snake example, we'd like the eyes to
+move with the pose of the snake as well. We can achieve this by setting
+the coordinate system
+of the eye objects to be linked to a bone within the parent mesh.<br>
+<br>
+To make the eyes follow the pose, double-click the position track for
+the eyes from the score (or click
+right and select <b>Edit Track</b>)and set the <b>Coordinate
+System</b> to <b>Other object...</b>.
+Now the <img src="animation/anim_coord_set.jpg"> button
+becomes available. Pressing this allows the selection of any object, or
+of any bone of any object with a defined skeleton, to be followed. If
+you select the snake object and expand the list of sub-items for the
+object you will see a list of bones that the snake object uses. Pick a
+bone close to the position of the eyes and the eyes will now move with
+the pose. Repeat/copy these steps with the rotation tracks as well.<br>
+<br>
+There are several points to note:<br>
+<br>
+You can still set keyframes for the child objects and animate them in
+their own right. The position and rotation tracks will combine with the
+other movements imposed by the parent object.<br>
+<br>
+You will need to set at least one keyframe for each child object to
+establish the coordinate system
+relationship.<br>
+<br>
+The objects following other object's coordinate systems in this way do
+not necessarily have to be children of that object but in most cases it
+makes sense if they are.<br>
+<br>
+<a name="bind">To make life easier, child objects can be
+bound automatically to their parent's skeleton.</a> Simply select
+the children of the parent (individually or by selecting parent and
+choosing <b>Edit -&gt; Select Children</b>) and click <b>Animation
+-&gt; Bind to Parent Skeleton</b>. This tool binds each
+object
+to the nearest bone in the parent's skeleton, creates Position and
+Rotation tracks for each child, and
+keyframes them to set up the relationship.<br>
+<br>
+<br>
+<a name="distort_tracks"><strong><font color="#ff6633" size="4">6.2.4 Distortion Tracks </font></strong></a><br>
+<br>
+Distortion tracks are used to modify the surface of any geometrical
+object in a procedural way. There
+are 7 distortion tracks currently available in Art of Illusion: <a href="animation.html#bend">Bend</a>, <a href="animation.html#custom">Custom</a>, <a href="animation.html#scale">Scale</a>, <a href="animation.html#shatter">Shatter</a>, <a href="animation.html#twist">Twist</a>, <a href="animation.html#IK_track">Inverse Kinematics</a>
+and <a href="animation.html#skel_shape">Skeleton Shape</a>.
+The first 5 act directly on the object's surface and can be used for
+any geometrical objects. The latter 2 are applied to the skeletons of
+meshes and consequently indirectly
+alter the mesh's surface. Each track is discussed separately in detail
+below:<br>
+<br>
+Note that for the first 5 distortion tracks, if the object in question
+is a mesh, the distortion is applied to each vertex of the
+control mesh <i>before</i> the surface is subdivided. That
+makes it fast, and keeps the surface smooth.
+If the object is not a mesh, it is first converted to a triangle mesh
+with the surface accuracy specified for rendering. The transformation
+is then applied to each vertex of that mesh. Bear in mind
+that this might not give the results you expect. For example, suppose
+you use a Scale track to enlarge a Sphere, and render it with surface
+accuracy 0.01. The sphere is first triangulated with
+accuracy 0.01, then the resulting mesh is enlarged - which means it now
+has errors greater than 0.01.
+<br>
+One general tip for distortion tracks is to ensure there are a
+reasonable number of vertices in the model.
+That way the distortions are smoother and more predictable.<br>
+<br>
+<a name="bend"><b><font color="#3393d2">BEND
+TRACK</font></b></a><br>
+<br>
+As the name suggests, this track bends the object through an angle
+about a specified axis and in a specified direction.<br>
+<br>
+To add a Bend Track to an object, select the object and choose <b>Animation
+-&gt; Add Track to Selected
+Objects -&gt; Distortion -&gt; Bend</b>. The properties
+of the track can be edited by double-clicking the track
+name on the score or clicking right and selecting <b>Edit Track</b>.
+This displays the Bend Track dialogue window like that below:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/bend_track_dial.jpg"></td>
+<td><font face="tahoma" size="2">The <b>Track
+Name</b> can be changed to anything you like and will appear in
+the track list on the score.<br>
+<br>
+The <b>Smoothing Method</b> defined the way that bend
+angles are interpolated between keyframed values.
+The options are detailed <a href="#pos_track_op">above</a>.<br>
+<br>
+The <b>Bend Axis</b> is the axis away from which the
+object bends.<br>
+<br>
+The <b>Bend Direction</b> determines in which direction
+the object bends away from the axis specified
+by the Bend Axis.<br>
+<br>
+<b>Reverse Bend Direction</b> alters the way in which
+the object bends, with the opposite end being
+fixed and the other end undergoing the bend.<br>
+<br>
+The <b>Coordinate System</b> determines whether the bend
+axis and direction are defined from the object's
+coordinate system or from the scene origin and orientation. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+To define the <b>Bend Angle</b> values, add keyframes at
+the required times by moving the time marker
+to that time and selecting <b>Keyframe Selected Tracks</b>.
+The keyframes can then be edited by
+double-clicking them on the score to display the dialogue window below:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/bend_key_dial.jpg"></td>
+<td><font face="tahoma" size="2">Here
+you can set the required <b>Bend Angle</b> in degrees and
+the <b>Time</b>.<br>
+<br>
+If either <b>Interpolating</b> or <b>Approximating</b>
+smoothing was specified in the track options
+dialogue then the <b>Smoothness</b> value can be specified.<br>
+<br>
+The <b>Smoothness</b> of the curve before the specified
+time can also be made different to that after the time by ticking the <b>Separate
+Left and Right Smoothness</b> box. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+The example below shows a bend track applied to a tube object with bend
+angles going from 0 to 270
+degrees and back to 0 with interpolating smoothing.<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/bend_ex_graph.jpg"></td>
+<td><img src="animation/bend.gif"><br>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<a name="custom"><b><font color="#3393d2">CUSTOM
+DISTORTION TRACK</font></b></a><br>
+<br>
+The custom distortion track is the most flexible of them. Indeed, the
+bend, scale and twist tracks
+could all be achieved using the custom track.<br>
+<br>
+To add a custom track to an object, select the object and click on <b>Animation
+-&gt; Add Track to Selected Objects -&gt; Distortion -&gt;
+Custom </b>. This adds a track called 'Deform' to that object's
+track list. The distortion operation is achieved through the procedure
+editor (familiar from procedural
+textures and procedural position/rotation tracks). To open the editor,
+double-click on the 'Deform' track
+name in the list or click right on it and select <b>Edit Track</b>.
+This will display the usual procedure
+editor which has outputs to x, y, and z. These are surface distortions
+in those respective axes. The
+insert menu contains the usual values, functions, patterns etc.
+discussed in the section on <a href="textures.html#proc_tex">Procedural
+Textures</a>.<br>
+<br>
+To better illustrate the use and power of the custom distortion track,
+we'll consider an example. The aim
+is to produce a 'bulge' track for a cylindrical-type object. The track
+will cause the middle of the
+object to 'bulge out' while the ends will remain static.<br>
+<br>
+First, to create a suitable object. To ensure we have a reasonable
+density of vertices on the surface,
+we'll use an extruded filled polygon instead of a straight cylinder.
+Double-click the polygon icon and
+change the number of sides to 8 and the shape to approximating to give
+a virtually circular cross-section.
+Whilst holding &lt;shift&gt; and &lt;ctrl&gt; drag out
+a polygon in the top view window. Now click on <b>Tools
+-&gt; Extrude</b>, set to extrude in the y-axis to a suitable
+height and set the number
+of segments to, say 10.<br>
+<br>
+Add a custom distortion track to the object and open up the procedure
+editor. The basic algorithm for
+the bulge is scale the x and y axes by a bulge factor but only within a
+defined height or width. Outside
+this bulge height, the scaling will be unaffected. Here is the
+procedure that does this:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/dist_cust_proc.jpg"></td>
+<td><font face="tahoma" size="2">It
+looks a little complicated but really it's quite simple.<br>
+<br>
+First of all, there are 2 parameters that have been set up: <b>bulge
+height</b> which defines the length
+of the object affected and <b>bulge size</b> which is the
+scaling applied to that part of the object as below:<br>
+<br>
+<img src="animation/bulge_diagram.jpg"><br>
+<br>
+The bulge is going to be centred on the object's y-axis, i.e. at y=0.
+The first function is '&gt;'; this
+returns 1 where the magnitude of y is less than the <b>bulge
+height</b> and 0 elsewhere. This is fed into
+the scaling function expression where it is multiplied by <br>
+<b>(1 + bulge size)*x</b>. Thus the value of this
+expression for the part of the surface outside the <b>bulge
+height</b> is 0. However, we want
+to scale the surface at this part of the object by a factor x, not 0,
+hence the + function. This adds
+onto the scaling factor another expression which is equal to x for the
+part of the surface outside of
+the bulge height.<br>
+<br>
+Inside the bulge region, the scaling factor is simply <b>(1 +
+bulge size)*x</b>; the value
+of the second expression is 0 inside the bulge height so it doesn't add
+anything onto the first
+expression. <br>
+<br>
+This is repeated for the z-direction with 2 expressions with x simply
+substituted with z.<br>
+<br>
+To set an acceptable range of values and a default value for the
+parameters <b>bulge height</b> and <b>bulge size</b>,
+double-click the modules and enter the values. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">The <b>Edit</b>
+menu at the top of the procedure editor contains an Undo/Redo facility
+and a control
+on the properties of the track as shown on the right:<br>
+<br>
+The <b>Parameter Smoothing Method</b> is the type of
+smoothing used between keyframed values of the parameters. See <a href="#pos_track_op">earlier</a> for a full
+description of these smoothing types.<br>
+<br>
+The <b>Coordinate System</b> can be set to either <b>Local</b>
+or <b>World</b> to use either the object's
+own coordinate system or that of the scene. </font></td>
+<td><img src="animation/cust_proc_prop_menu.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+Because we used parameters in the expression, it is now possible to
+keyframe the track. To do that,
+move time marker to 0, highlight the Bulge track and select <b>Animation
+-&gt; Keyframe Selected Tracks</b>.
+This adds a keyframe at time 0. Repeat this at another time. To set the
+parameter values for each
+keyframe, double-click the keyframe to display the keyframe dialogue
+window as below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/dist_cust_key_dial.jpg"></td>
+<td><font face="tahoma" size="2">This
+dialogue lists all procedural parameters at the top with slider bars
+allowing their values to be
+set for that particular time.<br>
+<br>
+If the <b>Parameter Smoothing Method</b> was set to either
+<b>Interpolating</b> or <b>Approximating</b>
+in the track properties then the <b>Smoothness</b> can be
+set in this
+dialogue and can be made different for the interpolations before and
+after this timepoint.<br>
+<br>
+This is the final animation made by setting 4 keyframes and varying
+only the <b>bulge size</b>
+parameter.<br>
+<img src="animation/CUSTOM.GIF"> </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+Below is another example animation using the sine function to distort
+the surface of flattened sphere
+mesh and varying the phase of the sine wave with time. The value in
+front of the x (3 in this case)
+defines the number of complete sine waves within a certain distance.
+The number in front of the t
+controls the speed of movement of the sine wave. In this example, this
+was equal to 2 x PI (6.283)
+i.e. one complete cycle per second.<br>
+<img src="animation/cust_dist_proc.jpg"><img src="animation/distort.gif"><br>
+<br>
+Custom distortion tracks can also use images to create interesting
+geometries such as in the landscape example below:<br>
+<br>
+<img src="animation/cust_land_proc.jpg"><img src="animation/custom_landscape.jpg"><br>
+<br>
+Be warned, though, that a complex image such as this requires a fine
+mesh to be accurately
+represented and this in turn requires significant memory.<br>
+<br>
+<br>
+<a name="scale"><b><font color="#3393d2">SCALE
+TRACK</font></b></a><br>
+<br>
+The Scale track scales the object along any or all directions. To add a
+Scale track to an object,
+select the object and choose <b>Animation -&gt; Add Track to
+Selected Objects -&gt; Distortion -&gt; Scale</b>.
+Double-clicking the Scale track in the list on the score displays the
+following dialogue window:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/scale_track_dial.jpg"></td>
+<td><font face="tahoma" size="2">The <b>Track
+Name</b> can be altered to anything you like.<br>
+<br>
+The <b>Smoothing Method</b> is the way in which the
+scaling factors are interpolated between keyframes.
+The options here are the same as described <a href="#pos_track_op">above</a>.<br>
+<br>
+The <b>Coordinate System </b> determines whether the <b>Local</b>
+coordinate system or the <b>World</b>
+coordinate system is used. If the latter is used, the object is scaled
+with respect to the axes passing through
+the scene origin rather than that passing through the object's centre. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+To set the scaling factor at a particular time, move the time marker to
+that time and select
+<b>Animation -&gt; Keyframe Selected Tracks </b>. This
+adds a keyframe to the score at that time. Double-click
+the keyframe to set the values through the following dialogue:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/scale_keyframe_dial.jpg"></td>
+<td><font face="tahoma" size="2">The
+scaling factors are set explicitly in the <b>X-Scale</b>, <b>Y-Scale</b>,
+<b>Z-Scale</b> boxes.<br>
+<br>
+If either <b>Interpolating</b> or <b>Approximating</b>
+smoothing was set in the track options dialogue, then
+it is possible to set the smoothness and to separate the smoothnesses
+of the interpolation before and
+after the point in time. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<a name="shatter"><b><font color="#3393d2">SHATTER
+TRACK</font></b></a><br>
+<br>
+The Shatter track is a way of representing an explosion. The object is
+broken up into triangular
+fragments which move outwards as a result of the 'explosion'. The
+fragments spin, are affected
+by the force of gravity and can be made to disappear with time.<br>
+<br>
+To add a Shatter track to an object, select the object and choose <b>Animation
+-&gt; Add Track to
+Selected Objects -&gt; Distortion -&gt; Shatter </b>.
+There are no keyframes with this type of track - all
+of the controls are in the track options dialogue accessed by
+double-clicking the track name in the
+list of tracks on the score. The dialogue looks similar to that below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/shatter_track_dial.jpg"></td>
+<td><font face="tahoma" size="2">The <b>Track
+Name</b> can be altered to whatever you like and appears in the
+track list.<br>
+<br>
+The <b>Start Time </b> is the time at which you want the
+explosion to begin. The track has no effect
+until that time.<br>
+<br>
+<b>Maximum Fragment Size</b> - The fragments are all
+the same size. There is no minimum size as AoI subdivides
+the surface triangles until the required size is reached (note,
+however, that performance is
+affected as the fragment size decreases). There is a maximum size,
+however, depending on the surface
+geometry. A cube, for instance, can have larger fragments than a sphere
+because a cube's surface can be represented by larger triangles whilst
+still maintaining the required surface accuracy. This option allows
+you to restrict the size of the fragments for such objects.<br>
+<br>
+<b>Explode Speed</b> is the initial speed at which
+the fragments move outwards.<br>
+<br>
+<b>Fragment Spin Rate</b> determines how fast the
+fragments spin.<br>
+<br>
+<b>Disappearance Time</b> - If this is set to
+anything other than 0, the fragments will disappear at
+random over time. The time set here is that at which all fragments will
+have disappeared.<br>
+<br>
+<b>Gravity</b> sets the magnitude of the force acting
+on the fragments.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<b>Gravity Axis</b> defines in which direction the
+'Gravity' force acts. Normally, of course, this would
+be set to Y, but this does not necessarily have to be the case.<br>
+<br>
+The <b>Randomness</b> defines the uniformity of movement
+during the explosion. A value of 0 means an even
+spread of fragments and 1 is a very random one.<br>
+<br>
+The <b>Coordinate System</b> is either the object's own
+(Local) or that of the scene (World). With the latter
+option set, the explosion will be outwards from the scene origin
+resulting in a 'sideways blast' if the
+object is not positioned at the origin.<br>
+<br>
+Below is an example of the Shatter track applied to a disc. The <b>Start
+Time</b> was set to coincide with
+the time at which the ball hits the disc. Approximating smoothing was
+used on the disc mesh which results
+in smoothed triangle fragments being created.<br>
+<br>
+<img src="animation/explode.gif"><br>
+<br>
+<br>
+<br>
+<a name="twist"><b><font color="#3393d2">TWIST
+TRACK</font></b></a><br>
+<br>
+The Twist distortion track rotates the surface around a particular axis
+by an angle that increases
+with distance along that axis. One end of the object remains static
+whilst the other twists around.
+To explain this better, here is an example:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td width="500"><font face="tahoma" size="2">The object used in this example is a pyramid
+created by extruding a flat spline and then scaling the extruded
+vertices down to a point. In order to get a smoother distortion, the
+mesh was subdivided a couple
+of times to give the mesh see on the right: </font></td>
+<td><img src="animation/twist_obj.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+To add a Twist track to an object, select <b>Animation -&gt;
+Add Track to Selected Objects -&gt; Distortion -&gt;
+Twist</b>. To edit the track options, double-click on the track
+name on the score or click right on it
+and select <b>Edit Track</b>. This displays the dialogue
+shown below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/twist_track_dial.jpg"></td>
+<td><font face="tahoma" size="2">The <b>Track
+Name</b> can be altered to anything you like.<br>
+<br>
+The <b>Smoothing Method</b> is the way in which the values
+of twist are interpolated between keyframes.
+The options here are the same as described <a href="#pos_track_op">above</a>.<br>
+<br>
+The <b>Twist Axis</b> is the axis around which the object
+is twisted<br>
+<br>
+<b>Reverse Twist Direction</b> twists the object the
+opposite way so that the other end is static.<br>
+<br>
+The <b>Coordinate System </b> determines whether the <b>Local</b>
+coordinate system or the <b>World</b>
+coordinate system is used. If the latter is used, the object winds
+itself around the axis passing through
+the scene origin rather than that passing through the object's centre. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+To set values of Twist, select the Twist track, move the time marker to
+the required time on the score
+and select <b>Animation -&gt; Keyframe Selected Tracks </b>.
+This produces a keyframe at the specified time position. To set the
+value, edit the keyframe by double-clicking it. This displays the
+dialogue
+shown below:
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/twist_key_dial.jpg"></td>
+<td><font face="tahoma" size="2">The <b>Twist
+Angle</b> controls the amount of rotation around the specifed
+axis at the given <b>Time</b>.<br>
+<br>
+If either <b>Interpolating</b> or <b>Approximating</b>
+smoothing was set in the track options dialogue, then
+it is possible to set the smoothness and to separate the smoothnesses
+of the interpolation before and
+after the point in time. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+In the example below, the twist angle was varied through 5 keyframes in
+a sine wave type pattern
+to produce the animation shown:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/twist_curve.jpg"></td>
+<td><img src="animation/twist.gif"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<a name="IK_track"><b><font color="#3393d2">INVERSE
+KINEMATICS TRACK</font></b></a><br>
+<br>
+Inverse Kinematics Tracks allow meshes to be deformed by adding
+constraints to the joints of the mesh's skeleton. Each bone joint can
+either be locked or forced to follow another object in the scene.<br>
+<br>
+To add an Inverse Kinematic track to a mesh object, select the object
+and go to <b>Animation -&gt;
+Add Track to Selected Objects -&gt; Distortion -&gt; Inverse
+Kinematics</b>. IK tracks do not have keyframes; rather the joint
+constraints that are set apply according to the track's <a href="animation.html#track%20weight">weight</a>. The
+constraints are set via the IK Track dialogue
+displayed by double-clicking on the track's name on the score (or right
+clicking and selecting <b>
+Edit Track...</b>). This dialogue, shown below left, lists the
+constraints that have been set; to add a new constraint,
+click on <b>Add...</b> to display another dialogue like
+that shown below right. From here you can
+select a bone joint and either lock it in place within the skeletonby
+clicking on the <b>Locked</b> radiobox or get it to follow
+another object from the scene by clicking on <b>Follows Target</b>
+then
+clicking on <b>Set</b> to choose the appropriate object.<br>
+<br>
+<img src="animation/IK_track_dial_gen.jpg"><img src="animation/IK_track_constraint_menu.jpg"><br>
+<br>
+<br>
+In the example below, the character's head is made to follow the 'bee'
+throughout its motion. The 'neck lock'
+bone joint is set to be locked and the 'head control' is set to follow
+the 'bee' (in this case, the 'head
+control' bone has also been locked, through the mesh editor, with
+respect to its parent).<br>
+<img src="animation/IK_track_skel.jpg">
+<img src="animation/IK_track_dial.jpg"><img src="animation/IKtrack.gif"><br>
+<br>
+Sometimes you might find that the distortion caused by this type of
+track creates 'squashing' of the
+mesh surface. Take the example below. The undistorted mesh surface and
+its simple skeleton are shown below left. In this example, the IK
+constraints are set so as to lock the bottom of the mesh via the root
+joint and have the joint at the top of the mesh follow a null as shown
+in the IK constraint dialogue below. The null has been keyframed to
+move in a roughly semicircular path around the top of the mesh. The
+result shown at one particular frame is shown below, and the animation
+formed from this setup is shown below right. As can be seen, the mesh
+squashes unacceptably at the bend position.<br>
+<br>
+<img src="animation/IK_con_ex2.jpg"><img src="animation/IKtest_no_gestures.gif"><br>
+<br>
+To avoid this effect, we can use the 'Use Gestures to Shape Mesh'
+option on the IK constraint
+track dialogue. Switching this option on will make the IK constraint
+track use existing
+gestures to control the shape of the mesh instead of it just being
+shaped by movement of the skeleton.
+So what we can do in this case is to create two new gestures with the
+mesh skeleton bent to each side. When creating these gestures you will
+find that, as the skeleton is bent down into the appropriate position,
+the mesh squashes just like it did with the IK constraint track above
+(that's because it's doing exactly the
+same thing). But now, we can move vertices in the gesture around to
+'unsquash' the joint as shown in the
+two gestures below. Now we can go back to the IK constraint dialogue
+and switch on 'Use Gestures to Shape Mesh'.
+Now the IK track will adjust the skeleton based on the constraints we
+have set, as before. But this time it
+will look at the gestures that have been created and will produce a
+pose from them whose skeleton configuration
+matches that of the IK constrained skeleton. This produces much better
+and more controllable distortions
+when using IK constraint tracks as shown in the animation below:<br>
+<br>
+<img src="animation/IK_con_ex3.jpg"><img src="animation/IKtest_with_gestures.gif"><br>
+<br>
+In actual fact, the 'Use Gestures to Shape Mesh' option doesn't care
+how the skeleton gets into a
+particular configuration; it doesn't have to be through an IK
+constraint - it could be as a result of
+a pose track or a combination of pose tracks. In this case, you may not
+even want or need to set any IK
+constraints; just switch the 'Use Gestures to Shape Mesh' on.<br>
+<br>
+The 'Use Gestures to Shape Mesh' option could also be used to create
+other effects like bulging
+muscles when limbs flex etc.<br>
+<br>
+<br>
+<br>
+<br>
+<a name="skel_shape"><b><font color="#3393d2">SKELETON
+SHAPE TRACK</font></b></a><br>
+<br>
+<br>
+The Skeleton Shape is a method of posing a mesh with a skeleton that is
+an alternative to a Pose
+Track for this type of object. Skeleton Shape tracks can have keyframes
+which define the configuration of the skeleton at a particular point in
+time.<br>
+<br>
+To use a Skeleton Shape track, add one to your skeleton-containing mesh
+via <b>Animation -&gt;
+Add Tracks to Selected Object -&gt; Distortion -&gt; Skeleton
+Shapes</b>. Add a keyframe at the appropriate
+time on the Score by moving the time marker to that time and selecting <b>Animation
+-&gt; Keyframe
+Selected Tracks</b>. Then the keyframe can be edited by
+double-clicking on it to display a dialogue similar
+to that shown below:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td width="300"><font face="tahoma" size="2">The editor is similar to the mesh editor except
+that manipulations can be made to the mesh only via
+the skeleton and not the mesh vertices. The <b><font color="#000080">Edit</font></b> menu allows one
+level of Undo. <b>Edit -&gt;
+Properties</b> displays the Properties dialogue which allows
+left/right smoothnesses to be set as per <a href="animation.html#pos_key_edit">other tracks</a>.<br>
+<br>
+The <b><font color="#000080">Skeleton</font></b>
+menu is shown on the image on the right: <br>
+<br>
+<b>Edit Bone</b> accesses the bone joint
+editor (see <a href="object_types.html#skeletons">here</a>).<br>
+<br>
+<b>Reset to Default Pose</b> puts the keyframe's
+skeleton back into the Default Pose configuration for that object.<br>
+<br>
+<b>Create Pose from Gestures</b> displays the current
+list of gestures (the option will not be available if the
+object is not an Actor) and allows the Skeleton Shape keyframe to be
+created effectively from a custom pose
+made up from a sum of various weightings of gestures.<br>
+<br>
+The <b><font color="#000080">View</font></b>
+Menu is identical to the equivalent menu in the mesh editor. <br>
+</font></td>
+<td><img src="animation/skel_shape_key_dial.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+The Skeleton Shape tracks can be edited by double-clicking the track's
+name in the Score or right-clicking
+and selecting <b>Edit Track</b>. This displays the
+dialogue below:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/skel_shape_track_dial.jpg"></td>
+<td><font face="tahoma" size="2">The <b>Track
+Name</b> is editable as with other tracks as is the <b>Smoothing
+Method</b>.<br>
+<br>
+The <b>Use Gestures to Shape Mesh</b> is analogous to the <a href="animation.html#IK_track">Inverse Kinematic</a>
+distortion tracks. The Skeleton Shape tracks distort a mesh based only
+on skeleton
+movement. In some situations, relying on skeletal deformation alone can
+lead to problems with
+the mesh becoming 'squashed' - this is particularly common around some
+joints, for example. However, if
+you create a gesture with the skeleton in a similar configuration to
+that expected to arise in the Skeleton Shape track, the vertices of the
+mesh can be moved to smooth out these problems for that gesture. Then,
+switching on <b>Use Gestures to Shape Mesh</b> for the
+Skeleton Shape track will automatically sort out these problems.
+Indeed, if you create a Skeleton Shape keyframe and edit it with this
+option switched on (with appropriate gestures created), the
+'unsquashing' effect is actually applied in real
+time. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+Below is a practical example. Here is an arm which needs to be bent at
+the elbow. If we just rotate
+the appropriate bone, there are problems with 'squashing' around the
+joint as shown below left. If we tried to bend the arm in this way with
+a Skeleton Shape track, the results
+would not be acceptable. However, we can first create a gesture with
+the skeleton in this position and fix the problem vertices as shown
+below right. Also note, that we can move other vertices to improve
+the realism, such as 'bulging' the bicep slightly and sharpening the
+point of the elbow.<br>
+<br>
+<img src="animation/skel_shape_gests.jpg"><br>
+<br>
+If we now create a Skeleton Shape track with <b>Use Gestures to
+Shape Mesh</b> on, create a keyframe, edit it and move the elbow
+joint, the problems areas do not occur - they are corrected in real
+time - together with the bicep bulge and pointy elbow. Below shows the
+rendered animation between 2 keyframes
+without 'Use Gestures...' (below left) and with 'Use Gestures...'
+(below right).<br>
+<br>
+<img src="animation/arm_SS_noGest.gif"><img src="animation/arm_SS.gif"><br>
+<br>
+It can be seen that, using this approach, the Skeleton Shape track is a
+straightforward way of keying
+the primary movement of a character. A set of gestures (first convert
+the mesh to an Actor via <b>Object -&gt; Convert to Actor</b>)
+can be set up for the important and troublesome areas such as joints
+or places where, for example, muscular movement would result in a mesh
+deformation on top of the main
+joint movement. The Skeleton Shape track can then be used to edit the
+character's position without
+further worry about 'squashing' joints etc.<br>
+<br>
+Note that Skeleton Shape tracks are absolute and so override other
+Skeleton Shape tracks or Pose tracks
+below then in the Score. A Skeleton Shape track would normally be used
+to define the broad motion of a
+character and relative Pose Tracks could then be used to add additional
+or secondary motions.<br>
+<br>
+<br>
+<a name="constraint_tracks"><strong><font color="#ff6633" size="4">6.2.5 Constraint Tracks </font></strong></a><br>
+<br>
+Constraint Tracks are unlike the other tracks that can be created in
+that they do not have keyframes. They are a way of constraining the
+various transformations of an object during the whole animation.
+Constraint
+Tracks are added to an object by selecting <b>Animation
+-&gt;Add Track to Selected Objects </b> and choosing
+<b>Constraint</b>. Double-clicking the relevant track name
+in the list on the score displays the following
+dialogue:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/constraint_track_dial.jpg"></td>
+<td><font face="tahoma" size="2">Below
+the editable <b>Track Name</b>, there are 3 rows that
+define the way the object is positionally constrained. For each axis,
+the <b>Constraint</b> can be selected as <b>None</b>,
+<b>Less Than</b>, <b>Equal to</b> or <b>Greater
+Than</b> the value (in units) defined. Setting the X-Constraint
+to be <b>Less Than</b> 3, for example, means that the
+object will never go beyond the plane x=3.<br>
+<br>
+The <b>Orientation</b> is constrained by the next section.
+Here you can specify that one axis (in the
+objects coordinate system) either <b>Faces Toward</b> an
+object (or one of the joints of its skeleton if
+it has one) of your choice selected by clicking the <img src="animation/anim_set.jpg"> button, or can be set to be <b>Parallel
+to</b> or <b>Perpendicular to</b> a
+vector set in the x,y and z boxes which then appear as below:<br>
+<img src="animation/constraint_dial2.jpg"> </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+One possible use of Constraint tracks is in controlling the eye
+rotation of an animated character. In
+the example below, Constraint tracks were applied to both eyes to make
+them face towards the swinging
+gem object:<br>
+<img src="animation/constraint_ex_dial.jpg"><img src="animation/eye.gif">
+<br>
+<br>
+<a name="visibility_tracks"><strong><font color="#ff6633" size="4">6.2.6 Visibility Tracks </font></strong></a><br>
+<br>
+Visibility tracks are the simplest tracks available. They control when
+objects become visible in the
+scene. To add a visibility track, select <b>Animation -&gt;
+Add Track to Selected Objects</b> and select
+<b>Visibility</b>.<br>
+<br>
+To hide the object, move the time marker to the appropriate point in
+time and either
+select <b>Object -&gt; Hide Selection</b> and then <b>Animation
+-&gt; Keyframe Modified Tracks of Selected
+Objects </b> or select <b>Animation -&gt; Keyframe
+Selected Tracks</b>, click on the new keyframe and select
+<b>Animation -&gt; Edit Keyframe</b> to display the
+dialogue below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/visib_track_dial.jpg"></td>
+<td><font face="tahoma" size="2">Here,
+you can set the object to be visible or not and the time. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<a name="anim_textures"><strong><font color="#ff6633" size="4">6.2.7 Animating Textures </font></strong></a><br>
+<br>
+Textures can be animated in a number of ways with Art of Illusion. Two
+of the methods require the use of <a href="textures.html#proc_tex">Procedural
+Textures</a>.<br>
+<br>
+The first method uses the <b>Time</b> parameter available
+in the procedural
+texture editor which can be added to a texture by selecting <b>Insert
+-&gt; Values -&gt; Time</b>. At any point
+in the animation, this parameter is equal to the time at that point.
+Therefore creating a texture which
+uses the Time parameter will vary accordingly.<br>
+<br>
+Below is an example of a simple texture within which the Transparency
+is controlled with the Time
+parameter as shown:<br>
+<img src="animation/tex_param_time.jpg"><img src="animation/textrans.gif"><br>
+<br>
+<br>
+The other method is through the use of <a href="textures2.html#tex_param">texture parameters</a>.
+The value of any such parameters defined in a procedural texture can be
+varied with time to form an
+animated texture.<br>
+<br>
+Having created a texture with texture parameters and assigning it to
+the object, set up a <b>Texture Track</b> by selecting <b>Animation
+-&gt; Add Track to Selected Objects -&gt; Texture Parameter</b>.
+Double-clicking on this track in the score produces the following
+dialogue:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/anim_tex_options.jpg"></td>
+<td><font face="tahoma" size="2"> <b>Track
+Name</b> is the name of the track which can be changed to
+anything you like.<br>
+<br>
+<b>Smoothing Method</b> is as defined <a href="#pos_track_op">above</a>. In this case the
+values of the
+parameters are smoothed as specified.<br>
+<br>
+In the area below is a list of all the currently defined texture
+parameters in the object's texture.
+Here you can select which parameters to control via this animation
+track. Multiple selections are made
+by holding down the &lt;shift&gt; key while clicking on entries
+in the list. </font></td>
+</tr>
+</tbody>
+</table>
+Once the parameters to be controlled have been defined, the track can
+be keyframed in the normal way by moving the time marker to an
+appropriate point in time and clicking
+<b>Animation -&gt; Keyframe Selected Tracks</b>. The
+keyframe can be edited by double-clicking it on the score or by
+selecting it and clicking on <b>Animation -&gt; Edit Keyframe</b>.
+This
+displays the following dialogue:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/anim_keyf_edit.jpg"></td>
+<td><font face="tahoma" size="2">Listed
+at the top of the window are all the parameters that were identified in
+the previous
+dialogue. In this example, there are 2 texture parameters called
+parameter and trans. Their
+values at this point in time can be altered using the slider bars or by
+typing values into the
+boxes.<br>
+<br>
+The <b>Time</b> can also be re-defined here.<br>
+<br>
+The remainder of the dialogue relates to smoothing before and after the
+keyframe which can either
+be the same or be separately defined. <b>Smoothness</b>
+values are entered appropriately and
+are valid if either <b>interpolating</b> or <b>approximating</b>
+smoothing was selected in the
+previous dialogue.<br>
+<br>
+The plot views can also be used to show plots of each parameter against
+time. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+Below is a simple example. This has a single parameter which is
+controlling the length of the
+'hairs' formed using displacement mapping. Two keyframes were used at
+the start (0) and the end
+(1) of the animation period<br>
+<img src="animation/growinf_tex.jpg"><img src="animation/growing2.gif"><br>
+<br>
+<br>
+<a name="edit_tracks"><strong><font color="#ff6633" size="4">6.2.8 Editing Tracks </font></strong></a><br>
+<br>
+There are several options at the bottom half of the <b>Animation</b>
+menu for editing tracks.<br>
+<br>
+<b>Edit Track</b> is the same as double-clicking the track
+name and produces a dialogue which depends
+on the type of track. See the above sections for details.<br>
+<br>
+<b>Duplicate Selected Tracks</b> produces identical copies
+of all selected tracks.<br>
+<br>
+<b>Delete Selected Tracks</b> and <b>Select All
+Tracks of Selected Objects</b> are self-explanatory.<br>
+<br>
+<b>Disable Selected Tracks</b> allows you to stop any
+currently selected tracks having any effect
+temporarily. <b>Enable Selected Tracks</b> reverses this
+operation.<br>
+<br>
+Texture parameter tracks can also be used to animate <a href="textures2.html#layered_tex">blending fractions</a>
+for layered textures, thereby
+allowing textures to be blend into each other. Blending fractions will
+appear in the Texture Track option
+dialogue and can be controlled in exactly the same way as other
+parameters.<br>
+<br>
+Note that Texture Parameter tracks cannot be used to animate per-vertex
+textures. This can
+be achieved, however, using a Pose Track. Set up the texture in the
+same way as <a href="textures2.html#tex_param">normal</a>
+and assign it
+per-vertex to the object as required. When the mesh is converted to an
+'actor', the per-vertex texture
+information will be preserved and varied for different poses at
+different keyframes with interpolation
+being performed between keyframes.<br>
+<br>
+<br>
+<a name="anim_render"><strong><font color="#3300cc" size="5">6.3 Previewing and Rendering
+Animations</font></strong></a><br>
+<br>
+<br>
+<br>
+<a name="prev_anim"><strong><font color="#ff6633" size="4">6.3.1 Previewing Animations </font></strong></a><br>
+<br>
+<br>
+At the left side of the score are the playback controls:
+<p>
+<img src="animation/playback.png">
+<p>
+Press the center button to start and stop animating the scene.  The left and right buttons jump to the time of the
+very first or very last keyframe on any object.  You can adjust how quickly the animation plays by dragging the slider.
+<p>
+If you want more precise control over how the animation is previewed, you can use the <b>Animation -&gt; Preview Animation</b>
+command.  This displays a dialogue similar to that below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/prev_anim_dial.jpg"></td>
+<td><font face="tahoma" size="2">The <b>Camera</b>
+drop down menu allows you to view the preview from any camera that
+exists in the scene.<br>
+<br>
+The <b>Display Mode</b> drop down menu allows you to
+select the type of display for the preview from Wireframe, Shaded,
+Smooth or Textured.<br>
+<br>
+The <b>Start Time </b> and <b>End Time</b>
+specify the time period over which the preview will play.<br>
+<br>
+The <b>Width</b> and <b>Height</b> are the
+dimensions in pixels of the preview window.<br>
+<br>
+The <b>Frames/sec</b> controls the smoothness of the
+preview; the higher the number of frames per second, the more
+interpolated positions are created and the smoother the animation
+becomes. </font></td>
+</tr>
+</tbody>
+</table>
+Clicking OK the displays the preview in the selected display mode as in
+the example below:<br>
+<img src="animation/prev_anim.jpg"><br>
+The Time and Frame numbers are displayed for reference. Click on Done
+when finished.<br>
+<br>
+<br>
+<br>
+<a name="render_anim"><strong><font color="#ff6633" size="4">6.3.2 Rendering Animations </font></strong></a><br>
+<br>
+Animations are rendered in the same way as with still images via <b>Scene
+-&gt; Render Scene</b>. This
+produces the dialogue described in the chapter on <a href="rendering.html">rendering</a>. The relevant
+part of this dialogue for rendering animations is shown below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/render_anim_dial.jpg"></td>
+<td><font face="tahoma" size="2">To
+render an animation rather than a still, click on the <b>Movie</b>
+radiobox.<br>
+<br>
+You can then specify the <b>Start Time</b> and <b>End
+Time</b> over which to render.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+The <b>Frames/sec</b> controls the smoothness of the
+animation; the higher the number of frames per second, the more
+interpolated positions are created and the smoother the animation
+becomes (but the longer it takes to render and the more diskspace is
+used).<br>
+<br>
+<b>Images/Frame</b> allows the production of a number of
+images for each frame to simulate motion
+blur which occurs in real life when objects are moving faster than the
+camera exposure time. For each frame, the specified number of images is
+produced by interpolating additional time points
+and the average of the images is calculated and stored. Below is an
+example; the left image has 1
+image/frame (i.e no motion blur) and the image on the right has 3. The
+greater the number of frames, the smoother the blurring will appear but
+at the cost of speed.<br>
+<br>
+<img src="animation/no_mb.gif"><img src="animation/mb.gif"><br>
+<br>
+After clicking OK, the image file format and quality dialogue below is
+displayed as below:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="animation/save_options.jpg"></td>
+<td><font face="tahoma" size="2">The <b>Quality</b>
+determines the amount of compression in the image. A high Quality value
+will look
+better but will result in a larger file size.<br>
+<br>
+If you select either TIFF, JPEG, PNG, BMP or HDR the animations will be
+saved as individual frames in the specified
+image format. Selecting one of these and clicking OK will display the
+filename dialogue. Each frame rendered as part of the movie will have
+the filename you enter here with an extension relating to the frame
+number, e.g. filename0001, filename0002 etc.. The starting number can
+be changed via the dialogue
+shown on the left; the default value for this is calculated according
+to the start time.<br>
+<br>
+Alternatively, animations can be produced in the Quicktime format by
+selecting the appropriate option.
+Note that you need to have Java Media Framework installed for this to
+work. See the <a href="installation.html">Installation</a>
+page
+for details. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+</font>
+<div align="left"><font face="tahoma" size="2"><a href="rendering.html"><b><font size="4">Previous:
+Rendering</font></b></a></font></div>
+<font face="tahoma" size="2"><br>
+</font>
+<div align="right"><font face="tahoma" size="2"><a href="scripting.html"><b><font size="4">Next:
+Scripting</font></b></a></font></div>
+<font face="tahoma" size="2"><a href="contents.html#contents_top"><b><font size="4">Back
+to Contents</font></b></a><br>
+</font>
+</body></html>

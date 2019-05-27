@@ -1,0 +1,44 @@
+<html>
+<!-- Creation date: 26/03/02 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>sunburst.html</title>
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+<meta name="Author" content="Julian MacDonald">
+<meta name="Generator" content="AceHTML 4 Pro">
+</head>
+<body BGCOLOR="#f8e89e">
+<font face="tahoma" size="2">
+<table><tr>
+<td><img src="textures/mat_orange_fur_ex.jpg"></td>
+<td><font face="tahoma" size="2">
+This material is based on the <b>Grid</b> pattern to which a <b>spherical</b> transform is partly applied.
+Note than the R output from the spherical output is not fed into the grid; rather a 0 value is the input
+which stretches the grid pattern radially outwards.<br>
+<br>
+The resulting grid pattern is then evaluated with the <b>greater than</b> function to pick out points within
+a radius of 0.03, i.e thin 'spokes' (the Grid spacing is set at 0.1).  This is fed into the density function
+so that the 'spokes' have a high density and everywhere else is zero.<br>
+<br>
+<br>
+<b>Transparency</b> is set to a very low (but non-zero) value to produce a virtually opaque material.<br>
+<br>
+<br>
+Finally, the R output of the <b>Spherical</b> transform is fed into a custom colour map to produce
+a pattern whose colour varies with distance from the centre.<br>
+<br>
+<br>
+The <b>Integration Step Size</b> was reduced to 0.01 to allow more accurate rendering of the fine (0.03) spokes.
+<br>
+
+</font></td>
+</tr></table><br>
+<br>
+<br>
+<a href="materials.html#ex_materials"><b><font size="4">Back to Materials</font></b></a><br>
+
+
+</font>
+</body>
+</html>

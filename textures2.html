@@ -1,0 +1,970 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<!-- Creation date: 17/03/02 -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>textures2.html</title>
+
+
+  <meta name="Description" content="">
+
+  <meta name="Keywords" content="">
+
+  <meta name="Author" content="Julian MacDonald">
+
+  <meta name="Generator" content="AceHTML 4 Pro">
+
+</head>
+
+
+<body style="background-color: rgb(248, 232, 158);">
+
+<font face="tahoma" size="2">
+<div align="left"><a href="textures.html"><b><font size="4">Previous: Textures</font></b></a></div>
+
+<br>
+
+<div align="right"><a href="materials.html"><b><font size="4">Next: Materials</font></b></a></div>
+
+<br>
+
+<a name="assign_tex"><strong><font color="#ff6633" size="4">4.1.4 Assigning Simple Textures to Objects</font></strong></a><br>
+
+<br>
+
+<br>
+
+Once textures have been created, they need to be assigned to the
+relevant object. To do this, select
+the object(s) from the Object List and click on <b>Object
+-&gt; Set Texture and Material</b>. This displays a
+dialogue similar to that below:<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td><img src="textures/assign_texture_dial.png"></td>
+
+      <td width="400"><font face="tahoma" size="2">On the left of this dialogue is a list of defined
+textures. Clicking on
+one shows the result as applied to a sphere as in the texture creation
+tools. As with the <a href="textures.html#uniform_tex">
+uniform texture dialogue</a>, double-clicking on
+the preview displays a menu from which the view and preview object can
+be changed. The preview can be zoomed (CTRL drag with RMB) and
+panned (drag with RMB).<br>
+
+      <br>
+
+Beneath this is a box titled '<b>Texture Parameters</b>' -
+see the <a href="#tex_param">next section</a> for
+more information on this.<br>
+
+      <br>
+
+Also note that there is a <b>Type</b> selection box at the
+top of the dialogue. This allows both
+simple textures and layered textures. <a href="#layered_tex">Layered
+textures</a> will be discussed later.<br>
+
+      <br>
+
+You also can create new textures and access the <b>Textures and Materials</b>
+dialogue from here.</font></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+For uniform textures, all that is needed is to select the appropriate
+texture and click OK. For the other
+texture types, however, we can control the way in which the texture is
+applied to the object's surface.
+To edit the way the texture is applied to the particular object, click
+on <b>Edit Mapping</b>.The
+following dialogue is then displayed:<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td><img src="textures/texture_map_dial.jpg"></td>
+
+      <td width="400"><font face="tahoma" size="2">This dialogue displays the actual object that you
+wish to map the
+texture to. The object can
+be rotated in the preview window, to allow better all-over
+visualisation, by clicking and dragging with LMB
+within the preview window. The preview can be zoomed (CTRL drag up/down
+with RMB) and
+panned (drag with RMB) and can be resized by dragging out the sides of
+the whole dialogue window. The view can be be changed by
+double-clicking on the preview and
+selecting the required view from the pop-up menu.<br>
+
+      <br>
+
+The type of mapping can be selected from the drop down menu just below
+the preview image (see below for
+details).<br>
+
+      <br>
+
+Below this are a set of boxes to allow the scaling, orientation and
+position to be altered to better fit
+the object. The parameters available for editing depend on the type of
+mapping which is described below: </font></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<br>
+
+<b><font size="4">Types of Mapping</font></b><br>
+
+<br>
+
+For procedural 3D textures, there is only one choice: <b>Linear</b>.
+This is because 3D textures are 'solid' and the object to which they
+are assigned will look as though it has been carved out of it.<br>
+
+<br>
+
+For image maps and procedural 2D textures, the texture is wrapped
+around the object and this can be done
+in various ways. In this case, the type of mapping is either <b>Projection,
+Cylindrical, Spherical or UV</b>.<br>
+
+<br>
+
+<b>Projection</b> applies the texture as though it is cast
+by a slide projector onto the object. This will work well
+for flat objects but will result in distortions where there is sharp
+curvature such as in the example below. In this example, the
+texturelooks OK until it wraps around the side where the texture
+appears to stretch. Altering the projection to <b>Cylindrical</b>
+gives a better result for this object and <b>Spherical</b>
+also gives a reasonable result:<br>
+
+<img src="textures/mapping_types.jpg"><br>
+
+The type of mapping that is best depends on the geometry of the object.
+Cylindrical and Spherical mapping
+work by wrapping the texture around the object such that the texture
+would perfectly fit around a
+cylinder or sphere respectively. So if objects are geometrically
+similar to cylinders and spheres, these
+types of mapping will work reasonably well.<br>
+
+<br>
+
+In most cases, however, objects are not flat or perfectly cylindrical
+or spherical. That's where
+<b>UV</b> mapping comes in. UV mapping allows complete
+control of the placement of texture coordinates
+on mesh objects allowing textures to be mapped exactly as required. See
+<a href="#uv_map">later</a> for details.<br>
+
+<br>
+
+<br>
+
+<b><font size="4">Altering Mapping Parameters</font></b><br>
+
+<br>
+
+Having selected the type of mapping, we can now make the texture fit
+the object by altering the mapping parameters.<br>
+
+<br>
+
+For procedural 3D textures for which we have the <b>Linear</b>
+mapping, we can alter the Scale, Centre
+and Rotation as shown in the texture mapping dialogue above. The <b>Scale</b>
+alters the size of the
+texture, the <b>Centre</b> controls its position and the <b>Rotation</b>
+affects its orientation. Each
+of these parameters can be specified for the x,y and z axes. As in the
+main layout, <b>y</b> is up and down, <b>x</b>
+is left and right and <b>z</b> is forwards and backwards.<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td><img src="textures/scale_textures_dial.jpg"></td>
+
+      <td width="600"><font face="tahoma" size="2">There is another
+option available -&nbsp;<span style="font-weight: bold;"><a name="Scale_Texture"></a>Scale Texture to Object</span>-
+which also allows the texture to be automatically scaled to the
+object as shown in the example below. &nbsp;If this option is enabled,
+then the scale and centre set in this dialogue are relative to the size
+of the object (actually its bounding box) with 0 being one edge of
+object and 1 being the other edge.&nbsp; This automatically updates the
+texture mapping as the object is scaled.<br>
+
+      <br>
+
+      <img src="textures/tex_scale_ex.jpg" style="width: 417px; height: 228px;" alt=""><br>
+ </font></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td><img src="textures/linear_proj_change.jpg"></td>
+
+      <td width="600"><font face="tahoma" size="2">In this example of applying a texture to a mesh object, the 'lizard skin' texture has been
+scaled by 0.5 in each dimension to reduce the size of the lizard's scales.<br>
+
+      <br>
+
+A rotation of 45 degrees around the z-axis has also been applied
+resulting in stripes that slope down obliquely.<br>
+
+      <br>
+
+If the object is a mesh, then a further option is available:<a name="bind"></a> <b>Bind
+Texture Coordinates to Surface</b>.
+If checked, the texture will transform with the mesh as it undergoes
+any mesh transformations or deformations.
+If left unchecked, then the mesh will 'move' through the texture as it
+transforms. This is illustrated below.
+The object is a sphere converted to a triangle mesh and the procedural
+3D texture used is shown on the
+original object. A simple scaling is applied to the object in the mesh
+editor both with and without
+binding on. The object with no binding scales through the texture while
+the one with binding shows the texture scaling with the mesh. <br>
+
+      <img src="textures/tex_binding.jpg"> </font></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<br>
+
+The final option on the dialogue is whether to apply the texture to
+both sides of the surface or to
+one side only. The difference is only evident on an open surface. In
+the example below is a spline
+mesh bent back on itself. Applying the texture to both sides means that
+the whole object is visible
+whereas applying it to the front or back sides only makes the opposite
+side appear invisible.<br>
+
+<img src="textures/front_back_faces.jpg"><br>
+
+One important use of being able to map to one side only is with <a href="#layered_tex">layered textures</a> where you
+could
+choose to have different textures mapped to <a href="#layered_sides">different sides</a>.<br>
+
+<br>
+
+<br>
+
+For procedural 2D and image mapped textures, the options for mapping
+are projection, cylindrical and spherical. The mapping parameters
+available for editing depend on the type of mapping.<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td width="500"><font face="tahoma" size="2">For <b>Projection</b> mapping, the
+parameters are shown in
+the dialogue on the right. Scaling and centering can only be performed
+for x and y axes since the texture is a 2D 'sheet' projected onto
+the object. Rotation, however, can be performed in all 3 axes.<br>
+
+      <br>
+
+An example transformation is shown on the far right.<br>
+
+      <br>
+      <span style="font-weight: bold;"></span></font><font face="tahoma" size="2"><font face="tahoma" size="2"><font face="tahoma" size="2"><a href="textures2.html#bind"><span style="font-weight: bold;">
+Bind Texture Coordinates to Surface</span></a></font></font></font><font face="tahoma" size="2"><span style="font-weight: bold;"></span>&nbsp;is again available for mesh objects.<br>
+      <br>
+      <a href="#scale_texture"><span style="font-weight: bold;">Scale Texture to Object</span></a> is also available for projection mapping. </font></td>
+
+      <td><img src="textures/proj_mapping.jpg"></td>
+
+      <td><img src="textures/proj_map2.jpg"></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td width="500"><font face="tahoma" size="2">The <b>Cylindrical</b> mapping
+parameters are shown on the
+right. The texture is the same as the above example.
+This time, however, we have a different set of parameters:<br>
+
+      <br>
+
+      <b>Width</b>, which is specified in degrees, is
+the scaling around the cylindrical axis. 360 degrees means that the
+texture is wrapped exactly once around
+the axis. A smaller angle results in the texture being scaled down and
+vice versa.<br>
+
+      <br>
+
+      <b>Height</b> is the scaling in the long axis of the
+cylinder. A smaller value results in a compression of the
+texture is that axis.<br>
+
+      <br>
+
+The <b>Offset</b> controls the centering of the texture.<br>
+
+      <br>
+
+      <b>Rotation</b> around the x,y and z axes can also be
+specified.<br>
+
+      <br>
+
+An example mapping is given on the far right.<br>
+      <br>
+
+      </font><font face="tahoma" size="2"><font face="tahoma" size="2"><a href="#bind"><span style="font-weight: bold;">
+Bind Texture Coordinates to Surface</span></a> is again available for mesh objects</font></font><font face="tahoma" size="2">. </font></td>
+
+      <td><img src="textures/cylindrical_map.jpg"></td>
+
+      <td><img src="textures/cylindrical_map2.jpg"> </td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td width="500"><font face="tahoma" size="2">The <b>Spherical</b> mapping
+parameters are shown on the
+right.<br>
+
+      <br>
+
+      <b>Width</b>, which is specified in degrees, is the
+scaling around the horizontal spherical axis. 360 degrees means that
+the texture is wrapped exactly once around the axis. A smaller angle
+results in the texture being scaled down and vice versa.<br>
+
+      <br>
+
+      <b>Height</b> is the scaling around the vertical
+spherical axis also specified in degrees.<br>
+
+      <br>
+
+      <b>Offset</b> controls the centering of the texture
+and is again specified in degrees.<br>
+
+      <br>
+
+      <b>Rotation</b> around the x,y and z axes can also be
+specified.<br>
+
+      <br>
+
+An example mapping is given on the far right.<br>
+
+      <br>
+      </font><font face="tahoma" size="2"><font face="tahoma" size="2"><font face="tahoma" size="2"><a href="textures2.html#bind"><span style="font-weight: bold;">
+Bind Texture Coordinates to Surface</span></a></font></font></font><font face="tahoma" size="2"><font face="tahoma" size="2"><span style="font-weight: bold;"></span>&nbsp;is again available for mesh objects.</font></font></td>
+
+      <td><img src="textures/spherical_map.jpg"></td>
+
+      <td><img src="textures/spherical_map2.jpg"></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<br>
+
+<br>
+
+<a name="uv_map"><strong><font color="#ff6633" size="4">4.1.5 UV Mapping</font></strong></a><br>
+
+<br>
+
+<br>
+
+Although UV mapping is another way in which 2D textures can be wrapped
+around objects as above, it warrants
+it own section due to its versatility.<br>
+
+<br>
+
+Essentially UV mapping allows you to control how the texture is scaled,
+rotated etc. over the mesh's surface
+(UV mapping only works with meshes). It works by assigning texture
+coordinates (UV coordinates) to each mesh vertex. U and V are the
+symbols used to represent the horizontal and vertical axes of
+the texture.<br>
+
+<br>
+
+The first stage in UV mapping in Art of Illusion is to attempt to map
+the texture in the conventional way using projection, cylindrical or
+spherical mapping and adjusting the scaling, centering and orientation.
+Once the mapping is as close as possible to that required, select UV
+from the drop down <b>Mapping</b> menu. This takes you to
+a new dialogue. Click on <b>Edit UV Coordinates</b> to
+display the main UV mapping dialogue similar to that below. The
+dialogue is a little complicated so we'll look at it in detail.<br>
+
+<br>
+
+In the top right corner is the mesh itself shown with a Smooth preview
+surface. This view can be panned, rotated and zoomed in the same way as
+in the mesh editor and vertices can also be selected (but not moved)
+in the normal way.<br>
+
+<br>
+
+Below right shows the mesh with the texture mapped to it. As with the
+normal texture mapping preview, this can be rotated by dragging within
+the window.<br>
+
+<br>
+
+The left side of the dialogue shows the texture itself. You can choose
+to display various components
+of the texture, e.g. diffuse colour, specular values, emissive colour,
+to aid the mapping process via
+the <b>Displayed Component </b> drop down menu. You can
+also choose to display low, medium or high
+resolution versions of the texture via the <b>Resolution</b>
+drop down menu. This does not actually
+change the texture in any way; it just affects the way it is displayed
+- low resolutions will display
+quicker than high resolutions.<br>
+
+<br>
+
+The previews can be also resized by dragging out the sides of the whole
+dialogue window.<br>
+
+<br>
+
+Below these menus is some information showing the range of the texture
+being displayed. The <b>
+Displayed Coordinate Range </b> shows the range of U and V
+coordinates currently being displayed in the
+texture view. If you need to see further out, adjust the range by
+increasing the U and V values. To zoom in, reduce the values. <a name="UV_move">Alternatively </a> you can pan and
+zoom the texture view by clicking on the camera pan icon <img src="basics/camera_pan.jpg"> (hold down CTRL while dragging
+to zoom) or by dragging with the right mouse button depressed (again
+with CTRL to zoom).<br>
+
+<br>
+
+To alter the texture mapping in a particular position on the mesh's
+surface, select the vertex/vertices at
+that position on the mesh view. This will result in the corresponding
+texture coordinates being marked
+on the texture view as small crosses; a cross for each mesh vertex (see
+below left). The crosses can
+themselves then be selected by clicking on the select/move icon (top
+left icon), selecting the crosses
+by clicking on them (shift-click to add to selection, ctrl-click to
+deselect, click-drag to select all
+points within a rectangular marquee). If you have single points
+selected in the texture view, then their UV position is displayed (and
+can
+be edited) in the dialogue under <b>Selected Vertex Coordinates</b>.
+If more than one cross is selected, then only
+U or V coordinates that are shared by all will be displayed. Selected
+crosses can then be moved, scaled,
+rotated, skewed etc. using the icons at the top. Altering their
+positions will result in the texture being moved over the mesh's
+surface and the texture preview will show these changes in real time.
+<br>
+
+<img src="textures/uvex1.jpg"><br>
+
+In the example above, we're trying to map a snakeskin texture to a
+head. There are a few problem areas - the image above left shows
+stretching of the texture around the side of the head. Selecting some
+vertices
+in part of this area brings up their corresponding texture coordinates
+on the texture view. In this case,
+we want to scale the texture coordinates to compensate for the
+stretching. The UV coordinates before and
+after are shown above left and right respectively. This has improved
+the texture mapping.<br>
+
+<br>
+
+Below shows another problem area - around the side of the neck, again,
+the texture is stretched. Again,
+select the vertices on the mesh view, and stretch the corresponding
+texture parameters to begin to solve the
+problem (below right).<br>
+
+<br>
+
+<img src="textures/uvex2.jpg"><br>
+
+<br>
+
+<a name="UV_face"></a>
+The final point to note is the <b>Map Each Face Independently</b>
+option. Switching this on will switch
+the mesh view to face mode. The vertices that make up each face can be
+mapped in UV space as before except
+that the vertices in effect 'belong' to that face - if you select an
+adjacent face (which shares vertex
+mesh positions), its vertices can be mapped completely independently
+even though they are spatially at the
+same position. This allows discrete changes in UV mapping over the
+surface.<br>
+
+<br>
+
+<br>
+
+<a name="layered_tex"><strong><font color="#ff6633" size="4">4.1.6 Using Layered Textures</font></strong></a><br>
+
+<br>
+
+Art of Illusion allows multiple textures to be applied to the same
+surface through the use of layered
+textures. To create a layered texture, select the object, click on <b>Object
+-&gt; Set Texture and Material</b> and
+choose <b>Layered Texture</b> from the <b>Type</b>
+drop-down menu at the top of the dialogue box. A
+dialogue similar to that shown below will be displayed:<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td><img src="textures/layered_tex.png"></td>
+
+      <td><font face="tahoma" size="2">At the
+left of the dialogue is a list of all the textures that have
+been created in the scene. To add
+one of these to the layered texture, select it from this list and click
+on <b>Add</b>. This adds the texture to the list in the
+centre. This list shows the texture layers and their order is
+important. The
+topmost layer in this list is the surface layer, the 2nd one is the
+next layer down and etc. The order can
+be changed by selecting textures and clicking on <b>Move Up</b>.<br>
+
+      <br>
+
+Each layer can be one of 3 <b>Blending Modes</b> selected
+from the drop-down menu on the right:<br>
+
+      <br>
+
+      <b>Blend</b> means that a weighted average texture is
+created of that texture and the textures below it. The weighting
+is defined by the fraction bar to the left of the preview. If this was
+set to 0.7, for example, then the
+resulting texture would be 70% that one and 30% of the one below. All
+texture properties, e.g, diffuse
+colour, specularity, transparency etc., are averaged in this way.<br>
+
+      <br>
+
+      <b>Overlay</b> In this case, the current texture is
+laid over the ones below with any transparent areas
+allowing the textures below to show through and opaque areas will not.
+Again a weighting fraction can
+be applied which results in partial transparency.<br>
+
+      <br>
+
+      <b>Overlay, Bumps Add</b> is a special version of the
+overlay mode where bump and displacement maps sum
+through all the layers rather than being averaged or eliminated by
+layers above.<br>
+
+      <br>
+
+      </font></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+Note that layered textures can also be applied per-vertex, per-face or
+per-face-vertex
+via <a href="#tex_param">texture parameters</a> by
+selecting the appropriate mapping mode from the
+drop-down menu next to the fraction bar. See <a href="textures2.html#tex_par_layered">here</a> for
+more details.<br>
+
+<br>
+<a name="layered_sides"></a>
+Layered textures can also be used to set different textures to each
+side of an object. &nbsp;In the example below, 2 textures have been
+created - one of a photograph and the other of some text. &nbsp;By
+creating a layered texture for a flat spline mesh object and adding
+both textures, each can then be mapped via Edit Mapping and the <span style="font-weight: bold;">Front Faces Only</span> and
+<span style="font-weight: bold;">Back Faces Only</span>
+options selected for each. &nbsp;The result is a two-sided sheet:<br>
+
+<br>
+
+<img src="textures/layered_sides_ex.png" style="width: 1000px; height: 754px;" alt=""><br>
+
+<br>
+
+<br>
+
+<br>
+
+<a name="tex_param"><strong><font color="#ff6633" size="4">4.1.7 Using Texture Parameters</font></strong></a><br>
+
+<br>
+
+<br>
+
+Texture parameters allow textures to be controlled depending on their
+position on a mesh surface. A texture
+parameter is a numerical value defined in a procedural texture. The
+value of this parameter is set within
+the mesh editor so that certain parts of a 3D model can have different
+values set. The best way to illustrate this is to look at an example.
+This example assigns a texture to
+a pencil object. Here is the procedural 3D texture:<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td><img src="textures/pencil_tex.jpg"></td>
+
+      <td><font face="tahoma" size="2">The
+preview doesn't look very exciting but this cannot represent the
+actual texture because it will vary
+with position on the mesh surface to which we assign it. To create a
+texture parameter, select <b>
+Insert -&gt; Values -&gt; Texture Parameter</b>.
+Double-clicking on the module brings up a dialogue similar
+to that below:<br>
+
+      <img src="textures/tex_param_prop.jpg"><br>
+
+      <br>
+
+You can specify the name and the minimum, maximum and default values
+for the parameter.<br>
+
+      <br>
+
+There are 3 texture parameters in this texture; <b>pencil_part</b>
+which is going to be used to select
+the colour depending on the position on the pencil's surface, <b>wood_part</b>
+which will be set to 1 for
+the wood part only to which it adds a noise pattern and <b>Shiny</b>
+which is going to control the specularity of the mesh. </font></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+Select the object and click on <b>Object -&gt; Set Texture</b>
+to display the dialogue box:<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td><img src="textures/text_param_object_dial.jpg"></td>
+
+      <td><font face="tahoma" size="2">Notice
+that the texture parameters defined in the texture are now
+listed in the Texture Parameters box.<br>
+
+      <br>
+
+The values of each of these parameters on the surface of the mesh can
+be set in a number of ways:<br>
+
+      <br>
+
+      <b>Per-Object</b> - this sets the same value for the
+whole object. However different objects can have
+different values set for each parameter.<br>
+
+      <br>
+
+      <b>Per-Vertex</b> - meaning that the values vary
+according to which vertices are assigned which values. The
+surface between vertices will show a gradual change between values (see
+right top).<br>
+
+      <br>
+
+      <b>Per-Face</b> - meaning that certain faces can have
+different parameter values. In this case, there is
+a discrete change in parameter values at the boundary of one face with
+another which is set to a different parameter value (right middle).<br>
+
+      <br>
+
+      <b>Per-Face-Vertex</b> - this is similar to per-face
+mapping except that the vertices making up each face
+can be individually assigned parameter values so there is gradual
+blending within the face (right bottom).<br>
+
+      <br>
+
+It is also quite possible to have a mixture of parameter mapping
+methods. </font></td>
+
+      <td><img src="textures/param_mapping_exs.jpg"></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+For this example, all 3 of the texture parameters have been set to be
+per vertex. Click on OK to assign the texture to the object.<br>
+
+<br>
+
+Now to assign the values to the mesh. Double-click on the object in the
+Object List to bring up the
+mesh editor:<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td><img src="textures/texture_param_mesh.jpg"></td>
+
+      <td><font face="tahoma" size="2">This
+shows the tip of the pencil object with the vertices of the 'lead'
+selected in the normal way.
+To assign the values of each texture parameter to these vertices,
+select <b> Mesh -&gt; Texture Parameters</b>
+to display the dialogue shown within the main window on the left:<br>
+
+      <br>
+
+      <b>Pencil_part</b> has been set to 1 which gives a
+grey diffuse colour.<br>
+
+      <br>
+
+      <b>Wood_part</b> has been set to 0 since this is not
+the wood part.<br>
+
+      <br>
+
+      <b>Shiny</b> is set to 0.2 to give a specularity of
+0.2 to be slightly reflective.<br>
+
+      <br>
+
+Assigning appropriate values to the other vertices produces the result
+shown below:<br>
+
+      <img src="textures/pencil_ex.jpg"> </font></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+There is clearly great flexibility in the control of textures using
+texture parameters. One important use
+of texture parameters is variation of textures through animation of
+texture parameter tracks. See <a href="animation.html#anim_textures">
+this section</a> for more details.<br>
+
+<br>
+
+<a name="tex_par_layered"></a>
+Blending fractions for <a href="textures2.html#layered_tex">layered
+textures</a> are also texture parameters and thus can be set
+per-vertex, per-face or per-face-vertex and animated in the same way as
+any other parameter. Below is an
+example showing the use of texture parameters with layered textures.
+Here a layered texture is used
+to texture the sides of a cube. A cube is created and converted to a
+triangle mesh. Textures for
+each side of the cube are created as normal; here I have used 3
+different sorts of textures for illustration: a uniform one ('green
+shiny'), a procedural 2D one ('grid') and a 3D one ('noise bump').<br>
+
+<br>
+
+<table>
+
+  <tbody>
+
+    <tr>
+
+      <td width="400"><font face="tahoma" size="2">A layered texture is created for the mesh cube by
+right clicking on the
+object in the Object List
+-&gt; Set Texture and then selecting Layered Texture at the top of
+the dialogue that appears.<br>
+
+      <br>
+
+Now we can add the textures we want to map to the cube. The Blending
+Mode is set to 'Blend' for each texture in this case. Note that I have
+added another texture ('grey') that will be the background
+texture for the cube - any parts of the geometry that are not mapped
+with any other texture will take on the
+grey texture. This is ensured by setting the mapping mode for this
+texture to 'Object'. Because it is
+going to form the base layer, it is positioned at the bottom of the
+layered texture list. The other
+textures are set to be per-face or per-vertex as shown below and on the
+right:<br>
+
+      <img src="textures/lay_tex_param_dial2.jpg"> <br>
+
+      </font></td>
+
+      <td><img src="textures/lay_tex_param_dial.jpg"></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<br>
+
+You may need to correctly orient and scale the textures via the <b>Edit
+Mapping</b> button to ensure
+that the textures for each face will be correctly aligned.<br>
+
+<br>
+
+When done, click OK to leave the dialogue. To actually set the
+parameters, enter the Mesh Editor by double-clicking
+the cube in the Object List. The 'grid' and 'green shiny' textures can
+be set by selecting faces and then
+selecting Mesh -&gt; Texture Parameters. The parameter values can
+then be entered in the dialogue that appears.
+The 'noise bump' texture is set per-vertex so you will need to select
+vertices rather than faces before
+selecting Mesh -&gt; Texture Parameters. In this example, I chose a
+single vertex in the centre of the side
+of the cube as shown below:<br>
+
+<img src="textures/lay_tex_param_mesh_edit.jpg"><img src="textures/lay_tex_param_ex.jpg"><br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<div align="left"><a href="textures.html"><b><font size="4">Previous: Textures</font></b></a></div>
+
+<br>
+
+<div align="right"><a href="materials.html"><b><font size="4">Next: Materials</font></b></a></div>
+
+<br>
+
+<a href="contents.html#contents_top"><b><font size="4">Back to Contents</font></b></a><br>
+
+</font>
+</body>
+</html>

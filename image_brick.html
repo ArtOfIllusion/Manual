@@ -1,0 +1,53 @@
+<html>
+<!-- Creation date: 15/03/02 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>image_brick</title>
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+<meta name="Author" content="Julian MacDonald">
+<meta name="Generator" content="AceHTML 4 Pro">
+</head>
+<body BGCOLOR="#f8e89e">
+<font face="tahoma" size="2">
+
+<table><tr>
+<td><img SRC="textures/pt_image_brick.jpg"></td>
+<td><font face="tahoma" size="2">
+The basis of this texture is an brick-like image consisting of red bricks (R=1,G=0,B=0) and green
+mortar (R=0,G=1,B=0) as shown below:<br>
+<img SRC="textures/brick_image.jpg"><br>
+This image is selected with the image pattern module.  Because of the way the colours have been used,
+the green output of this module will have a value of 1 for all green parts of the image (the "bricks") and
+0 for everything else, and the red output will be 1 for all the red parts (the "mortar") and 0 
+everywhere else.  This enables the bricks and the mortar to have different properties.  The red output
+is multiplied by a noise function (Noise A below) fed into a 'mortar' colour map.<br>
+<img SRC="textures/pt_brick_noise1.jpg"><br>
+This has the result
+of applying the function only to the mortar.  The green output is similarly fed into a brick-like colour
+map using the noise function (Noise B below). <br>
+<img SRC="textures/pt_brick_noise2.jpg"><br>
+</font></td>
+</tr></table>
+The two results are summed to give the bricks and the mortar diffuse colour.<br>
+<br>
+We want the bricks to stick out from the surface.  This could be simulated using the bump height
+property but for a more realistic effect, true displacement mapping is used.  The green output of
+the image module has been used to select only the bricks.  This has been scaled down by 0.5 and combined
+with another noise function (Noise C - below) to give an extra random bumpiness.  A linear 
+transform (see below) has been applied to scale down this noise in order to add small-scale bumpiness 
+to the bricks.<br>
+<img SRC="textures/pt_brick_noise3.jpg"><img SRC="textures/pt_brick_trans.jpg"><br>
+A further scaling factor of 0.05 has been applied to the combination of brick and noise bumps to reduce the
+displacement to a more realistic level.
+
+
+<br>
+<br>
+<br>
+
+
+<a href="textures.html#ex_textures"><b><font size="4">Back to Textures</font></b></a><br>
+</font>
+</body>
+</html>

@@ -1,0 +1,1852 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>object_types.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body style="background-color: rgb(245, 225, 151);">
+<font face="tahoma" size="2">
+</font>
+<div align="left"><font face="tahoma" size="2"><a href="modelling.html"><b><font size="4">Previous:
+Modelling</font></b></a></font></div>
+<font face="tahoma" size="2"><br>
+</font>
+<div align="right"><font face="tahoma" size="2"><a href="modelling_tools.html"><b><font size="4">Next:
+Modelling Tools</font></b></a></font></div>
+<font face="tahoma" size="2"><br>
+<font face="tahoma" size="6"><strong>2. Modelling</strong></font>
+<img src="man_title_small.jpg" align="middle"><br>
+<br>
+<br>
+<strong><font color="#3300cc" size="5">2.1
+Object Types</font></strong><br>
+<br>
+<a name="primitives"><strong><font color="#ff6633" size="4">2.1.1 Primitives</font></strong></a><br>
+<br>
+There are 3 basic geometric primitives available in Art of Illusion: <b>cube</b>,
+<b>sphere</b> and <b>cylinder</b> objects,
+which can either be created using the modelling tool icons in the upper
+left corner of the screen or via the top menu bar as follows:<br>
+<br>
+Using the modelling tool icons allows immediate creation of the
+primitive. Simply click on the relevant icon:<br>
+<br>
+cube: <img src="modelling/cube.jpg"> sphere: <img src="modelling/sphere.jpg"> cylinder: <img src="modelling/cylinder.jpg">
+<br>
+<br>
+then click and drag on any viewport to define two of its initial
+dimensions. The 3rd dimension will have to be altered if necessary
+using the scaling tool <img src="modelling/scale.jpg">
+in one of the other viewports. Alternatively, holding shift while
+dragging forces all 3 dimensions to be equal.<br>
+<br>
+<a name="cyl">For cylinders</a>, the top:bottom
+ratio can be set to form tapered cylinders (including cones) prior to
+drawing by double-clicking on the cylinder icon. This ratio can also be
+edited after drawing (see <a href="editing_objects.html#edit_object">editing_objects</a>).
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/cube_dial.jpg"></td>
+<td><font face="tahoma" size="2">Creating
+the primitive via the menu bar is achieved by selecting <b>Object
+-&gt; Create Primitive </b>and then selecting the
+appropriate shape. Cones can also be created directly using this
+method. This method brings up a dialogue box similar to that on the
+left which allows the exact size, position and orientation of the
+object to be specified.</font></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">Primitives
+have limited use for creating realistic objects as such objects are
+rarely that simple in real life. However they can be useful for
+cartoon-like scenes or for building up more complex models using
+Constructive Solid Geometry (CSG) via the <a href="modelling_tools.html#boolean">Boolean tool</a>
+like in the simple example on the right:<br>
+<br>
+Primitives are also important as they can be the starting points for
+creating triangle meshes. See <a href="#triangle_meshes">2.1.4</a>
+below.<br>
+</font></td>
+<td><img src="modelling/boolean_example.jpg"></td>
+</tr>
+</tbody>
+</table>
+There is one other important primitive object: the <b>Null</b>
+object. Null objects do not show up on renders as
+they have no geometry. Their main use in is grouping other geometrical
+objects together. For example
+you might want to create a car out of a set of geometric objects
+representing the car body, wheels,
+windscreens etc. A neat way to keep all the parts together would be to
+create a Null object and to group
+the geometric objects as children of that Null (see the <a href="layout.html#object_list">Object List</a> for
+more details). Nulls are represented as crosses in the viewports.<br>
+<br>
+<br>
+<a name="curves"><strong><font color="#ff6633" size="4">2.1.2 Curves</font></strong></a><br>
+<br>
+These are one dimensional objects and thus are not directly visible when you
+render a scene.
+However, they can be used in a <a href="modelling_tools.html">variety
+of ways</a> to create 3-D objects. <br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">Curves
+are created by defining a series of points in any of the viewports.
+They can have one of two types of smoothing: 'Interpolating', for which
+the curve is forced to pass through the points and 'Approximating'
+where the curve does not have to pass through all the points but
+is still controlled by them.<br>
+<br>
+To create a curve, click on <img src="modelling/inter_curve_icon.jpg"><br>
+<br>
+Then click a series of locations on a viewport to define the points as
+shown on the right.  Shift-click to create a sharp corner.<br>
+<br>
+To define the last point on the curve and thus end curve point
+definition, double click. If you wish to automatically close the curve,
+press the control key and double click. Alternatively to end
+the curve without adding more points, press Enter to end without
+closing or control-Enter to close
+the curve.
+<p>
+To control whether you are creating an interpolating or approximating curve,
+double click <img src="modelling/inter_curve_icon.jpg">.  A window will appear
+where you can select the type of curve to create.
+</font></td>
+<td><img src="modelling/inter_curve.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+Closed curves can also be filled to create 2D objects by converting
+them to <a href="#triangle_meshes">triangle meshes</a>.<br>
+<br>
+Another way to create a curve is to use the polygon tool. A polygon is
+any flat shape with 3 or more sides. To create a polygon curve, double
+click on <img src="modelling/polygon.jpg"> which brings
+up this dialogue box: <br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/polygon_dialogue.jpg"></td>
+<td><font face="tahoma" size="2">You
+can specify how many sides the polygon has and the type of smoothing of
+the edges. Selecting 'angled' gives the polygon straight edges, while
+choosing either 'interpolating' or 'approximating' creates rounded
+edges. Because 'approximating' smoothing
+does not require the curve to pass through all the points, this results
+in a smaller overall shape for the 'approximating' polygon.</font></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">The
+figure on the right shows the differences between the 3 types of
+smoothing for a 3-sided polygon curve:<br>
+<br>
+These were created by clicking once on the polygon tool icon and
+dragging a rectangular area on one of the viewports to define its size.
+<br>
+<br>
+Note: The Polygon tool can also be used to create 'filled polygon
+surfaces' which are triangle
+mesh objects. This is achieved by holding &lt;ctrl&gt; while
+dragging. <br>
+</font></td>
+<td><img src="modelling/triangle_types.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Editing Curves</b><br>
+<br>
+Once polygon edges or curves have been created, the points defining
+them can be edited by double-clicking on them in the Object List. For
+example, double-clicking on the interpolated 3-sided polygon displays
+the editing window below:<br>
+<img src="modelling/editing_curve.jpg"><br>
+Points are selected and deselected using the Select/Move tool. Multiple
+points can be selected by pressing &lt;shift&gt; before
+clicking on each point. Points can also be selected using a marquee
+method by dragging a rectangular box over a group of points.
+&lt;Shift&gt; selects works for the marquee selection also. All
+points can be selected using the appropriate option from the Edit menu.<br>
+<br>
+To deselect points, simply click or &lt;shift&gt; click on
+them. Alternatively a group of points can be deselected by pressing
+&lt;ctrl&gt; and dragging a rectangle over the required points.
+<br>
+<br>
+Selected points can be moved using the Select/Move tool or rotated,
+skewed, scaled and tapered with the appropriate tools shown on the
+left. Most of the tools activated from these icons are
+self-explanatory. Resting the cursor over the icons will bring up a
+tooltip to describe its function. The operation of most can be modified
+by pressing &lt;shift&gt; or &lt;ctrl&gt; - see the
+bottom of the editing window for details relevant to each tool.In
+general, handles around the selected point(s) can be dragged to effect
+the operation. Pressing &lt;shift&gt; while dragging causes the
+operation to be a uniform one, whilst &lt;ctrl&gt; centres it.
+The spacebar can be used to switch between tools quickly; pressing it
+toggles between the
+Select/Move tool and the last tool used.<br>
+<br>
+The view in the curve editor is controlled as in the main view windows,
+i.e. yhrough use of the camera move/rotate icons or the keyboard
+shortcuts. See <a href="layout.html#view_windows">here</a>
+for more details.
+<br>
+Additional editing is possible through the top menu bar.<br>
+<br>
+This is the <strong><font color="#009933">Edit</font></strong>
+Menu:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/curve_edit_menu.jpg"></td>
+<td><font face="tahoma" size="2"><b>Undo/Redo</b>
+- undoes the last action or redoes something you have just undone,
+including selections.<br>
+<br>
+<b>Select All </b>- selects all points in curve.<br>
+<br>
+<b>Extend Selection </b>- automatically selects
+adjacent points to those already selected.<br>
+<br>
+<b>Invert Selection </b>- deselects all currently
+selected points and selects all currently deselected
+points. </font></td>
+</tr>
+</tbody>
+</table>
+<b>Freehand Selection </b>- enters a selection mode that
+allows you to trace a freehand path - all
+points enclosed by the path are selected. This mode can be toggled
+on/off.<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2"> <b><a name="curvetension">Curve Tension</a> </b>-
+This controls the amount by which adjacent points
+(and possibly beyond) move with currently selected points. Selecting
+this option produces the dialogue box on the right.
+The <b>Maximum Distance</b> is the number of points each
+side of the currently selected point that are
+affected. The <b>Tension</b> is strength of the attractive
+effect so that a 'very high' tension will move the affaected points
+significantly whereas a 'very low' tension will move them only a
+little. </font></td>
+<td><img src="modelling/curve_tension.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+The <strong><font color="#009933">Curve</font></strong>
+Menu looks like this:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/curve_curve_menu.jpg"></td>
+<td><font face="tahoma" size="2"><b>Delete
+Selected Points </b>- deletes all selected points !<br>
+<br>
+<b>Subdivide Selection </b>- A way of adding points
+to an existing curve, this tool adds a point between each pair of
+currently selected points.<br>
+<br>
+<b>Edit Points </b>- Allows you to explicitly define
+the coordinates of any point or group of points. A realtime preview of
+the effect of values entered in the dialogue is shown on the actual
+curve - cancelling the dialogue causes the curve to revert back to its
+original shape.<br>
+<br>
+<b>Randomise Points </b>- translate points by a
+random number below a user-specified maximum in any or all 3 axes.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td width="400"><font face="tahoma" size="2"> <b>Transform Points </b>- brings up
+the dialogue on
+the right to allow points to be moved, scaled or rotated accurately.
+Can also transform about centre of selection or origin of object.<br>
+</font></td>
+<td><img src="modelling/transform_points_dialogue.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Centre Curve</b> - moves the curve object so that its
+centre coincides with the origin (0,0,0).<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2"> <b>Set
+Smoothness </b>- If either interpolating or
+approximating smoothing is used, it is possible to specify the
+smoothness of individual points. In the example on the right, a heart
+shape was created
+with the approximating curve tool. To 'sharpen' the curve in the right
+places, the points shown
+were selected and their <b>Smoothness</b> set to 0. This
+makes them completely sharp but values between
+0 and 1 can be used to obtain intermediate smoothnesses. A realtime
+preview of the effect of smoothness values entered in the dialogue is
+shown on the actual curve - cancelling the dialogue causes the curve to
+revert back to its original shape. </font></td>
+<td><img src="modelling/curve_smoothness.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Smoothing Method </b>- This is the method used to
+smooth the curve. The choices are None (straight lines between points),
+Interpolating or Approximating.<br>
+<br>
+<b>Open Ends </b>- if the curve is closed, i.e. a complete
+loop, this will break it and <i>vice versa</i>.
+<br>
+<br>
+The <strong><font color="#009933">View</font></strong>
+Menu looks like this:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/curve_view_menu.jpg"></td>
+<td><font face="tahoma" size="2"> <b>Display
+Mode</b> is irrelevant for curve objects.<br>
+<br>
+<b>Show</b> allows the editor to view the <b>Curve</b>
+or the <b>Entire Scene</b> for the currently
+highlighted window. Only the curve,however, can be edited.<br>
+<br>
+<b>Coordinate System</b> can either be <b>Local</b>
+or <b>Scene</b>. In the former case, all objects
+are displayed in a coordinate system that has the curve at the origin.
+The latter option displays
+objects as they are in the main view.<br>
+<br>
+<b>One View/Four Views</b> toggles between having the
+four view display or a one view display of the
+currently selected window<br>
+<br>
+<b>Grids</b> allows a grid to be visualised and
+snapped to. See <a href="layout.html#grids">here</a>
+for more details. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Show/Hide Coordinate Axes</b> toggles display of the x,y
+and z axes as shown <a href="layout.html#coordaxes">here</a>.<br>
+<br>
+<b>Show/Hide Template</b> displays or hides the image
+selected as the background in the next menu option.<br>
+<br>
+<b>Set Template Image...</b> allows an image (in .jpg, .png
+or .gif format) to be used as the background
+in the editor. This is useful as a reference when modelling. Selecting
+this displays a dialogue to
+allow selection of the image which can then be turned on/off with the
+previous menu entry.<br>
+<br>
+<br>
+<a name="splines"><strong><font color="#ff6633" size="4">2.1.3 Spline Meshes</font></strong></a><br>
+<br>
+Splines are smooth surfaces the shape of which are determined by
+control points and the type of smoothing applied. &nbsp;Splines can
+be created by applying the various <a href="modelling_tools.html">modelling_tools
+</a>to existing objects (usually curves) or directly by clicking
+on <img src="modelling/spline_icon.jpg">
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">Before
+doing that, you can select some of the spline properties by
+double-clicking on that same icon. This brings up the dialogue box on
+the right:<br>
+<br>
+<br>
+The U and V size boxes determine the physical dimensions of the spline
+mesh 'sheet', i.e the number of control points in each of the two
+dimensions.<br>
+<br>
+<br>
+The shape can be either flat, a cylinder or a torus. In the latter 2
+cases, to understand the U and V dimensions it may help to think of a
+rolled-up sheet. For a cylinder, U-size is the number of points around
+the circumference and V-size is the number of points along its axis.
+Similarly for a torus, U is along the circumference and V-size is the
+number of points around the cross-section.<br>
+<br>
+<br>
+The smoothing method can be either 'approximating' or 'interpolating'.
+See <b><a href="object_types.html#curves">2.1.2</a></b>
+for an explanation of these terms.<br>
+<br>
+<br>
+The <b>Thickness</b> parameter is only relevant for the
+torus and controls the cross-sectional diameter as shown on the right.</font></td>
+<td> <img src="modelling/spline_dialogue.jpg"><img src="modelling/torus_splines.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+Once the spline has been created, it can be edited by double-clicking
+on the object in the Object List. This brings up an editing window
+similar to this:<br>
+<img src="modelling/spline_editting.jpg">
+<br>
+As in the <a href="layout.html#view_windows">main
+viewports</a>, the orientation, scaling and type (parallel or
+perspective) of view can be controlled using the familiar camera
+control icons/keyboard shortcuts and drop down menus at the top of the
+view. The type of shading can also be altered by selecting <b>Mesh
+-&gt; Display Mode </b>(see <a href="layout.html#display_mode">Display Mode</a> for
+details on this)<br>
+<br>
+The editing utility allows both <i>vertices</i> ('points')
+or <i>curves</i> to be edited. The editing mode is
+selected by clicking on the appropriate button at bottom left. The
+icons on the left allow points and curves to be transformed in various
+ways as identified on the diagram above. The points or curves to be
+transformed must be selected first by clicking on individual points or
+curves. Multiple
+selections are achieved by holding down &lt;shift&gt; while
+successively clicking on further points/curves. A marquee
+('rubber band') selection is also possible and is performed by dragging
+the mouse while holding the left mouse button to highlight a rectangle.
+&nbsp;Note that for curves, you need to enclose the whole curve
+within the selection marquee for this to work. &nbsp;Pressing
+&lt;ctrl&gt; while clicking or dragging a marquee de-selects
+all currently selected points/curves. There is also a freehand
+selection mode
+which is enabled through the<a href="#spline_edit_menu">
+Edit</a> menu. &nbsp;Having selected the vertices/curves to
+edit, the tool is actioned by dragging on the red arrow handles that
+will appear.<br>
+<br>
+Most of the tools activated from the icons are self-explanatory.
+Resting the cursor
+over the icons will bring up a tooltip to describe its function. The
+operation of most can be modified by pressing &lt;shift&gt; or
+&lt;ctrl&gt; - see the bottom of the editing window for details
+relevant to each tool. The tools available are a subset of those for
+triangle meshes; see <a href="object_types.html#mesh_tools">here</a>
+for more details. The spacebar can be used to switch between tools
+quickly; pressing it toggles between the
+Select/Move tool and the last tool used.<br>
+<br>
+Skeletons are discussed in detail in <a href="#skeletons">Section
+2.1.5</a>.<br>
+<br>
+<b><font color="#0000ff">MENUS</font></b><br>
+<br>
+Further useful tools are found on the top menu bar:<br>
+<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">The <strong><font color="#009933"><a name="spline_edit_menu"></a>Edit</font></strong>
+menu looks
+like this: </font></td>
+<td><img src="modelling/spline_edit_menu.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Undo/Redo</b> - undoes the last action or redoes
+something you have just undone, including selections.<br>
+<br>
+<b>Select All</b> - selects all points or curves.<br>
+<br>
+<b>Extend Selection</b> - expands selection by adding
+points/curves adjacent to those currently selected.<br>
+<br>
+<b>Freehand Selection </b>- enters a selection mode that
+allows you to trace a freehand path - all
+points or curves enclosed by the path are selected. This mode can be
+toggled on/off.<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2"><a name="mesh_tension"><b>Mesh Tension</b></a>
+- introduces a neighbour attraction effect so that moving a point/curve
+also results in (lesser) movement in the points/curves adjacent to it.
+The mesh tension dialogue box is shown on the right.<br>
+<br>
+The <b>Maximum Distance </b>defines the number of points
+affected. For example setting this to 2 means that vertices within 2
+points along all edges of the mesh will undergo some transformation the
+magnitude of which decreases with distance from the selected point. The
+example on the far right illustrates this. The pink point is the
+selected vertex; the green points are those that would be affected if
+Maximum Distance was set to 2.<br>
+<br>
+The <b>Tension</b> defines the strength of the attractive
+effect so that a 'very high' tension will move adjacent points
+significantly whereas a 'very low' tension will move them only a little.<br>
+</font></td>
+<td><img src="modelling/mesh_tension.jpg"></td>
+<td><img src="modelling/mesh_tension_ex.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+The <strong><font color="#009933">Mesh</font></strong>
+menu is shown below. Note that some items on this menu will not be
+available depending on which mode you are working in. These are the
+options available in curve editing mode.
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/spline_curve_menu.jpg"></td>
+<td><font face="tahoma" size="2"> <b>Delete
+Selected Curves</b> - deletes all selected
+curves<br>
+<br>
+<b>Subdivide Selection </b>- this only works on a
+set of adjacent curves and creates a new curve between each adjacent
+curve as shown below. This can help produce a smoother finish and in
+adding small details to a mesh.<br>
+<br>
+<img src="modelling/spline_curve_subd_small.jpg"> </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Edit Points</b> allows you to specify absolute x, y and
+z co-ordinates for selected points and to specify skeleton properties
+(see <a href="#skeletons">Skeletons</a>). A
+realtime preview of
+the effect of values entered in the dialogue is shown on the actual
+mesh - cancelling the dialogue causes the mesh to revert back to its
+original shape.<br>
+<br>
+<b>Transform Points </b>allows you to move, rotate and
+scale selected points/curves by explicitly entering the values in the
+x, y and z axes.
+<br>
+<br>
+<b>Randomise Points </b>causes random variations in
+position within a user-defined tolerance. This is useful, for example,
+in simulating imperfections found in real life.<br>
+<br>
+<b>Texture Parameters </b>is discussed in detail in <a href="textures2.html#tex_param">
+textures_and_materials</a><br>
+<br>
+<b>Centre Mesh </b>translates the mesh so that its centre
+lies at (0,0,0).<br>
+<br>
+<b>Extract Selected Curve </b>creates a copy of the
+currently selected curve as a new object. Only works if a single curve
+is selected.<br>
+<br>
+<b>Set Smoothness </b>allows you to define how sharp the
+mesh is at the selected points/curves. In the example below, the
+smoothness of 3 of the curves was changed from 1 to 0
+on the right hand image, causing sharp creases. A realtime preview of
+the effect of smoothness values entered in the dialogue is shown on the
+actual mesh - cancelling the dialogue causes the mesh to revert back to
+its original shape.<br>
+<img src="modelling/spline_smoothness.jpg"><br>
+<br>
+<b>Smoothing method </b>is either interpolating or
+approximating. Both are a type of subdivision to create smooth surfaces
+from a mesh of control points.<br>
+<br>
+<b>Closed</b> determines which of the spline curves is
+closed, i.e. a complete loop. This can be set to U only, V only, both
+or neither. In the example above, the U curves are closed forming a
+circular cross-section for the bowl.<br>
+<br>
+<b>Invert Surface Normals</b> - in some circumstances faces
+do not display correctly as the surface normals have become flipped.
+This remedies the problem.<br>
+<br>
+<b>Render Preview - </b>produces a raytraced render of the
+mesh so that you can check that everything is going to look as it
+should in the final render.<br>
+<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">The <strong><font color="#009933">View</font></strong>
+menu is like this: </font></td>
+<td><img style="width: 212px; height: 204px;" alt="" src="modelling/mesh_view_menu.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Display Mode</b> - switches between wireframe, shaded,
+smooth or transparent display for the currently
+highlighted view, as in the main window.<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td width="400"><font face="tahoma" size="2">The <b>Color Surface By</b> submenu
+allows the surface to be
+coloured according to bone weights (if the object has a skeleton) or by
+texture parameters (if any have been set)</font></td>
+<td><img src="modelling/color_by_menu.jpg"></td>
+<td width="400"><font face="tahoma" size="2">See the <a href="#color_by">section</a>
+on
+triangle meshes for more details. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td width="400"><font face="tahoma" size="2">The <b>Show</b> submenu allows various
+items to be
+displayed or hidden on the view. </font></td>
+<td><img src="modelling/view_show_menu.jpg"></td>
+<td width="400"><font face="tahoma" size="2">See the <a href="#mesh_show">section</a>
+on
+triangle meshes for more details. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<b>Coordinate System</b> - Here you can choose to work with
+the mesh in its Local coordinate system or
+in the Scene coordinate system. This will affect the orientation and
+position of the mesh.<br>
+<br>
+<b>Grids</b> - As in the <a href="layout.html#grids">main
+window</a>, Grids can be shown and, if necessary, used to snap
+objects to.<br>
+<br>
+<b>Show/Hide Coordinate Axes</b> toggles display of the x,y
+and z axes as shown <a href="layout.html#coordaxes">here</a>.<br>
+<br>
+<b>Show/Hide Template</b> displays or hides the image
+selected as the background in the next menu option.<br>
+<br>
+<b>Set Template Image...</b> allows an image (in .jpg, .png
+or .gif format) to be used as the background
+in the editor. This is useful as a reference when modelling. Selecting
+this displays a dialogue to
+allow selection of the image which can then be turned on/off with the
+previous menu entry.<br>
+<br>
+<br>
+The <strong><font color="#009933">Skeleton</font></strong>
+menu is described in detail in <a href="#skeletons">Section
+2.1.5</a>.
+<br>
+<br>
+<br>
+<a name="triangle_meshes"><strong><font color="#ff6633" size="4">2.1.4. Triangle Meshes</font></strong></a><br>
+<br>
+<br>
+Triangle meshes are similar to spline meshes in that they are a way of
+creating complex surfaces. The surfaces, however, are not defined by
+curves as in the case of splines, but through a mesh of triangular
+facets. The example below shows the difference between a sphere surface
+represented by a spline mesh and by a triangular mesh: <br>
+<img src="modelling/spline_v_tri.jpg"><br>
+<br>
+The fact that the surface is composed of triangles means that triangle
+meshes are more versatile than spline meshes. Meshes are either created
+directly from objects or by using modelling_tools on existing mesh
+objects (see <a href="modelling_tools.html">
+modelling_tools</a>).<br>
+<br>
+To create a triangle mesh version of any existing geometric object,
+simply click on the object in the Object List and select <b>Object
+-&gt; Convert to Triangle Mesh. </b>Depending on the
+selected object, you may be prompted for a surface accuracy. This is
+because most geometries contain curves which can only be approximated
+with a mesh and so you need to tell the program how accurate to be.
+Basically, the lower the surface accuracy specified, the greater the
+number of triangles making up the mesh. It is worth bearing in mind,
+however, that you do not necessarily need to specify a particularly
+high accuracy as the smoothing options that the mesh is capable of will
+be able to produce smooth meshes from a relatively few number of
+points/triangular faces. Converting a cube to a triangle mesh can be
+done exactly and so there is no prompt for accuracy.<br>
+<br>
+Double-clicking on a triangle mesh object brings up the triangle mesh
+editor as shown below. Meshes can be edited in either point, edge or
+face mode by selecting the appropriate button from bottom left.<br>
+<img src="modelling/mesh_editor.jpg"><br>
+<br>
+As in the <a href="layout.html#view_windows">main
+viewports</a>, the orientation, scaling and type (parallel or
+perspective) of view can be controlled using the familiar camera
+control icons/keyboard shortcuts and drop down menus at the top of the
+view. The type of shading can also be altered by selecting <b>Mesh
+-&gt; Display Mode </b>(see <a href="layout.html#display_mode">Display Mode</a> for
+details on this)<br>
+<br>
+<br>
+<a name="mesh_tools"><b><font color="#0000ff">MODELLING
+TOOLS</font></b></a><br>
+<br>
+The icons on the left side are largely the same as for the spline mesh
+editor. There are
+additional tools for triangle meshes, though, and each tool can be
+applied to points, edges or faces. Most of these tools are fairly
+self-explanatory. Resting the cursor over the icons will bring up a
+tooltip to describe its function.
+The operation of most can be modified by pressing &lt;shift&gt;
+or &lt;ctrl&gt; - see the bottom of the editing window for
+details relevant to each tool. The spacebar can be used to switch
+between tools quickly; pressing it toggles between the
+Select/Move tool and the last tool used. Below is more information on
+each tool.<br>
+<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/move_icon.jpg"></td>
+<td><font face="tahoma" size="2">The
+move/select tool allows vertices, edges or faces to be selected and
+moved. Selected geometry is shown
+in pink and will be affected by any tool then activated. Geometry is
+selected either by clicking directly
+on the point/edge/face or by dragging a rectangular region or marquee
+around the geometry you want to
+select. A freehand tool is also available via the <b>Edit</b>
+menu. Further geometry can be added to
+the selection by holding Shift while clicking on currently unselected
+geometry. Geometry can be removed from the selection by Shift clicking
+already-selected points/edges/faces or by Ctrl dragging a region over
+the part of the model that needs to be de-selected.<br>
+<br>
+This tool also allows selected geometry to be moved by clicking on part
+of the selecting and dragging or by using the arrow keys - pressing
+Ctrl with the
+up and down arrow keys moves selected geometry in and out of the screen
+plane. Holding ALT while pressing the arrow keys moves the points by 10
+pixels.<br>
+<br>
+The remaining tools will be demonstrated as their effect on the
+selection shown on the left. </font></td>
+</tr>
+<tr>
+<td><img src="modelling/scale_point_icon.jpg"></td>
+<td><font face="tahoma" size="2">The
+mesh scale tool stretches or squashes the current selection by
+grabbing one of the handles and
+dragging. The scaling operation can be controlled using the Shift and
+Ctrl keys; pressing Shift
+while dragging performs a uniform scale (i.e. keeps the proportions of
+the selected geometry the same)
+and pressing Ctrl centres the scale. The image of the right is the
+result of applying a scaling
+operation to the points selected; in this case both Shift and Ctrl keys
+were pressed. </font></td>
+</tr>
+<tr>
+<td><img style="width: 350px; height: 235px;" alt="" src="modelling/rot_points_icon.jpg"><br>
+</td>
+<td><font face="tahoma" size="2">This
+tool rotates the currently selected geometry as shown on the left.
+The choice of handle dictates
+the axis in which the rotation is carried out. The centre of the
+rotation is shown by the red cross;
+this can be moved by pressing Ctrl and clicking on the desired centre. </font></td>
+</tr>
+<tr>
+<td><img src="modelling/skew_icon.jpg"></td>
+<td><font face="tahoma" size="2">This
+tool deforms the selected geometry by performing a skew operation,
+i.e. geometry is shifted according to its distance from the handle, as
+shown on the left. Pressing
+Shift while dragging performs a uniform skew and Ctrl performs a
+centred skew operation. </font></td>
+</tr>
+<tr>
+<td><img src="modelling/taper_icon.jpg"></td>
+<td><font face="tahoma" size="2">The
+taper tool scales geometry depending on its distance from the
+handle used, as shown on the left.
+As with many of the other tools, the operation can be modified to a
+uniform one by Shift-dragging and a
+centred one by Ctrl-dragging. The result on the left was obtained by
+Ctrl-dragging the top handles inward. </font></td>
+</tr>
+<tr>
+<td><img src="modelling/outward_icon.jpg"></td>
+<td><font face="tahoma" size="2">This
+tool deforms geometry by moving vertices inward or outward along
+their normals. There are no handles for this tool; the operation is
+performed by simply dragging up or down on the viewport. In some
+situations the result is often quite similar to a centred uniform scale
+as seen on the left but, in
+other cases, the results are markedly different. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+The <a name="gizmo"></a>Compound Move/Scale/Rotate
+'gizmo' tool <img src="modelling/gizmo_icon.jpg" style="width: 32px; height: 31px;" alt=""> is a
+powerful way to carry
+out a range of operations on selected geometry. &nbsp;To use,
+select the icon and then select the points/edges/faces to be modified
+in the usual way. &nbsp;A 'gizmo' centred on the selection is
+displayed as shown below.<br>
+<table>
+<tbody>
+<tr>
+<td width="250"> <font face="tahoma" size="2">The 'gizmo'
+consists of 3 circles, each defining a rotation plane, 3 coordinate
+axis lines and a sphere at the centre. Each axis has a letter (x, y or
+z) in a square and a diamond handle.<br>
+<br>
+Free movement of the entire selection is performed by dragging the
+central sphere. Movement in a particular axis is acheived by clicking
+and dragging left/right on the appropriate letter square.<br>
+<br>
+Scaling in a particular direction is achieved by clicking and dragging
+on the appropriate diamond. Uniform scaling is performed by holding shift
+whilst dragging.<br>
+<br>
+Rotation is achieved by clicking on the appropriate circle and dragging
+in the required direction.<br>
+<br>
+The entire 'gizmo' can be resized by holding the control key whilst
+dragging on any
+of the diamond handles. <br>
+</ctrl></shift></font></td>
+<td> <img src="modelling/gizmo.jpg" style="width: 766px; height: 617px;" alt=""></td>
+</tr>
+</tbody>
+</table>
+<br>
+The axes of the 'gizmo' are initially shown as x, y and z but other
+coordinate axes can be set instead, as shown below, by clicking W.
+&nbsp;The left image is the x, y and z mode. &nbsp;The centre
+image shows a 2D&nbsp;mode where u and v are horizontal and
+vertical axes parallel to the screen. &nbsp;The 3rd mode, shown in
+the right hand image, allows transformations along the axis, N, normal
+to the selection and the 2 corresponding orthogonal axes P and Q. <br>
+<img src="modelling/gizmo2.jpg" style="width: 665px; height: 233px;" alt=""><br>
+<br>
+<a name="Bevel_tool">The Bevel/Extrude</a> tool <img src="modelling/bevel_icon.jpg"> is a very powerful way of
+extending the mesh geometry. This tool works in exactly the same way as
+the Bevel/Extrude function accessible from the
+Mesh menu (see below) but in a more interactive way. Bevel and extrude
+can be applied in a single
+operation to vertices, edges or faces and the resulting geometry is
+left selected to allow further
+bevel/extrudes to be applied immediately. To use the tool, select the
+geometry to be bevelled/extrude
+using the Move/Select tool. Then select the Bevel/Extrude tool and the
+mode of operation (i.e.
+point/edge/face). Dragging up/down on the viewport extrudes the
+geometry and dragging left/right
+applies a bevel. The operation can be constrained to a pure extrude by
+Shift dragging up/down and
+constrained to a pure bevel by Shift clicking left/right. The images
+below show the results of
+applying this tool to some sample geometry in the different modes. Note
+that for faces, double-clicking
+the icon displays a dialogue that allows faces to be extruded as
+separate entities or on the selection
+as a whole.<br>
+<img src="modelling/bevel_extrude.jpg"><br>
+<br>
+<br>
+The <a name="create_vert">Create Vertex </a> tool <img src="modelling/add_vert_icon.jpg"> allows new geometry to be
+created in
+a number of ways depending on which modelling mode is used, i.e.
+points/edges/faces.<br>
+<table>
+<tbody>
+<tr>
+<td width="300"><font face="tahoma" size="2"> In <b>Point</b> mode,
+dragging on an existing vertex creates a new point which is attached to
+the original one as shown
+in the figure on the right: </font></td>
+<td><img src="modelling/create_v_point.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+In <b>Edge</b> mode, this tool allows you to create new
+vertices at a selected position on mesh simply
+by clicking at that position. In the example below, moving to the
+position shown in 1 and clicking
+results in a new vertex (and additional edges) as shown in 2. Similarly
+clicking at position 3 produces
+the new geometry shown in 4 etc.<br>
+<img src="modelling/create_v_edge.jpg"><br>
+<br>
+<table>
+<tbody>
+<tr>
+<td width="300"><font face="tahoma" size="2">In <b>Face</b> mode, you can create
+new vertices in the
+middle of faces by clicking at the appropriate
+location. In the example on the right, a new vertex is created by
+clicking at the location shown in 1, as shown in 2. Similarly for 3 and
+4. </font></td>
+<td><img src="modelling/create_v_face.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+<b><font color="#0000ff">MENUS</font></b><br>
+<br>
+<br>
+The top menu bar has additional tools to the spline editor to reflect
+the greater versatility of triangle meshes.<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">This
+is the <strong><font color="#009933">Edit</font></strong>
+menu:<br>
+</font></td>
+<td><img src="modelling/mesh_edit_menu.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Undo</b> - undoes last action, including selections.
+This changes to Redo if you have just undone something.<br>
+<br>
+<b>Clear</b> - deletes selected points, edges or faces. Has
+the same effect has pressing &lt;delete&gt;.<br>
+<br>
+<b>Select All </b>- selects all points, edges or faces.<br>
+<br>
+<b>Extend Selection -</b> expands selection by adding
+points, edges or faces adjacent to those currently selected.<br>
+<br>
+<b>Invert Selection</b> selects any currently deselected
+points and deselects any currently selected points.<br>
+<br>
+<table>
+<tbody>
+<tr valign="top">
+<td width="300"><font face="tahoma" size="2"> <a name="special_sel"><b>Select
+Special</b></a>
+allows selection of geometry using several options from the below
+sub-menu:<br>
+<br>
+<img src="modelling/mesh_special_sel_menu.jpg"><br>
+</font></td>
+<td width="200"> <font size="1"><b>Boundary
+of Object </b>-
+if part of the mesh is open, you can select the boundary by selecting
+this option. See example below:<br>
+<br>
+<img src="modelling/select_boundary.jpg"><br>
+<br>
+<b>Boundary of Current Selection </b>- this tool
+selects the edges which outline the currently
+selected geometry as in the example below:<br>
+<img src="modelling/mesh_sel_boundary_selection.jpg">
+</font></td>
+<td width="200"> <font face="tahoma" size="1"><b>Edge
+Loop of Current Selection </b>- selects edges that are close to
+parallel and are joined to form an edge loop as below:<br>
+<br>
+<img src="modelling/edge_loop_selection.jpg"> </font></td>
+<td width="200"> <font face="tahoma" size="1"><b>Edge
+Strip of Current Selection </b>- selects edges which are close
+to parallel but are separated
+by one edge. This is often useful when followed by edge subdivision of
+the resulting selection to
+produce a new edge loop:<br>
+</font> <br>
+<img src="modelling/mesh_sel_edge_strip.jpg"> <br>
+<br>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<a name="tol_sel"></a>
+<b>Tolerant Selection Mode </b>- This alters the way the
+marquee selection tool works on edges and faces. If this is not set,
+then only those edges/faces completely within the selection rectangle
+are selected. If Tolerant Selection in enabled, any edges/faces having
+some part of them within the selection boundary will be selected as
+shown in the example below:<br>
+<br>
+<img src="modelling/tolerant_mode_ex.jpg">
+<br>
+<b>Freehand Selection </b>- enters a selection mode that
+allows you to trace a freehand path - all
+points or curves enclosed by the path are selected. This mode can be
+toggled on/off.<br>
+<br>
+<a name="display_quads"><b>Display as Quads</b></a>
+- this alters the way that the edges in the mesh are displayed. If 2
+adjoining
+faces are oriented in a similar direction, the edge between them is
+hidden so that the 2 triangular
+faces appear as a quadralateral. This gives a neater looking mesh as
+shown below:<br>
+<img src="modelling/display_quads.jpg"><br>
+<br>
+<a name="project"></a>
+<b>Project Control Mesh Onto Surface</b> makes the control
+mesh sit on the surface of the model which
+can make adjustments to mesh geometry have a more predictable effect on
+the surface. See example below:<br>
+<img src="modelling/project_onto_surface.jpg"><br>
+<a name="hide"></a>
+<table>
+<tbody>
+<tr>
+<td width="300"><font face="tahoma" size="2"> <br>
+<b>Hide Selection</b> allows selected geometry to be
+hidden as shown on the right. This is
+useful when editing complex meshes where visibility is can be a problem
+due to overlying geometry.<br>
+<br>
+<br>
+<b>Show All</b> shows all currently hidden geometry. </font></td>
+<td><img src="modelling/trimesh_hide.jpg"></td>
+</tr>
+</tbody>
+</table>
+<a name="hide"><br>
+<b>Mesh Tension </b>- similar to the spline mesh tool,
+this causes points around those currently
+selected to move with them. See </a><a href="object_types.html#mesh_tension">here</a> for
+more details.<br>
+<br>
+<br>
+<br>
+The <strong><font color="#009933">Mesh</font></strong>
+menu is like this:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/mesh_mesh_menu.jpg"></td>
+<td><font face="tahoma" size="2"><b>Subdivide
+Selected Faces/Edges </b>- In face/edge editing mode, any
+faces/edges selected will be subdivided. This is useful for allowing
+extra detail to be added to particular parts of the mesh. This works
+differently for edges and faces even if the original
+selection is the same as shown below:<br>
+<img src="modelling/subd_faces.jpg"><br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+Subdivision works differently depending on which smoothing method (see <a href="#smoothing">below</a>) is
+used. In the example below, for instance, the effect of subdividing all
+the edges of a cube before and after applying Approximating smoothing
+is demonstrated. The resulting surface is different.<br>
+<br>
+<img src="modelling/sudv_diff_smooth.jpg"><br>
+<br>
+<b>Simplify Selection </b>- Reduces the number of points
+in a mesh to a specified surface accuracy. This can make complicated
+meshes easier to work with and can sometimes make them smoother if the
+approximating smoothing method is used.<br>
+<br>
+<b>Edit Points</b> allows you to specify absolute x, y and
+z co-ordinates for selected points and to specify skeleton properties
+(see <a href="#skeletons">Skeletons</a>). A
+realtime preview of the effect of values entered in the dialogue is
+shown on the actual mesh
+- cancelling the dialogue causes the mesh to revert back to its
+original shape.<br>
+<br>
+<b>Transform Points </b>allows you to move, rotate and
+scale selected points within the current
+selection by explicitly entering the values in the x, y and z axes.<br>
+<br>
+<b>Randomise Points </b>causes random variations in
+position within a user-defined tolerance. This is useful, for example,
+in simulating imperfections found in real life.<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/extrude.jpg"></td>
+<td><font face="tahoma" size="2"><b>Bevel/Extrude
+Selection </b>- This is a very useful tool for extending the
+geometry of existing meshes. This works like the <a href="object_types.html#Bevel_tool">Bevel/Extrude tool</a>
+except that you can specify the values for Bevel and Extrude
+accurately. The function works on points,
+edges or faces. In the case of faces, the whole selection or individual
+faces can be bevelled or
+extruded. In all cases, you specify the length to extrude by and the
+width of any bevel. An example
+applied to faces is demonstrated on the left: See the <a href="object_types.html#Bevel_tool">Bevel/Extrude tool</a>
+for other examples<br>
+<br>
+<b>Texture parameters </b>- allows specific vertices
+to be identified with parameters in the texture. See <a href="textures2.html#tex_param">Textures and Materials</a>
+for more details.<br>
+<br>
+<a name="optimize"><b>Optimize Mesh</b></a>
+- re-orders the edges in the mesh to give a smoother-looking mesh. This
+works
+particularly well for meshes which have acquired vertices with many
+edges when 'pinching' can occur.<br>
+<br>
+<b>Center Mesh </b>- moves the centre of the mesh to
+the origin.<br>
+<br>
+<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Close Selected Boundary </b>- If a boundary has been
+selected using Edit -&gt; Select Boundary as described above, it
+can then be closed to reform a smooth surface. This is useful for
+repairing surfaces and closing the ends of spline meshes converted to
+triangle meshes as demonstrated in the example below left:<br>
+<br>
+This function can also be applied to partial boundaries. Simply select
+the partial boundary and apply
+this function as demonstrated in the example below right:<br>
+<img src="modelling/close_boundary.jpg"><img src="modelling/close_boundary_ex2.jpg"><br>
+<br>
+<b>Join Selected Boundaries </b>- This will join 2 or more
+separate 'holes' or boundaries either by creating a tunnel through a
+mesh or by forming a bridge between the boundaries as shown in these
+examples.
+<br>
+<img src="modelling/join_boundaries_tunnel.jpg">
+<img src="modelling/join_boundaries.jpg"><br>
+Partial boundaries can also be joined as demonstrated below:.<br>
+<img src="modelling/join_boundaries_partial.jpg"><br>
+<br>
+<b>Extract Selected Faces </b>- Allows you to create a new
+object of the currently selected faces.<br>
+<br>
+<b>Extract Selected Curve </b>- Allows you to create a new
+object of the currently selected curve.<br>
+<br>
+<b>Set Smoothness </b>- This is the similar to the spline
+mesh option. Note that only points and edges can have their smoothness
+defined. A realtime preview of the effect of smoothness values entered
+in the dialogue is shown on the actual mesh - cancelling the dialogue
+causes the mesh to revert back to its original shape. The example below
+illustrates the extreme smoothness settings (which can range between 0
+and 1) and their effect on the Move Outward tool. Approximating
+smoothing has been used in this example but it also effects
+interpolating smoothing.<br>
+<img src="modelling/mesh_smoothness.jpg">
+<br>
+<a name="smoothing"><b>Smoothing Method - </b></a>There
+are 4 smoothing methods which vary the look of the object defined by a
+set of control points. 'None' creates a faceted appearance, while
+'Shading' gives an illusion of slight smoothing by altering surface
+normals. 'Interpolating' and 'Approximating' actually change the
+geometry of the object and are very powerful subdivision methods which
+are excellent for organic objects. The image on the right
+shows the difference between them for a simple object which was created
+by converting a cube into a triangle mesh. Also remember that the
+smoothness of individual points or edges can also be controlled using
+the Set Smoothness tool described above.<br>
+<img src="modelling/mesh_smoothings.jpg"><br>
+<br>
+<b>Invert Surface Normals</b> - in some circumstances faces
+do not display correctly as the surface normals have become flipped.
+This remedies the problem.<br>
+<br>
+<br>
+The <strong><font color="#009933">Skeleton</font></strong>
+menu is described in detail in the <a href="#skeletons">next
+section</a>.
+<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">The <strong><font color="#009933">View</font></strong>
+menu is like this:<br>
+</font></td>
+<td><img style="width: 212px; height: 204px;" alt="" src="modelling/mesh_view_menu.jpg"></td>
+</tr>
+</tbody>
+</table>
+<a name="mesh_display"><b>Display Mode</b></a>
+- switches between wireframe, shaded, smooth, textured or transparent
+display modes for the currently
+highlighted view window (see examples below).<br>
+<br>
+<span style="font-weight: bold;"></span><br>
+<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td width="600"><font face="tahoma" size="2"><a name="color_by"></a>The <b>Color Surface By</b> submenu
+allows the surface to be
+coloured according to bone weights (if the object has a <a href="#skeletons">skeleton</a>) or by
+<a href="textures2.html#tex_param">texture parameters</a>
+(if any have been set). &nbsp;In the examples below, selecting a
+bone in the fox's leg shows in green the bone influence on the mesh
+surface. In this case, there is a smooth transistion in weights and
+hence in shades of green, as opposed to the case below right in which
+the whole surface has an IK Weight of 1 and is therefore shown as
+uniformly green.</font></td>
+<td><img src="modelling/color_by_menu.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<img style="width: 844px; height: 399px;" alt="" src="modelling/colour%20by%20bone%20ex.jpg"><br>
+<br>
+<table>
+<tbody>
+<tr>
+<td width="400"><font face="tahoma" size="2"> <a name="mesh_show">The <b>Show
+</b></a>submenu
+allows various items to be displayed or hidden on the for the currently
+highlighted view as demonstrated in the examples below:<br>
+</font></td>
+<td><img src="modelling/view_show_menu.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<img src="modelling/displays.jpg"><br>
+<br>
+<b>Coordinate System</b> - Here you can choose to work with
+the mesh in its Local coordinate system or
+in the Scene coordinate system. This will affect the orientation and
+position of the mesh.<br>
+<br>
+<b>Grids</b> - As in the <a href="layout.html#grids">main
+window</a>, Grids can be shown and, if necessary, used to snap
+objects to.<br>
+<br>
+<b>Show/Hide Coordinate Axes</b> toggles display of the x,y
+and z axes as shown <a href="layout.html#coordaxes">here</a>.<br>
+<br>
+<b>Show/Hide Template</b> displays or hides the image
+selected as the background in the next menu option.<br>
+<br>
+<b>Set Template Image...</b> allows an image (in .jpg, .png
+or .gif format) to be used as the background
+in the editor. This is useful as a reference when modelling. Selecting
+this displays a dialogue to
+allow selection of the image which can then be turned on/off with the
+previous menu entry.<br>
+<br>
+</font><font face="tahoma" size="2"><b>Render
+Preview </b>produces a raytraced render of the
+mesh so that you can check that everything is going to look as it
+should in the final render.</font><br>
+<font face="tahoma" size="2"><br>
+<br>
+<br>
+<a name="skeletons"><strong><font color="#ff6633" size="4">2.1.5. Skeletons</font></strong></a><br>
+<br>
+<br>
+Skeletons are not objects in themselves but they are a very useful
+method of controlling the deformation of mesh objects. Their greatest
+use is in animation and this is detailed <a href="animation.html#pose_tracks">here</a>.
+<br>
+<br>
+The basic premise of skeletons is that you create a chain of 'bones'
+which is attached to the mesh. Movement
+of the bones is then achieved through 1 of 2 distinct methods:<br>
+<br>
+<b>Forward Kinematics (FK)</b>: Clicking on a bone joint
+displays FK handles which allow the bone to be
+rotated, twisted or stretched relative to its parent.<br>
+<br>
+<b>Inverse Kinematics (IK)</b>: Various joints can be
+anchored or 'pinned'. Other
+joints can then be grabbed and moved to the required position; other
+bones between that joint and any
+pinned joints will then move automatically through a process called
+Inverse Kinematics to maintain the skeleton links. <br>
+<br>
+In either case, as the bones move, the mesh will deform to keep up with
+them.<br>
+<br>
+<br>
+<b><font color="#0000ff">CREATING A SKELETON</font></b><br>
+<table>
+<tbody>
+<tr>
+<td><font face="tahoma" size="2">To
+create a skeleton, enter the mesh editor by double-clicking a mesh
+object, and click on <img src="modelling/skeleton_icon.jpg"><br>
+<br>
+To define a new bone, &lt;ctrl&gt; click at the required place.
+The first bone defined is called the 'root'. Now &lt;ctrl&gt;
+click further along the mesh. A new cross is created and the two are
+joined
+by a kite shaped 'bone'. This process can be repeated as often as
+necessary as shown in the simple
+example on the right:<br>
+<br>
+The shape of the kite is important; the thin end points towards the
+root end of the skeleton and the thicker
+end points towards the extremity.<br>
+<br>
+Once created, bones can be selected by clicking on the cross at their
+end. The currently selected 'joint'
+is shown in pink. &lt;ctrl&gt; clicking somewhere while a joint
+is selected will add a new bone connecting the new location to that
+joint. To start a separate bone chain, ensure that there are no bones
+currently selected by clicking on the editor window away from any
+existing bones.<br>
+<br>
+The 'base' joint is shown in green. Any existing joint can temporarily
+be made a 'base' by &lt;shift&gt;
+clicking it. This is a way of restricting movements of the skeleton;
+any bones between the base and the root will remain fixed while bones
+further towards the extremity will be able to move. Art of
+Illusion allows any number of bone joints to be anchored or 'pinned' in
+this way. </font></td>
+<td><img src="modelling/skeleton.jpg"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/skeleton_ex.jpg"></td>
+<td><font face="tahoma" size="2">This
+shows a more complicated example of an arm. The 'root' is defined
+at the shoulder joint, then there
+is a bone to represent the upper arm ending at the elbow. From there is
+the bone from the elbow to the
+wrist and from the wrist to the centre of the hand. Now it becomes more
+complicated; individual bone
+chains run from this central hand joint to each of the digits (click
+back on the central hand joint to
+start each digit chain).<br>
+<br>
+Note that the skeleton editor normally does a good job of positioning
+the depth of the skeleton as it
+is drawn over the mesh. This will work best, however, is the mesh is
+kept in one plane. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b><font color="#0000ff">BINDING THE SKELETON TO THE
+MESH</font></b><br>
+<br>
+Having drawn the skeleton, it needs to be attached to the mesh. To do
+this, select all the points in
+the mesh and click on <b>Skeleton -&gt; Bind Points to
+Skeleton </b>. The following dialogue will be displayed:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/ik_weight_dial.jpg"></td>
+<td><font face="tahoma" size="2">The IK
+(Inverse Kinematics) Weight defines how the mesh will deform as
+the bones attached to it
+move. If the IK Weight of a point was set to 1.0, then it would be
+affected only by the nearest bone. This can lead to problems where
+adjacent points are nearest to different bones. In this case, one point
+would move with one bone and its neighbour would not. To overcome this,
+Art of Illusion can make points be affected not only by the nearest
+bone but also by that bone's parent (i.e. the next bone towards the
+root). When the skeleton is bound to the mesh using this dialogue, the
+program blends these weights to make the surface move smoothly; points
+near the centre of the bone will have weights close to 1 whereas points
+near joints will have lower weights. The IK Weight Blending value
+defined here sets the size of the region around each joint that will
+use lower weights. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+If the IK Weight Blending was set to 0, there would be no blending and
+that all points would be bound
+with an IK Weight of 1 (e.g. a rigid robotic arm). A blending of 1 is
+the other extreme and would b
+useful for something like a flexible garden hose.<br>
+<br>
+The IK Weight Blending defined at this stage is a global control on all
+points attached to the skeleton. To
+define more specific control on particular points, you can select the
+relevant points and select
+<b>Mesh -&gt; Edit Points </b>. The lower part of this
+dialogue allows you to select which bone you want
+the points to be controlled by and which IK weight to apply as shown
+below: <br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/skeleton_edit_IK_weight.jpg"></td>
+<td><font face="tahoma" size="2">Just
+to reiterate, the IK Weight is the relative effect of the nearest
+bone over its parent bone, so a value of 0.5 means that the point is
+affected equally by the nearest bone and its parent, a value of 0.8
+means that the effect of the nearest bone predominates over its parent.
+(80% vs 20%). </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+Note that only part of the mesh can be bound to the skeleton if
+required. When binding, simply select
+the points you want to bind and click on <b>Skeleton -&gt;
+Bind Points to Skeleton </b>. This is useful
+if you have altered the skeleton but have already fine-tuned the IK
+weights on other parts of the skeleton.
+In this case binding all points would mean you would have to start
+adjusting IK weights all over again.
+Instead just select those vertices around the altered bones and bind
+those.<br>
+<br>
+<br>
+<b><font color="#0000ff">EDITING THE SKELETON</font></b><br>
+<br>
+The bones in the skeleton can be moved using Forward Kinematics (FK) or
+Inverse Kinematics (IK). With
+FK, bones are moved individually with their parent bone being fixed. FK
+movements can be conveniently
+effected via the FK handles attached to the selected joint. The handles
+are shown as small red squares
+attached to the joint by a line, as shown below. The number of handles
+available depends on the unlocked degrees of freedom and the FK handle
+setting. By default, there are 2 unlocked degrees of freedom; X bend
+and Y bend and the FK handle setting is set to display unlocked degrees
+of freedom only.<br>
+<br>
+To allow alteration of the other degrees of freedom, the Edit Bone
+dialogue (see below) can be used to unlock the 2 other degrees of
+freedom: Twist and Length. Alternatively, the
+currently locked degrees of freedom can be made to display, and allow
+alteration of, their FK handles. The
+FK handle setting, which allows this, is set by double-clicking on the
+skeleton icon. This gives
+3 options: (i) display of only unlocked degrees of freedom, (ii) No FK
+handles at all or (iii) All FK handles. Note that unlocking the degrees
+of freedom via the Edit Bone dialogue means that
+they will unlocked when manipulating bones via IK, unlike changing the
+FK display setting.<br>
+<br>
+To move the bone, click on the appropriate handle. For X and Y bend
+handles, this displays a circle centred on the parent joint which
+shows the possible range of motion (see figure below). Dragging the
+mouse left/right with the left mouse depressed will
+rotate the bone and constrain the motion to that relevant degree of
+freedom.<br>
+<br>
+<img src="modelling/skeleton_FK_handles.jpg"><br>
+<br>
+The alternative method of moving bones is using Inverse Kinematics
+(IK). With IK, you can anchor or 'pin'
+any of the bone joints by pressing &lt;shift&gt; and clicking
+on them - this will turn them green. To move the skeleton, click on any
+of the unpinned
+joints and drag it; the IK solver in Art of Illusion will automatic
+calculate the position of
+the bones between that joint and any pinned joints in order to maintain
+the skeleton links.<br>
+<br>
+<br>
+If, after creating and binding the skeleton, there is a need to
+reposition any of the bones without affecting
+the pose of the object, then select <b>Skeleton -&gt;
+Temporarily Detach Skeleton </b>. Once the skeleton
+is correctly positioned, then select the <b>Skeleton -&gt;
+Temporarily Detach Skeleton </b> to toggle this option
+off again. It may also be necessary to rebind the skeleton at this
+stage to ensure that the vertices are assigned to the appropriate bones.<br>
+<br>
+<b><font color="#0000ff">SETTING MOVEMENT
+RESTRICTIONS</font></b><br>
+<br>
+By default, the bones' rotations are not restricted. As well as being
+physically unrealistic, this can soon lead to problems when moving
+bones using IK . To avoid this, the movements of each bone can be
+limited. This is done by clicking
+on the joint at the end of the bone and selecting <b>Skeleton
+-&gt; Edit Bone </b>. This will display a dialogue similar
+to that below:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/edit_bone.jpg"></td>
+<td><font face="tahoma" size="2">At the
+top is the name of the bone and this can be changed to anything
+you like.<br>
+<br>
+The next 2 properties that can be altered are the <b>X-bend</b>
+and <b>Y-bend</b>. These are rotations of the bone around
+the parent joint (the one at the thin end of the kite) and can either
+be left and right or forward and
+backward. One will be the X-bend and the other the Y-bend. As you
+change the values in these boxes, the
+skeleton be be updated in real time. The circular device shown beside
+each type of angular motion can also
+be used to move bones. The black square handle on the outer circle can
+be grabbed and moved around to
+alter the relevant degree of motion.<br>
+<br>
+Rotation around either the X or Y direction can be completely disabled
+by checking
+the <b>Lock</b> box. Alternatively, the maximum angles of
+bend in each direction can be restricted by checking the <b>Restrict
+Total Range </b> box and then entering the extreme values in the
+2 boxes below. This 'blacks out' the forbidden range of angles in the
+circular device. In addition, you can set another range with the <b>Restrict
+Comfort Range</b> which is the range that
+the bone will normally reside in and will only go outside when forced
+to. The circular device shows in
+grey the range of angles outside of the Comfort Range. Finally there is
+the ability
+to set the <b>Stiffness</b> of the joint which is a way of
+making some joints in the chain more easily bent
+than others.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+Apart from be able to bend the joint, there is the ability to <b>Twist</b>
+it, i.e. spin it around its
+axis. The controls on this are the same as the X and Y bends.<br>
+<br>
+Finally there is the <b>Length</b> control which allows
+the bone to be stretched and compressed along
+its length. Again there is the ability to control the total and confort
+ranges as well as the stiffness. <br>
+<br>
+<br>
+<b><font color="#0000ff">THE SKELETON MENU</font></b><br>
+<br>
+Just to end off the section on skeletons we will look at the Skeleton
+Menu accessible from the top
+menu bar. It looks like this:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/mesh_skeleton_menu.png"></td>
+<td><font face="tahoma" size="2"> <b>Edit
+Bone</b> displays the dialogue to set bone
+movement restrictions detailed above.<br>
+<br>
+<b>Delete Bone</b> deletes the currently selected
+bone.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<b>Set Parent Bone</b> allows the bone hierarchy to be
+restructured. This is particularly useful for
+rearranging bone set up after or before deleting bones. Take the
+example below:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/skeleton_set_parent.jpg"></td>
+<td><font face="tahoma" size="2">[LEFT]
+Let's say I wanted to delete the bone between joints 2 and 3 in
+the top diagram. The parent joint
+of this bone is 2. If I selected joint 3 and tried to delete it, I
+would have to delete all the
+children of that bone as well, i.e. all the finger joints.<br>
+<br>
+However it can be done as follows. First we change the parent of bone 4
+from its current parent, i.e. 3,
+to 2. This is done by selecting bone 4, clicking on <b>Skeleton
+-&gt; Set Parent</b> and choosing Bone 2
+from the list. The bone hierarchy changes as shown in the centre
+diagram.<br>
+<br>
+All we need to do now is select the unwanted bone and delete it.<br>
+<br>
+[BELOW] Bones can be inserted in a similar way - effectively we replace
+one existing bone with 2 or more.
+Click on the bone to replace and set its parent bone to None - this
+will break the bone chain. Now select the bone onto which you want to
+join the new bones and Ctrl click the new bones as usual.
+To join the last bone onto the end of the rest of the bone chain,
+select the end of the chain and
+set its parent to the last new bone.<br>
+<img src="modelling/skeleton_set_parent2.jpg"> </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Import Skeleton</b> allows the skeleton of another
+object in the scene to be imported into the
+current mesh.<br>
+<br>
+<b>Bind Points to Skeleton</b> links the skeleton to the
+mesh so that moving bones will deform the mesh. See above for details.<br>
+<br>
+<b>Detach Points from Bone</b> detaches all points from the currently selected bone
+so that they are no longer bound to the skeleton.<br>
+<br>
+<b>Temporarily Detach Skeleton</b> switches off the link
+between the skeleton and the mesh so that
+changes in the skeleton setup can be made without affecting the mesh.<br>
+<br>
+<br>
+<br>
+<a name="tubes"><strong><font color="#ff6633" size="4">2.1.6. Tube Objects</font></strong></a><br>
+<br>
+<br>
+Tube objects are created by using the <a href="modelling_tools.html#tube">Tube tool</a> on a
+curve. This produces an extruded surface that
+has a circular cross-section. Tube objects can be edited by
+double-clicking them in the Object List or
+by clicking right and selecting <b>Edit Object</b>. This
+displays the Tube Object editor as shown below:<br>
+<br>
+<img src="modelling/edit_tube.jpg"><br>
+<br>
+This editor is very similar to the Spline and Triangle Mesh editors
+described above. There are less icon
+tools available as these objects are inherently less flexible. Resting
+the cursor
+over the icons will bring up a tooltip to describe its function. The
+spacebar can be used to switch between tools quickly; pressing it
+toggles between the
+Select/Move tool and the last tool used. The Tube surface is controlled
+by a set of
+points connected by straight lines, effectively a curve. This defines
+the shape of the tube centres. The diameter of the cross section can be
+specified at each point on the curve.<br>
+<br>
+The top menu bar is also similar to the other object editors:<br>
+<br>
+The <strong><font color="#009933">Edit</font></strong>
+menu looks like this:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/tube_edit_menu.jpg"></td>
+<td><font face="tahoma" size="2"> <b>Undo/Redo</b>
+- undoes the last action or redoes
+the last undo, including selections.<br>
+<br>
+<b>Select All</b> - selects all the points in the
+curve.<br>
+<br>
+<b>Extend Selection</b> - adds points immediately
+adjacent to all those currently selected to the selection.<br>
+<br>
+<b>Invert Selection</b> - deselects currently
+selected points and selects currently deselected points. </font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Freehand Selection Mode </b> - enters a selection mode
+that allows you to trace a freehand path - all
+points enclosed by the path are selected. This mode can be toggled
+on/off.<br>
+<b>Curve Tension</b> causes points adjacent to those
+selected to be affected by the various transformation
+tools. See the <a href="#curvetension">Curve section</a>
+for more details.<br>
+<br>
+<br>
+The <strong><font color="#009933">Tube</font></strong>
+menu is like this:<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/tube_menu.jpg"></td>
+<td><font face="tahoma" size="2"> <b>Delete
+Selected Points</b> deletes all selected
+points from the tube curve.<br>
+<br>
+<b>Subdivide Selection</b> adds points between any
+adjacent selected points.<br>
+<br>
+<b>Edit Points</b> brings up a dialoguw allowing the
+x, y and z coordinates of selected points to be
+explicitly specified. A realtime preview of the effect of values
+entered in the dialogue is shown on the actual tube object
+- cancelling the dialogue causes the tube to revert back to its
+original shape.<br>
+<br>
+<br>
+<b>Transform Points</b> allows selected points to be
+moved, rotated or scaled by specified values.
+Transformations can be around the centre of the selection or the origin
+of the object.<br>
+<br>
+<b>Randomise Points </b>- translate points by a
+random number below a user-specified maximum in any or all 3 axes.<br>
+<br>
+<b>Texture parameters </b>- allows specific points
+to be identified with parameters in the texture. See <a href="textures2.html#tex_param">Textures and Materials</a>
+for more details.<br>
+<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table>
+<tbody>
+<tr>
+<td width="400"><font face="tahoma" size="2"> <b>Set Thickness</b> - sets the
+diameter of the tube
+at all selected points to the value specified. See
+the example on the right:<br>
+<br>
+<b>Center Tube </b>- moves the centre of the tube to
+the origin.<br>
+<br>
+<b>Set Smoothness</b> - This refers to the smoothness
+of the tube itself rather than the curve. Low values
+represent sharp bends and high values smooth bends. The smoothness can
+be set for any point along the tube.
+A realtime preview of the effect of smoothness values entered in the
+dialogue is shown on the actual tube - cancelling the dialogue causes
+the tube to revert back to its original shape.<br>
+<br>
+<b>Smoothing Method</b> - As with meshes and curves,
+the smoothing method can be varied. Tube objects
+can have <b>None</b>, <b>Interpolating</b>,
+in which the centre of the cross-section is forced to go through
+the control points, and <b>Approximating</b> which is not
+so restrictive.<br>
+<br>
+<b>Tube Ends</b> - This controls how the ends of the
+tube look. The options are <b>Open Ends</b> where
+the tube looks hollow, <b>Closed Ends</b> where the 2 ends
+of the tube are joined together to form
+a continuous loop (see right) and <b>Flat Ends</b> where
+the ends are 'sealed' to give the impression
+of a solid rod. </font></td>
+<td><img src="modelling/tube_edit.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+The <strong><font color="#009933">View</font></strong>
+menu is like this:<br>
+<table>
+<tbody>
+<tr>
+<td><img src="modelling/curve_view_menu.jpg"></td>
+<td><font face="tahoma" size="2"> <b>Display
+Mode</b> - switches between wireframe,
+shaded, smooth or transparent display for the currently highlighted
+view, as in the main window.<br>
+<br>
+The <b>Show </b>submenu allows various items to be
+displayed or hidden on the view as demonstrated <a href="#mesh_show">above</a>:<br>
+<br>
+<b>Coordinate System</b> - Here you can choose to
+work with the mesh in its Local coordinate system or
+in the Scene coordinate system. This will affect the orientation and
+position of the mesh.<br>
+<br>
+<b>Grids</b> - As in the <a href="layout.html#grids">main window</a>, Grids can be
+shown and, if necessary, used to snap objects to.<br>
+</font></td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Show/Hide Coordinate Axes</b> toggles display of the x,y
+and z axes as shown <a href="layout.html#coordaxes">here</a>.<br>
+<br>
+<b>Show/Hide Template</b> displays or hides the image
+selected as the background in the next menu option.<br>
+<br>
+<b>Set Template Image...</b> allows an image (in .jpg, .png
+or .gif format) to be used as the background
+in the editor. This is useful as a reference when modelling. Selecting
+this displays a dialogue to
+allow selection of the image which can then be turned on/off with the
+previous menu entry.<br>
+<br>
+<br>
+</font><font face="tahoma" size="2"><br>
+<a name="ref_image"><strong><font color="#ff6633" size="4">2.1.7. Reference Image Planes</font></strong></a><br>
+<br>
+<br>
+Reference image planes (RIPs) are non-renderable objects that are used
+as a guide during modelling etc. &nbsp;To insert an RIP, select <span style="font-weight: bold;">Object -&gt; Create Primitive<span style="font-weight: bold;"> -&gt; Reference Image</span></span>.
+&nbsp;This will bring up a file selection dialogue which enables
+you to
+select an image. &nbsp;Having selected the image, you will be
+prompted
+with the Object Layout dialogue allowing you to specify the position,
+orientation and size of the image plane. Once created, the image shows
+up on the view windows projected onto a plane object. &nbsp;This
+object
+can be transformed in the same way as other objects - the only
+difference is that it does not show up on the rendered image.
+&nbsp;As
+with other objects, the image plane also shows up on any mesh editing
+window as long as the <span style="font-weight: bold;">View
+-&gt; Show -&gt; Entire Scene</span> is selected.<br>
+<br>
+As an example of use, consider modelling a car. It would be helpful to
+be able to see a reference image of the side view of the car when you
+are viewing your model from the side. &nbsp;Similarly for the
+front,
+back, top etc. This can be achieved by creating RIPs of each view
+and orienting them appropriately in the scene as show in the image
+below. &nbsp;Modelling in transparent display mode (as shown) means
+that you can see the appropriate view in each viewport.<br>
+<br>
+<img src="modelling/ref_images_ex.jpg" style="width: 1044px; height: 818px;" alt=""><br>
+</font>
+<font face="tahoma" size="2"><br>
+<br>
+<br>
+<br>
+</font>
+<div align="left"><font face="tahoma" size="2"><a href="modelling.html"><b><font size="4">Previous:
+Modelling</font></b></a></font></div>
+<font face="tahoma" size="2"><br>
+</font>
+<div align="right"><font face="tahoma" size="2"><a href="modelling_tools.html"><b><font size="4">Next:
+Modelling Tools</font></b></a></font></div>
+<font face="tahoma" size="2"><br>
+<a href="contents.html#contents_top"><b><font size="4">Back to Contents</font></b></a><br>
+</font>
+</body></html>

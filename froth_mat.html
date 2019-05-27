@@ -1,0 +1,40 @@
+<html>
+<!-- Creation date: 26/03/02 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>froth.html</title>
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+<meta name="Author" content="Julian MacDonald">
+<meta name="Generator" content="AceHTML 4 Pro">
+</head>
+<body BGCOLOR="#f8e89e">
+<font face="tahoma" size="2">
+<table><tr>
+<td><img src="textures/mat_foam_ex.jpg"></td>
+<td><font face="tahoma" size="2">
+This 'froth' material is based around the <b>cells</b> pattern which produces a random set of 'feature points'.
+The second output of this is the distance of the point from the nearest feature point.  The <b>greater than</b>
+function is used to produce a 1 if this is less than 0.3 and 0 otherwise; i.e. those point within a distance
+of 0.3 result in a 1 and everywhere else is 0, resulting in circles of radius 0.3 around the feature points.
+These are the 'bubbles' which need to have 0 density so the map is reversed by subtracting it from 1.  Now
+we have zero value for the 'bubbles' and 1 everywhere else and this is fed into the density property. A slight
+scaling/shifting is also applied to get a better look.<br>
+<br>
+<br>
+<b>Scattering</b> is set to a maximum of 1 so that light is all scattered.<br>
+<br>
+<br>
+<b>Transparency</b> is set to 0.01, i.e. almost opaque.<br>
+<br>
+<br>
+Finally, a uniform pink colour is set as the <b>Emissive Color</b> which gives the froth a basic pink colour.
+
+</font></td>
+</tr></table>
+<a href="materials.html#ex_materials"><b><font size="4">Back to Materials</font></b></a><br>
+
+
+</font>
+</body>
+</html>

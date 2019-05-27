@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML> 
+<HEAD><TITLE> editing objects.html </TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+</HEAD> 
+
+<BODY BGCOLOR="#f8e89e">
+<font face="Tahoma" size="2">
+<div align="left"><a href="modelling_tools.html"><b><font size="4">Previous: Modelling Tools</font></b></a></div><br>
+<div align="right"><a href="lights.html"><b><font size="4">Next: Lights</font></b></a></div><br>
+<font face="tahoma" size="6"><strong>2. Modelling</strong></font>
+<img SRC="man_title_small.jpg" align="middle"><br>
+<br>
+<br>
+<strong><font color="#3300cc" size="5"><b>2.3 Editing Objects</b></font></strong><br>
+<br>
+Once any of the objects described in section 3.1 have been created, they may be edited at any time. 
+To select an object, either click on it in one of the view windows or in the Object List. 
+To select multiple objects, hold down &lt;shift&gt; while clicking on the relevant objects 
+in the view windows or the Object List or define a marquee selection by holding down the mouse 
+button while dragging the mouse across the required images.<br>
+<br>
+<br>
+<a name="edit object"><font size="4" color="#ff6633"><b>2.3.1 Edit Object</b></font></a><br>
+<br>
+The Edit Object tool is actioned by selecting <B>Object -&gt; Edit Object </B>or by double clicking 
+on the object in the Object List. This tool brings up an object-dependent dialogue box which allows 
+varying amounts of editing. For a sphere or cube primitive, a simple dialogue box allows the scaling 
+in each axis to be altered. For a cylinder or cone object, there is the ability to alter the 
+relative scaling of the base as well as the top/bottom radius ratio and the height.<br>
+<img SRC="modelling/edit_sphere.jpg">
+<img SRC="modelling/edit_cylind_cone.jpg"><br>
+<br>
+For curves, spline and triangle meshes, and tubes, the relevant editing window will be displayed as 
+discussed in detail in sections <a href="object_types.html#curves">2.1.2</a>, 
+<a href="object_types.html#splines">2.1.3</a>, <a href="object_types.html#triangle meshes">2.1.4</a>
+and <a href="object_types.html#tubes">2.1.6</a>. 
+<br>
+<br>
+<br>
+Light editing options are discussed in <a href="lights.html">Chapter 4</a>.<br>
+<br>
+Camera editing options are discussed in <a href="rendering.html">Chapter 6</a>.<br>
+<br>
+<br>
+<a name="object layout"><font size="4" color="#ff6633"><b>2.3.2 Object layout<br></b></font></a>
+<br>
+If you select an object and click on <B>Object -&gt; Object Layout</B>, a dialogue like this example 
+will be displayed giving information on the object's position, orientation and scaling.<br>
+<table>
+<tr><td><img SRC="modelling/object_layout_dialogue.jpg"><br></td>
+<td><font face="Tahoma" size="2">Any of the shown fields can be altered allowing accurate definition of the object's position, 
+orientation and size. Simply click in the relevant box, type in the new value and click on 'OK' 
+to action the change.</font></td></tr>
+</table>
+<br>
+
+<br>
+<br>
+<a name="transforming objects"><font size="4" color="#ff6633"><b>2.3.3 Transforming Objects<br></b></font></a>
+<br>
+Clicking an object and selecting <b>Edit -&gt; Transform Object</b> allows the object to be translated, 
+rotated or scaled by a user-defined distance, angle or factor respectively. 
+The following dialogue box is displayed:<br>
+<br>
+<br>
+<table>
+<tr><td><img SRC="modelling/transform_dialogue.jpg"></td>
+<td><font face="Tahoma" size="2">By default, transformations are also performed on children of the selected object and this can be 
+turned off from this dialogue box. It is also possible to perform the rotation of a collection 
+of objects as if they were separate objects (i.e. around Individual Object Centres) or, 
+by default, around the centre of the collection.<br>
+<br>
+</font></td>
+</tr>
+</table><br>
+<br>
+Transformations can also be made using the icons on the left of the main screen layout.<br>
+<br>
+<img SRC="modelling/translate_icon.jpg"> is object translation. Simply click on the icon and drag the object in any of the viewports. &nbsp;Double-clicking brings up a dialogue box to switch off/on translation of non-selected children objects.<br>
+<br>
+<img SRC="modelling/rotate_icon.jpg"> is object rotation. Again click once on the icon and drag over the object 
+to rotate it. The rotation can be constrained to a particular axis by dragging the appropriate handle 
+instead. Double-clicking brings up a dialogue box to switch off/on translation of non-selected 
+children objects and to change the rotation centre.<br>
+<br>
+<img SRC="modelling/scale.jpg"> is object scaling. Clicking on this and then dragging a handle scales in 
+the appropriate axis. Pressing &lt;shift&gt; while dragging maintains the relative dimensions 
+of the object, while pressing &lt;ctrl&gt; keeps the centre of the object fixed. Both can be pressed 
+simultaneously to maintain shape and centre. Double clicking brings up a dialogue box to switch 
+off/on translation of non-selected children objects and allows for the centres of objects to 
+remain fixed or to move in relation to the scaling.<br>
+<br>
+<br>
+Fine editing of object translation and rotation can also be achieved using the arrow keys.  The currently
+selected object(s) will be moved/rotated according to the arrow key pressed and the currently selected
+view window.<br>
+<br>
+<br>
+<a name="align objects"><font size="4" color="#ff6633"><b>2.3.4 Align Objects<br></b></font></a>
+<br>
+This option from the <B>Object </B>menu allows selected objects to be aligned with each other. 
+The dialogue box looks like this:<br>
+<br>
+<table>
+<tr>
+<td><img SRC="modelling/align_dial.jpg"></td>
+<td><font face="Tahoma" size="2">Objects can be aligned in any axis and with respect to their front, centre, back or origin. 
+In addition the objects can be positioned at any particular point along the axis by entering a 
+value in the 'align to' box.  For example, selecting Z centre align to 2 will move the centres 
+of all selected objects to Z=2 as below:<br>
+<img SRC="modelling/align.jpg"><font face="Tahoma" size="2"></td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a name="rename object"><font size="4" color="#ff6633"><b>2.3.5 Rename Object</b></font></a><br>
+<br>
+New objects in Art of Illusion are given a generic name based on the type of object. 
+Copied objects retain the name of the original object. In either case, it becomes far easier to 
+give the objects a meaningful name. This is achieved by simply clicking on the object and 
+selecting <B>Object -&gt; Rename Object</B>.<br>
+<br>
+<img SRC="modelling/rename_object.jpg">
+<br>
+<br>
+<br>
+<a name="copy object"><font size="4" color="#ff6633"><b>2.3.6 Copying Objects</b></font></a><br>
+<br>
+Any object can be copied including cameras and lights.  The <b>Cut</b>, <b>Copy</b> and <b>Paste</b>
+commands are to be found on the <b>Edit</b> menu.  These commands work in the same way as many other
+programs in that <b>Cut</b> and <b>Copy</b> both make a copy of all selected objects in the clipboard
+which can then be <b>Paste</b>d to produce an identical copy in the scene. <b>Cut</b> results in the 
+original object being deleted.  Objects can also be copied from one scene to another scene in the same way.<br>
+<br>
+In addition to these commands, there is a special copying command <b>Edit -> Make Live Duplicates</b>.
+This produces an identical copy of all selected objects in the same way as <b>Copy</b> but this time
+the new object is linked to the original so that all future changes made to any of the linked objects are
+automatically applied to all 'live' duplicates.  If and when you want this relationship to stop, select
+the copy and click on <b>Edit -> Sever Duplicates</b>.
+
+
+
+<br>
+<br>
+<br>
+<div align="left"><a href="modelling_tools.html"><b><font size="4">Previous: Modelling Tools</font></b></a></div><br>
+<div align="right"><a href="lights.html"><b><font size="4">Next: Lights</font></b></a></div><br>
+<a href="contents.html#contents_top"><b><font size="4">Back to Contents</font></b></a><br>
+</font>
+</BODY> 
+</HTML> 

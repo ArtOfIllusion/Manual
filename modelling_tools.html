@@ -1,0 +1,577 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>modelling tools.html</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+ 
+<body bgcolor="#f8e89e">
+
+<font face="tahoma" size="2">
+</font>
+<div align="left"><font face="tahoma" size="2"><a href="object_types.html"><b><font size="4">Previous: Object Types</font></b></a></font></div>
+<font face="tahoma" size="2"><br>
+
+</font>
+<div align="right"><font face="tahoma" size="2"><a href="editing_objects.html"><b><font size="4">Next: Editing Objects</font></b></a></font></div>
+<font face="tahoma" size="2"><br>
+
+<font face="tahoma" size="6"><strong>2. Modelling</strong></font>
+<img src="man_title_small.jpg" align="middle"><br>
+
+<br>
+
+<br>
+
+<strong><font color="#3300cc" size="5">2.2 Modelling Tools</font></strong><br>
+
+<br>
+
+The tools described in this section are reached through the <b>Tools</b> menu on the top menu bar. 
+All of the tools create new objects, some create spline or triangle meshes which are then 
+editable in the ways described in the <a href="object%20types.html">previous section</a>.<br>
+
+<br>
+
+<br>
+
+<a name="array"><strong><font color="#ff6633" size="4">2.2.1 Array</font></strong></a><br>
+
+<br>
+
+<br>
+
+This tool can create several objects as copies of any existing object. Clicking on an object 
+in the Object List and selecting <b>Array</b> from the <b>Tools</b> menu brings up the 
+following dialogue box:<br>
+
+<br>
+
+<table>
+  <tbody>
+    <tr>
+
+      <td><img src="modelling/array_dialogue.jpg"></td>
+
+      <td><font face="tahoma" size="2">
+Copies can be made along a straight line (<b>Linear</b>) or along a pre-defined curve. In the 
+      <b>Linear</b> option, the number of copies is specified and the direction along which to put the 
+copied objects, i.e. x, y or z, by specifying a number in the <b>Step X</b>, <b>Step Y</b> and <b>Step Z</b> 
+boxes. This number is the spacing of the resulting objects which can either be 
+defined in terms of the object size (tick <b>Times X Size</b> or whichever direction you want) 
+or in absolute units (leave boxes unticked). For example, specifying 1 in the <b>Step X</b> 
+box and ticking the <b>Times X Size</b> box will produce copies running along the x-axis that 
+will just be touching. Copies running along any vector can be defined by 
+specifying steps in more than one <b>Step X/Y/Z</b> box as shown below:<br>
+
+      <img src="modelling/array_x_y_z.jpg"></font></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<table style="width: 840px; height: 652px;">
+
+  <tbody>
+    <tr>
+      <td style="width: 500px;"><font face="tahoma" size="2">
+Using the <b>From Curve</b> option allows the copied objects to be created along a path defined 
+by an existing curve which can be selected from the pull down menu. Copies are spaced 
+evenly along the curve and the number is either explicitly specified or calculated from 
+the specified <b>Step Size</b> (in units). The orientation of the copied objects can 
+either follow that of the curve or be fixed at that of the original (untick <b>Orientation 
+Follows Curve</b>). In addition, the original position and orientation can be used to form 
+the basis for the position and orientation of the copies.<br>
+
+      <br>
+
+In the example on the right, the Array tool has been used to create some wheel spokes. In this case 
+a approximating smoothing polygon was used to produce a circular path. The original 
+cylinder was positioned as shown and its orientation and position were used and 
+'Orientation Follows Curve' was ticked.
+      </font>
+      <br>
+
+
+      </td>
+
+      <td><br>
+
+      <font face="tahoma" size="2"><font face="tahoma" size="2"><img src="modelling/array_wheel.jpg"></font></font><br>
+
+      </td>
+    </tr>
+    <tr>
+      <td style="height: 400px;"><font face="tahoma" size="2"><font face="tahoma" size="2"><font size="1"><br>
+      <br>
+      </font></font></font><font face="tahoma" size="2"><font face="tahoma" size="2"><font face="tahoma" size="2"><font face="tahoma" size="2"><font face="tahoma" size="2"><font face="tahoma" size="2"><img style="width: 327px; height: 348px;" src="modelling/array_array_array.jpg"></font></font></font></font></font></font><br>
+      <font face="tahoma" size="2"><font face="tahoma" size="2"><font size="1"><br>
+Note that the Array tool can</font></font><font face="tahoma" size="2"><font size="1"> be u</font></font><font face="tahoma" size="2"><font size="1">sed on arrays. This example shows an array of an 
+array of an array and shows how quickly a large number of copies could be made</font>.</font></font></td>
+      <td><font face="tahoma" size="2"><font size="1"><br>
+      </font></font><br>
+      <font face="tahoma" size="2"><font size="1"><br>
+      <br>
+      </font></font><font face="tahoma" size="2"></font></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+The tick boxes at the bottom of the dialogue determine further options:<br>
+
+<br>
+
+<b>Include Children</b> means that children of the object to be copied will be copied as well.<br>
+
+<br>
+
+<b>Group</b> means that the objects created by the Array tool will be grouped together under a Null
+object parent.<br>
+
+<br>
+
+<b>Skip First Copy</b> means that the first copy will not be made.  This is useful if you want the 
+original object to be one of the array.<br>
+
+<br>
+
+<b>Live Duplicates</b> means that the objects created by the Array tool are 'live', i.e. changes
+made thereafter to the original object will be automatically applied to the copies.<br>
+
+<br>
+ 
+<br>
+
+<a name="extrude"><strong><font color="#ff6633" size="4">2.2.2 Extrude</font></strong></a><br>
+
+<br>
+
+This tool creates a spline mesh object by extending a curve along an axis or another curve.
+Take the example below. On the left is a closed curve made using the approximating 
+curve tool. Selecting <b>Extrude</b> from the <b>Tools</b> menu produces the dialogue box 
+shown below right:<br>
+
+<br>
+
+<img src="modelling/extrude_ex1.jpg">
+<img src="modelling/extrude_ex2.jpg">
+<br>
+
+<br>
+
+The curve has been pulled along the z-axis in this example to produce a cylinder-like 
+spline object. The resulting object is displayed on the right of the Extrude dialogue 
+box and can be rotated around by clicking and dragging over the object in order to 
+better visualise it. In this particular example, because the curve lies in the x-y 
+plane, extruding along either the x- or y-axis will produce a 2-D object and extruding 
+along the z-axis creates an object with sides perpendicular to the original curve. 
+The length of extrusion can also be specified in the<b> Distance </b>box.<br>
+
+<br>
+
+Extrusion in a different direction can be achieved by defining a vector in the Extrude 
+dialogue as shown in the examples below:<br>
+
+<img src="modelling/extrude_exs.jpg"><br>
+
+<br>
+
+The extrude tool can also produce twisted extrusions by entering a <b>twist</b> 
+angle in the appropriate box as shown below:<br>
+
+<br>
+
+The number of segments, i.e. divisions along the extrusion axis, can also be defined. 
+Altering the <b>number of segments</b> can make a difference to a twisted object:
+<br>
+
+<br>
+
+<img src="modelling/ext_twist.jpg">
+<img src="modelling/ext_twist_seg.jpg"><br>
+
+<br>
+
+It is also possible to extrude one curve along another. In this case, the 
+extruded curve is pulled along the path defined by the second curve. The example below 
+illustrates this. Two curves were created in perpendicular planes (shown in Front and Top 
+views). Both curves need to be selected in the Object List, then click on <b>Tools -&gt; 
+Extrude</b>. This brings up the same dialogue box as before. Now, however, the <b>Extrude 
+Direction -&gt;</b> <b>Curve</b> option becomes available. Clicking this option and 
+selecting Curve 2 produces the result shown top right. Extruding Curve 2 along Curve 1 
+produces the object shown on bottom right.
+<table>
+  <tbody>
+    <tr>
+
+      <td><img src="modelling/curve_curve_ex1.jpg"></td>
+
+      <td><img src="modelling/curve_curve_ex2.jpg"><br>
+      <br>
+      <img src="modelling/curve_curve_ex3.jpg"></td>
+
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+The orientation of the extruded curve can also be specified to follow that of the 
+curve it is extruded along by clicking <b>Orientation Follows Curve</b>. 
+This causes the extruded curve to be always perpendicular to the tangent of the 
+path curve rather than maintaining a static orientation along the path. The difference 
+this makes is shown below:<br>
+
+<br>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="modelling/extrude_ex.jpg"></td>
+
+      <td><img src="modelling/extrude_orient1.jpg"><br>
+
+      <i><font size="2">Orientation follows curve</font><br>
+      </i>
+      <img src="modelling/extrude_orient2.jpg"><br>
+
+      <i><font size="2">Static Orientation</font><br>
+      </i>
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+The Extrude tool can also be used on open spline meshes and triangle meshes and, 
+in both cases, a triangle mesh is the result. In this example, a flat spline mesh was 
+produced using the spline tool<img src="modelling/spline_icon.jpg"> .This was edited to produce the 
+shape shown and was then extruded using the Extrude tool.<br>
+
+<br>
+
+When extruding meshes, the <b>surface accuracy </b>can be specified and, as with other 
+tools, this determines the number of points defining the resulting mesh.<br>
+
+<img src="modelling/extrude_spline_spline.jpg">
+<img src="modelling/extrude_spline.jpg"><br>
+
+The effect of altering the surface accuracy in this example is shown below:<br>
+
+<img src="modelling/extrude_surf_acc.jpg">
+<br>
+
+<br>
+
+<a name="lathe"><strong><font color="#ff6633" size="4">2.2.3 Lathe</font></strong></a><br>
+
+<br>
+
+The Lathe tool operates on a single curve. The operation sweeps the curve around a 
+defined axis or vector and produces a spline mesh. Highlighting a curve from the Object 
+List and selecting Lathe from the Tool menu produces the following 
+dialogue box:<br>
+
+<table>
+  <tbody>
+    <tr>
+
+      <td><img src="modelling/lathe_curve.jpg"><br>
+
+      <i><font face="tahoma" size="1">Curve used in lathe example</font><br>
+      </i></td>
+
+      <td><img src="modelling/lathe_dialogue.jpg"></td>
+
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+
+The curve object can be lathed around the x, y or z axes or around the line joining the 
+end of the curve. The angle of sweep can be defined - anything less than 360 degrees 
+produces an open surface. The <b>radius </b>is the distance between the centre of the 
+curve and the axis of sweep so a bigger<b> radius </b>in the example above would produce 
+a bigger hole in the middle of the torus. More typically, one might want to use the 
+lathe tool to create something like a wine glass:<br>
+
+<img src="modelling/lathe_curve_glass.jpg">
+<img src="modelling/lathe_wineglass.jpg"><br>
+
+<table>
+  <tbody>
+    <tr>
+
+      <td style="width: 600px;"><font face="tahoma" size="2">In this case, you will need to play around with the<b> radius </b>to get the required 
+shape.<br>
+
+      <br>
+
+The number of <b>segments</b> controls how many points are created in the resulting 
+spline mesh as shown on the right. Having more points means having more control on 
+the resulting object.<br>
+
+      <br>
+
+Note that to create a vase/glass etc. with some actual thickness, you will need to 
+create a closed curve like the following:<br>
+      </font></td>
+
+      <td><img src="modelling/lathe_segments.jpg"></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<img src="modelling/lathe_vase_curve.jpg">
+<img src="modelling/lathe_vase.jpg">
+<br>
+
+<br>
+
+<br>
+
+<a name="skin"><strong><font color="#ff6633" size="4">2.2.4 Skin</font></strong></a><br>
+
+<br>
+
+This tool fits a 'skin' to a series of curves which define the cross section at that 
+point. All the curves must have the same number of points and must all be either 
+open or closed, not a mixture of the two. The example below shows the spline surface 
+skin produced from 3 polygons. Note that, in order for the curves to have the same 
+number of points it was necessary to edit the triangle and square objects to make up the 
+number of points to 5 (to match the pentagon). This was done by double-clicking the 
+curve, selecting 2 adjacent points and selecting <b>Curve -&gt; Subdivide Selection. </b> 
+This was performed once for the square and twice for the triangle.<br>
+
+<br>
+
+<table>
+  <tbody>
+    <tr>
+
+      <td style="width: 600px;"><font face="tahoma" size="2">Highlighting all 3 curves in the <b>Object List</b> and 
+selecting <b>Tools -&gt; Skin</b> brings up the dialogue box on the right:<br>
+
+      <br>
+
+The curve order can be rearranged as required by selecting on a curve in the left hand 
+list and moving it up or down. The direction in which the points are joined can also 
+be reversed.<br>
+
+      <br>
+
+Clicking on OK produces the result below:<br>
+      </font></td>
+
+      <td><img src="modelling/skin_dialogue.jpg"></td>
+    </tr>
+  </tbody>
+</table>
+
+<img src="modelling/skin_ex1.jpg">
+<br>
+
+<br>
+
+<a name="boolean"><strong><font color="#ff6633" size="4">2.2.5 Boolean Modelling</font></strong></a><br>
+
+<br>
+
+Boolean Modelling is a powerful way of making complicated geometry relatively simply by 
+combining existing geometry in one of 4 ways. The Boolean tool currently works on 
+2 objects, one of which must be solid. To combine the objects, select both either 
+from a view window or the <b>Object List</b> and click on <b>Tools -&gt; Boolean Modelling.</b>
+A dialogue window similar to those below appears allowing the selection of the type 
+of Operation: Union, Intersection, First-Second and Second-First. 
+Union creates a new object which is the addition of the 2 objects, 
+Intersection creates a new object of the part of the objects that overlap and the other 
+2 are geometry subtractions. The images below show the effects of each operation 
+on 2 squashed spheres. <br>
+
+<img src="modelling/booleans.jpg"><br>
+
+<br>
+
+Clicking on OK produces a new object, the original objects still being retained and 
+completely independent of the new Boolean object. The objects making up the new 
+Boolean object, however, remain editable by double-clicking the Boolean object in the 
+Object List or selecting the object and clicking <b>Object -&gt; Edit Object 
+</b>from the top menu. This brings up the Boolean editor which allows transformations 
+of the component objects and the re-selection, if required, of the operator performed on 
+them:<br>
+
+<img src="modelling/boolean_editor.jpg"><br>
+
+<br>
+
+The icons on the left are the same as some on the main layout window. The Edit menu 
+allows the Boolean operation to be re-defined through<b> Edit -&gt; Properties</b>. 
+The Object menu allows transformations and editing similar to the main layout screen 
+Object Menu .<a href="editing%20objects.html"></a><br>
+
+<table>
+  <tbody>
+    <tr>
+      <td style="width: 600px;"><font face="tahoma" size="2">
+A more complicated example gives an idea of what the Boolean tool is capable of. 
+We start off with a Boolean made from a difference of two cylinders, one inside another 
+(but taller). The Union image shows the 2 objects clearly. Selecting the First-Second 
+operation gives the desired effect.<br>
+
+      <br>
+
+Clicking OK gives the first stage of the turret. Now we add a cube scaled so that it 
+extends beyond the newly-created 'crater' as below left. Copy and pasting (
+or using the Array tool with a suitable curve) produces copies of this cube around 
+the top of the soon-to-be turret (bottom right). These cubes are Unioned successively 
+with the Boolean tool until they form one Boolean object (delete the original 
+objects and the intermediate Booleans as you go).</font></td>
+
+      <td><img src="modelling/turret_union.jpg"><img src="modelling/turret_diff.jpg"></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<img src="modelling/turret2.jpg">
+<img src="modelling/turret3.jpg"><br>
+
+
+<br>
+
+<table>
+  <tbody>
+    <tr>
+      <td style="width: 600px;"><font face="tahoma" size="2">
+Select the main turret boolean and the combined cube boolean and create a difference. 
+Again the image on the left shows the objects clearly. Selecting First-Second produces the 
+turret we are after on the right. Clearly through further use of the Boolean tool, 
+a more complicated and realistic model can be built up.<br>
+
+      <br>
+
+Bear in mind also that, like other geometric objects, the resulting Boolean 
+object can be converted to a triangle mesh which allows more detailed refinements 
+and the application of the various smoothing methods.<br>
+      </font></td>
+
+      <td><img src="modelling/turret_union2.jpg"><img src="modelling/turret_diff2.jpg"></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<a name="tube"><strong><font color="#ff6633" size="4">2.2.6 Tube</font></strong></a><br>
+
+<br>
+
+<br>
+
+The Tube tool is applied to a curve and produces a <a href="object_types.html#tubes">Tube Object</a>
+which is basically a circular cross-sectioned extrusion along the curve.<br>
+
+<br>
+
+To create a Tube Object, select the curve in the Object List and choose <b>Tools -&gt; Tube...</b>.  This
+will display the Tube dialogue window.  The image below shows a curve object and the Tube dialogue
+produced:<br>
+
+<br>
+
+<img src="modelling/tube_create.jpg"><br>
+
+<br>
+
+The dialogue allows the <b>Tube Width</b> or diameter to be specified and this is used along the
+whole length of the tube.  Note, however, that the width can be set at any point along the tube in the
+Tube Object editor (see <a href="object_types.html#tubes">Tube Objects</a>).<br>
+
+<br>
+
+The <b>Cap Ends</b> option allows the tube to have either open ends or flat, capped ends.  Once created,
+tube objects can also have their ends joined together within the <a href="object_types.html#tubes">editor</a>.<br>
+
+<br>
+
+<br>
+
+<a name="text"><strong><font color="#ff6633" size="4">2.2.7 Text</font></strong></a><br>
+
+<br>
+
+<br>
+
+The Text tool creates objects that represent text in various ways.  To use it, choose <b>Tools -&gt; Text...</b>.  This
+will display the Text dialogue window.
+
+<p>
+
+<img src="modelling/text.png">
+
+<p>
+
+The dialogue allows you to specify the <b>Text</b> to generate and the <b>Font</b> and style (<b>Bold</b> or <b>Italic</b>)
+to use.  You can then select any of four object types to create:
+<p>
+<b>Outline</b> creates a set of <a href="object_types.html#curves">Curve Objects</a> that trace the outline of the text.
+<p>
+<b>Tubes</b> is like Outline, but it creates <a href="object_types.html#tubes">Tube Objects</a> instead of curves.  You can choose
+the <b>Thickness</b> of the curves it generates.
+<p>
+<b>Surface</b> creates a 2-dimensional <a href="object_types.html#triangle_meshes">Triangle Mesh</a> representing the text.
+<p>
+<b>Solid</b> is similar to Surface, but the mesh is extruded to create a solid 3-dimensional object.  You can select
+the thickness of the extruded mesh.
+<p>
+<table>
+<tbody style="font:italic 12px tahoma">
+<tr><td><img src="modelling/text_outline.png"></td><td><img src="modelling/text_tubes.png"></td><td><img src="modelling/text_surface.png"></td><td><img src="modelling/text_solid.png"></td></tr>
+<tr><td>Outline</td><td>Tubes</td><td>Surface</td><td>Solid</td></tr>
+</tbody>
+</table>
+
+<br>
+
+<br>
+
+<br>
+
+</font>
+<div align="left"><font face="tahoma" size="2"><a href="object_types.html"><b><font size="4">Previous: Object Types</font></b></a></font></div>
+<font face="tahoma" size="2"><br>
+
+</font>
+<div align="right"><font face="tahoma" size="2"><a href="editing_objects.html"><b><font size="4">Next: Editing Objects</font></b></a></font></div>
+<font face="tahoma" size="2"><br>
+
+<a href="contents.html#contents_top"><b><font size="4">Back to Contents</font></b></a><br>
+
+</font>
+</body>
+</html>

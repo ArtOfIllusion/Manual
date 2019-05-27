@@ -1,0 +1,34 @@
+<html>
+<!-- Creation date: 15/03/02 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>blue_stripe_tex</title>
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+<meta name="Author" content="Julian MacDonald">
+<meta name="Generator" content="AceHTML 4 Pro">
+</head>
+<body BGCOLOR="#f8e89e">
+<font face="tahoma" size="2">
+
+<table><tr>
+<td><img SRC="textures/pt_blue_stripe.jpg"></td>
+<td><font face="tahoma" size="2">
+This texture is based on the marble module.  This is stretched into a ragged stripe pattern by applying
+a linear transform (x:2, y:0.1, x:1).  The output is scaled and fed into the specularity property causing
+the stripes to be shiny and the background not.<br>
+<br>
+Small scale bumps are then added only to the not-reflective stripes.  The non-reflective stripes are
+selected by subtracting the marble pattern from 1; this effectively inverses the pattern so that the 1s
+becomes 0s and vice versa.  This is multiplied by the noise pattern used for the bumps so that the bump
+height is 0 for the reflective stripes.<br>
+<br>
+Finally, a diffuse colour map is created based on the turbulence pattern. 
+<br>
+
+</font></td>
+</tr></table>
+<a href="textures.html#ex_textures"><b><font size="4">Back to Textures</font></b></a><br>
+</font>
+</body>
+</html>
