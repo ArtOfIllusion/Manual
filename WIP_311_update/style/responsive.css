@@ -1,0 +1,40 @@
+
+.column50
+{
+
+/* This has to be left or right. Center stacks the boxes vertically.*/
+  
+  float: left; 
+  
+/* Another thing that looks like a logical glitch 
+   to me: 50% + 50% > 100%. Padding and border have no effect 
+   but 48% + 48% fits 100% of width.
+
+   I'm making it a bit smaller to give it some flexibility */
+
+  width: 47%;
+  padding: 0px 10px 0px 0px;
+}
+
+/* Clear floats after the columns */
+.row:after
+ {
+  content: "";
+  display: table;
+  clear: both;
+}
+.responsive
+{
+  width: 100%;
+  height: auto;
+}
+/* This defines the width, where the view switches to vertical stacking.
+   The setting favors stacting side-by-side boxes over compressing
+   them in width 
+
+   This has to be after the declaration of the class */
+
+@media screen and (max-width: 600px)
+{
+  .column50 {width: 100%;}
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AoI 3.1 Mouse controls</title>
+<link rel="stylesheet" type="text/css" href="../style/manual.css">
+<link rel="stylesheet" type="text/css" href="../style/responsive.css">
+<link rel="stylesheet" type="text/css" href="style/mouse_controls.css">
+<link rel="stylesheet" type="text/css" href="../style/h_counters.css">
+<link rel="stylesheet" type="text/css" href="style/h1_counter.css">
+<style>
+  h1   {counter-increment: c2 3;}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+
+<body>
+<div id="top"></div>
+
+<h1>User interface</h1>
+<hr>
+
+<h2 id="mouse">Mouse controls</h2>
+
+<note>- Need new mouse pictures.</note><br>
+<note>- The mouse button maps need to be more visual.</note>
+
+<h3>Multi-button mouse</h3>
+
+<p>
+The UI is mostly controlled by mouse buttons and modifier keys. The basic approach is designed over a 3-button mouse with a scroll wheel:
+</p>
+<div class="row">
+<div class="column50"  align="center">
+<img src="image/3bm.jpg" height="160px">
+</div>
+<div class="column50">
+<p>
+<ul>
+<li>Left button = select, edit
+<li>Middle button = center / rotate view
+<li>Scroll wheel = zoom
+<li>Right button = move view
+</ul>
+Shift and Ctrl keys modify the functions.
+
+</p>
+<div class="infobox">
+In case you are wondering: There is no way of assigning functions to more than three mouse buttons.
+</div>
+</div>
+</div>
+
+<h3>Single-button mouse</h3>
+<p>
+If you are using a single button mouse, you can use modifier keys to obtain the right and middle button functions. This applies to all functions: For example Ctrl+Right Button would be the combination Meta+Ctrl+Mousebutton:
+</p>
+<p>
+<div class="row">
+<div class="column50">
+<ul>
+<li>No modifiers = select, edit
+<li>Alt = center / rotate view
+<li>Meta = move view
+<li>Meta + Ctrl = zoom
+</ul>
+Shift and Ctrl keys modify the functions further.
+</p>
+<div class="alertbox">
+NOTE: You have to release the Alt-key before releasing the mouse button.<br> Else the next click will revert the rotation and center the view to the point you clicked on. This is a known bug.
+</div>
+</div>
+<div class="imagebox40">
+<img src="image/mac-keys.jpg" width="300px">
+</div>
+</div>
+<p>
+"Meta" is the name of the key in the coding though few computers have an actual key by that name. On Mac-systems the installation package takes care of assingning the meta-key approproately. 
+</p>
+
+<p></p>
+
+
+<h3>Mouse functions in detail</h3>
+<p>
+The full set of control functions consists of click, double click, dragging (moving the mouse while a button pressed) and pressing modifier keys whie usin the mouse. The table below introduces all the common functions. More left button functions of the left button may be introduced in greater in the descriptions of each tool.
+</p>
+
+<table>
+<tr><th colspan="2">Left button / Mouse button alone</th></tr>
+<tr><td>Click</td><td>Activate tools or select single objects</td></tr>
+<tr><td>Shift + Click</td><td>Add objects to selection</td></tr>
+<tr><td>Double click</td><td>Open dialogs or editors (on the tools pane, open tool settings)</td></tr>
+<tr><td>Drag</td><td>select/move/create objects</td></tr>
+<tr><td>Shift + Drag</td><td>e.g. create objects with equal proportions</td></tr>
+<!--/table>
+
+<table-->
+<tr class="hide_sides" ><th colspan="2"></th></tr>
+<tr><th colspan="2">Middle button / Alt + Mouse button</th></tr>
+<tr><td>'Click'</td><td>Center the view and set working depth. <br><i>The function is actually NOT coded as 'click' but as 'press and release'. </i></td></tr>
+<tr><td>Click on object list</td><td>Fit view to object(s)</td></tr>
+<tr><td>Drag</td><td>Rotate view</td></tr>
+<tr><td>Ctrl + Drag</td><td>Tilt view (if tilt is available, see Navigation modes)</td></tr>
+<tr><td>Ctrl + Shift + Drag</td><td>Pan the view around the viewing point</td></tr>
+<!--/table>
+
+<table-->
+<tr class="hide_sides" ><th colspan="2"></th></tr>
+<tr><th colspan="2">Right button / Meta + Mouse button</th></tr>
+<tr><td>Click</td><td>Open pop-up menus</td></tr>
+<tr><td>Drag</td><td>Move view (left, right, up or down).</td></tr>
+<tr><td>Ctrl + Drag</td>
+    <td><em>Space and Tray modes:</em> Zoom in/out to the rotation center point.<br>
+        <em>Drone and Dolly modes:</em> Move forward.</td></tr>
+<!--/table>
+
+
+<table-->
+<tr class="hide_sides" ><th colspan="2"></th></tr>
+<tr><th colspan="2">Scroll wheel</th></tr>
+<tr><td>Scroll</td>
+    <td><em>Space and Tray modes:</em> Zoom in/out to the rotation center point.<br>
+        <em>Drone and Dolly modes:</em> Move forward.
+</td></tr>
+<tr><td>Alt + Scroll</td><td>Precision scroll (slow)</td></tr>
+</table>
+
+<br>
+<br>
+<hr>
+<div class="last_update">November 2019</div>
+<hr>
+<br>
+</body>
+</html>

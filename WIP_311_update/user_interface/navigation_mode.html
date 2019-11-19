@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Art of Illusion 3.1</title>
+<link rel="stylesheet" type="text/css" href="../style/manual.css">
+<link rel="stylesheet" type="text/css" href="style/chapter.css">
+<link rel="stylesheet" type="text/css" href="../style/h_counters.css">
+<link rel="stylesheet" type="text/css" href="style/h1_counter.css">
+<style>
+  h1   {counter-increment: c2 2;}
+  h2   {counter-increment: c3 3;}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+<body>
+<div id="top"></div>
+
+<h1>User interface</h1>
+<hr>
+
+<h2>Working with views</h2>
+<h3 id="Navigation_modes">Navigation modes</h3>
+
+<note>I'm not happy with this one yet</note>
+
+<p>
+Navigation modes define, how the view responds to the mouse.
+</p>
+<img src="image/navigationmode.png">
+<p>
+There are four modes, called 'Sphere', 'Tray', 'Drone' and 'Dolly'. 
+Tray and Sphere are suitable for ediitng the scene and individual objects. Drone and Dolly modes are suitable for exploring large models or for example designing and recording camera drives. 
+</p>
+<h3>Edit modes, 'Sphere' and 'Tray'</h3>
+<p>
+In edit modes the view always rotates around a point (the 'rotation center'), that is in the model sphere on the center axis of the view. The rotation center also defines the working depth of the view. Zoom will bring you closer to the rotation center allowing you work on small details. Use Middle button-click to focus to a point.
+</p>
+<b>Sphere:</b> This allows free rotation to all directions. Sphere is the default mode for mesh editors.
+</p>
+
+<miss>-- this needs more pictures! --</miss>
+
+<p>
+<b>Tray:</b> Y-axis is locked up <i>(tilting to either side is not possible in tray-mode)</i> and rolling forward and back are limited to [-90°, +90°]. In essense the  behavior is as if you had your scene set on a tray. Tray mode is the default for scene views.
+</p>
+
+<h3>Travel modes, 'Drone' and 'Dolly'</h3>
+<p>
+The idea of travel modes is, that instead of looking at the model on the outside, you place yourself into the model space. In these modes rotate becomes pan and zoom becomes move forward/back. These modes probably require some practice to be truely useful but they may come in handy in appropriate use cases. The travel modes make better sense with relatively wide camera angles and crowded scenes. Set the window to one view mode (Ctrl+B) or camera angle to 45° or higher. The modes are designed to be used mostly by the scroll wheel, though other controls work as well. 
+</p>
+<p>
+Note that using center-button click <u>sets the working distance</u> of the view, which directly affects the scroll step size and hence the <u>speed of movement</u>. You can also set the working depth by typing into the magnification field. 
+</p>
+<img src="image/workingdepth.png">
+
+<p>
+When either of the travel modes is activated, cue graphics are drawn onto the view. The cues are meant to help with the aim, when using the scroll wheel. You can find cue graphics settings in the Preferences.
+</p>
+<img src="image/scrollcues.png" style="max-width:100%">
+<p>
+<b>Drone:</b> Equivalent to Space. Allows you to fly in the model space into any direction. The positon of the mouse cursor affects the scroll function like this:
+</p>
+<ul>
+<li><b>Scroll in the center area</b> = Fly forward
+<li><b>Scroll on the edge area</b> = Turn on the spot (=pan) to the direction, where your mouse cursor is. 
+<li><b>Scroll between the cue circles</b> = The action changes gradually from direct flight to pan.
+</ul>
+<p>
+<b>Dolly:</b> Equivalent to Tray. Allows you to travel along the x-z-plane with y-direction always up.
+</p>
+<ul>
+<li><b>Scroll in the center area</b> = Drive forward.
+<li><b>Scoll at the right or left sides <u>at middle height of the view</u></b> = Turn on the spot. 
+<li><b>Scroll at the upper or lower edges <u>directly above or below the center area</u></b> = Change elevation (= move up or down).
+<li><b>Scroll anywhere else</b> = A combination of the above.
+</ul>
+
+<br>
+<br>
+<hr>
+<div class="last_update">November 2019</div>
+<hr>
+
+</body>
+</html>
