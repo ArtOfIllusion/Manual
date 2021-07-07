@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Art of Illusion 3.1</title>
+<link rel="stylesheet" type="text/css" href="../style/manual.css">
+<!--link rel="stylesheet" type="text/css" href="style/chapter.css"-->
+<!--link rel="stylesheet" type="text/css" href="style/document.css"-->
+<link rel="stylesheet" type="text/css" href="../style/h_counters.css">
+<link rel="stylesheet" type="text/css" href="style/h1_counter.css">
+<style>
+  h1   {counter-increment: c2 2;}
+  h2   {counter-increment: c3 2;}
+</style><meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+<body><div class="page_contents">
+<h1>Scene properties</h1>
+<hr>
+
+<h2>Managing images</h2>
+
+<p>In Art of Illusion you can use images to generate textures. To manage the images select  <b>Scene <img src="../text_icon/arrow_right.png" height="10px"> Images...</b></p>
+
+<img src="image/manage_images.png" class="center">
+
+<p>Imagemapped textures and procedural editors also open this dialog to handle images.</p>
+
+<div class="infobox">
+Stretching the dialog will enlarge the icons.
+</div>
+<h3>The icon symbols</h3>
+
+<table class="no_frame">
+<tr>
+<td><img src="image/selected.png"></td> 
+<td>
+<b>Colored frame:</b> Currently selected for an action.<br>
+<i>The selection color is defined in the current color theme.</i> 
+</td>
+</tr>
+<tr>
+<td><img src="image/used.png"></td>
+<td>
+<b>Paper clip:</b> A texture or a material is using the image.<br>
+<i>Images that are in use can not be deleted.</i>
+</td>
+</tr>
+<tr>
+<td><img src="image/linked.png"></td>
+<td>
+<b>Chain:</b> This image is linked from an external file.<br>
+<i>You can keep editing the file and <b>Refresh</b> for changes</i>
+</td>
+</tr>
+<tr>
+<td><img src="image/broken.png"></td>
+<td>
+<b>Broken chain:</b> The linked image file could not be read.<br>
+<i>The icon shows, what kind of an image is missing.</i><br>
+<i>Try <b>View Details &rarr; Reconnect</b> to find the image</i><br>
+</td>
+</tr>
+</table>
+
+<h3>Using images</h3>
+
+<p>To pick an image for your texture, click an image icon to select it and click <b>OK</b>.</p> 
+
+<h3>Importing images</h3>
+
+<p>You have two options for importing images: You can <b>load</b> them into the scene as local images or you can <b>link</b> them as external files.</p>
+
+<img src="image/load_or_link.png" class="center">
+
+<p><b>A loaded image</b> will be saved with the scene. It will be kept safe from any changes to the original image but it can not be edited or replaced.</p> 
+<ul>
+<li>The images are stored in lossless formats, .png, .hdr or .svg.
+<li>Transparency is supported where possible.
+<li>Loaded images <b>can</b> be exported.
+</ul>
+
+<p><b>A linked image</b> stays as an independent image file. You can edit the image afterwards or even change the image, that the link is referring to. The link is saved in both relative and absoulte forms, so if you move the scene inside your hard drive, you can either move an entire folder structure including your images or you can keep the images in a stationary library. </p>
+
+<p>Linked images are marked by a piece of a chain on lower left corner of the image icon. If the image file is not found, the chain icon appears broken and the displayed replacement icon will show, what type of an image is missing. To reconnect the link to a lost image, first click the icon to select it and then click <b>View Details... <img src="../text_icon/arrow_right.png" height="10px"> Reconnect</b>. </p>
+
+<h3>Tools to manage the images</h3>
+
+<img src="image/image_tools.png" class="center">
+
+<p><b>Refresh:</b> Reload linked images. Use this if you have edited one.</p>
+
+<p><b>Delete:</b> Remove the selected image or link.</p>
+
+<p><b>View Details:</b> Open a dialog to handle the currently selected image</p>
+
+<img src="image/image_details.png" class="center">
+
+Here you can:
+
+<ul>
+<li>Find some some meta data on the image (size, name, type, creation date ....)
+<li>Rename the image locally. <i>(Click the name field!)</i>
+<li>Reload a linked image.
+<li>Reconnet a link. You can use this to fix a broken link or to change the image.
+<li>Convert a linked image local.
+<li>Export a local image into a file.
+</ul>
+
+<div class="infobox">
+<b>Idea, how to use:</b><br>
+ - Link an image, while you are working on it.<br> 
+ - Convert to local, when finished.
+</div>
+
+<p><b>Purge:</b> Delete unused images.</p> 
+
+<div class="flex-container">
+<div class="textbox-left">
+<p>The Purge dialog will suggest to remove all unused images and links. You can select individually which ones to remove before performing the action. Purge does not delete images, that are currently in use.</p>
+</div>
+<div class="imagebox-right">
+<img src="image/purge_dialog.png" class="center">
+</div>
+</div>
+
+<br>
+<br>
+<hr>
+<div class="last_update">November 2019</div>
+<hr>
+</body>
+</html>

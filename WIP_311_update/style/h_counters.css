@@ -1,0 +1,35 @@
+body {
+  counter-reset: c1;
+}
+h1  {
+  counter-reset: c2;
+}
+h2 {
+  counter-reset: c3;
+}
+h3{
+  counter-reset: c4;
+}
+h4{
+  counter-reset: c5;
+}
+
+h1::before {
+  content: counter(c1) ". ";
+}
+h2::before {
+  counter-increment: c2;
+  content: counter(c1) "." counter(c2) " ";
+}
+h3::before {
+  counter-increment: c3;
+  content: counter(c1) "." counter(c2) "." counter(c3) " ";
+}
+h4::before {
+  counter-increment: c4;
+  content: counter(c1) "." counter(c2) "." counter(c3) "." counter(c4) " ";
+}
+h5::before {
+  counter-increment: c4;
+  content: counter(c1) "." counter(c2) "." counter(c3) "." counter(c4) "." counter(c5) " ";
+}

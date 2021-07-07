@@ -1,0 +1,84 @@
+
+.aoi-caption
+{
+  color: #C34;
+  color: #DA4;
+  font-family: "Candara";
+  font-size: 102px;
+  font-weight: bold;
+  text-shadow: 5px 5px 10px #7548;
+}
+
+.manual-caption
+{
+  color: #C34;
+  font-size: 25px;
+  text-shadow: 3px 3px 4px #A688;
+}
+
+.contents
+{
+  color: #47D;
+  margin: 20px;
+  font-size: 19px;
+}
+
+a
+{
+  text-decoration: none;
+}
+a:link
+{
+  color: #26F;
+}
+a:visited
+{
+  color: #79D;
+}
+a:hover
+{
+  color: #F60;
+}
+a:active
+{
+  color: #4F8;
+}
+
+ul, ol
+{
+  color: #248;
+  margin: 5px 0px 10px ;
+  font-size: 0.9em;
+  padding-left: 0px;
+}
+
+ol
+{
+  counter-reset: topic;
+}
+
+ol ol
+{
+  padding-left: 15px;
+}
+
+ol ol ol
+{
+  padding-left: 25px;
+}
+
+ol ol ol ol
+{
+  padding-left: 35px;
+}
+
+li 
+{
+  display: block
+}
+
+li::before 
+{
+  content: counters(topic, ".") " ";
+  counter-increment: topic;
+}

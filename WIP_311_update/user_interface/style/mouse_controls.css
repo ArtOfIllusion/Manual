@@ -1,0 +1,10 @@
+td
+{
+  min-width: 120px;
+}
+
+tr.hide_sides
+{
+  border-right-style: hidden;
+  border-left-style: hidden;
+}
